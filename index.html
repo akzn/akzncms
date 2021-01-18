@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Ziemotion Studio</title>
+
+  <link href="img/Logo-70x70.png" rel="shortcut icon">
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+  <!-- Plugin CSS -->
+  <!-- <link rel="stylesheet" href="device-mockups/device-mockups.min.css"> -->
+  <link rel="stylesheet" href="https://cdn.boomcdn.com/libs/owl-carousel/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdn.boomcdn.com/libs/owl-carousel/2.3.4/assets/owl.theme.default.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  
+
+  <!-- Custom styles for this template -->
+  <link href="css/new-age.min.css" rel="stylesheet">
+  <style type="text/css">
+    body{
+
+    }
+    .front-logo {
+        max-height: 70px;
+    }
+    header.masthead {
+        background: url(./img/bg-masthead-1.jpg),#7b4397;
+        background: url(./img/bg-masthead-1.jpg),linear-gradient(to left,#7b4397,#6017b7);
+        height: 100vh;
+        padding-top: unset;
+        padding-bottom: unset;
+    }
+
+    header.masthead .header-content h1 {
+      color: #ffffff;
+      font-weight: 600;
+      text-transform: uppercase;
+      -webkit-text-stroke: 2px #68258a;
+      font-size: 54px
+    }
+
+    header.masthead .header-content p {
+      font-size: 24px;
+    }
+
+    
+    #mainNav .navbar-nav>li>a, #mainNav .navbar-nav>li>a:focus {
+        color: #68258a;
+    }
+    #mainNav .navbar-nav>li>a:focus:hover, #mainNav .navbar-nav>li>a:hover {
+        color: #000;
+    }
+    #mainNav .navbar-nav>li>a.active {
+        color: #00c9ff!important;
+    }
+
+    section h2.row-title{
+            font-size: 40px;
+    }
+
+    section.features .feature-item i {
+        background: linear-gradient(to left,#5b12b2,#5edcfc);
+        -webkit-background-clip: text;
+        background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    footer {
+      padding: 50px 0;
+    }
+    footer ul.list-social li a {
+      font-size: 28px;
+    }
+
+
+    #social-sidebar {
+      right: 0;
+      position: fixed;
+      top: 30%;
+      z-index: 8;
+    }
+    #social-sidebar li:first-child a { border-top-left-radius: 5px; }
+    #social-sidebar li:last-child a { border-bottom-left-radius: 5px; }
+     
+    #social-sidebar a {
+      background: rgba(0, 0, 0, .7);
+      color: #fff;
+        text-decoration: none;
+      display: block;
+      height: 50px;
+      width: 50px;  
+      font-size: 24px;
+      line-height: 50px;
+      position: relative;
+      text-align: center;
+        cursor: pointer;
+    }
+    #social-sidebar a:hover span {
+      right: 120%;
+      opacity: 1;
+    }
+    #social-sidebar a span {
+      font: 12px "Open Sans", sans-serif;
+      text-transform: uppercase;
+      border-radius: 3px;
+      line-height: 24px;
+      right: -100%;
+      margin-top: -16px;
+      opacity: 0;
+      padding: 4px 8px;
+      position: absolute;
+      transition: opacity .3s, left .4s;
+      top: 50%;
+      z-index: -1;
+    }
+     
+    #social-sidebar a span:before {
+      content: "";
+      display: block;
+      height: 8px;
+      width: 8px;
+      left: -4px;
+      margin-top: -4px;
+      position: absolute;
+      top: 50%;
+      transform: rotate(45deg);
+    }
+     
+    #social-sidebar a[class*="twitter"]:hover,
+    #social-sidebar a[class*="twitter"] span,
+    #social-sidebar a[class*="twitter"] span:before {background: #00aced;}
+     
+    #social-sidebar a[class*="facebook"]:hover,
+    #social-sidebar a[class*="facebook"] span,
+    #social-sidebar a[class*="facebook"] span:before {background: #3B5998;}
+     
+    #social-sidebar a[class*="gplus"]:hover,
+    #social-sidebar a[class*="gplus"] span,
+    #social-sidebar a[class*="gplus"] span:before {background: #E34429;}
+     
+    #social-sidebar a[class*="dribbble"]:hover,
+    #social-sidebar a[class*="dribbble"] span,
+    #social-sidebar a[class*="dribbble"] span:before {background: #ea4c89;}
+     
+    #social-sidebar a[class*="dropbox"]:hover,
+    #social-sidebar a[class*="dropbox"] span,
+    #social-sidebar a[class*="dropbox"] span:before {background: #8DC5F2;}
+     
+    #social-sidebar a[class*="github"]:hover,
+    #social-sidebar a[class*="github"] span,
+    #social-sidebar a[class*="github"] span:before {background: #9C7A5B;}
+     
+    #social-sidebar a[class*="evernote"]:hover,
+    #social-sidebar a[class*="evernote"] span,
+    #social-sidebar a[class*="evernote"] span:before {background: #6BB130;}
+
+    @media (max-width: 768px){
+      header.masthead .header-content {
+        margin-top: 10rem;
+        margin-bottom: unset;
+      }
+    }
+
+  </style>
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <img src="img/zie-logo-1.png" alt="Site Logo" class="img-responsive front-logo"  />
+      </a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#products">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="masthead">
+    <div class="container-fluid h-100" style="background: linear-gradient(to right,#7b439799,#ffffff00);">
+    <div class="container h-100">
+      <div class="row h-100">
+        <div class="col-lg-7 my-auto">
+          <div class="header-content mx-auto">
+            <h1 class="mb-5">Studio Ziemotion</h1>
+            <p>A professional animation service and content creation company</p>
+            <!-- <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger">Start Now for Free!</a> -->
+          </div>
+        </div>
+        <div class="col-lg-5 my-auto mb-5">
+            <!-- <div class="photo_slider">
+              <input type="radio" name="slider" class="slide-radio1" checked id="slider_1">
+              <input type="radio" name="slider" class="slide-radio2" id="slider_2">
+              <div class="slider-pagination">
+                <label for="slider_1" class="page1"></label>
+                <label for="slider_2" class="page2"></label>
+              </div>
+              <div class="next control">
+                <label for="slider_1" class="numb1"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <path d="M298.3 256L131.1 81.9c-4.2-4.3-4.1-11.4.2-15.8l29.9-30.6c4.3-4.4 11.3-4.5 15.5-.2L380.9 248c2.2 2.2 3.2 5.2 3 8.1.1 3-.9 5.9-3 8.1L176.7 476.8c-4.2 4.3-11.2 4.2-15.5-.2L131.3 446c-4.3-4.4-4.4-11.5-.2-15.8L298.3 256z"/>
+                  </svg> </label>
+                <label for="slider_2" class="numb2"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <path d="M298.3 256L131.1 81.9c-4.2-4.3-4.1-11.4.2-15.8l29.9-30.6c4.3-4.4 11.3-4.5 15.5-.2L380.9 248c2.2 2.2 3.2 5.2 3 8.1.1 3-.9 5.9-3 8.1L176.7 476.8c-4.2 4.3-11.2 4.2-15.5-.2L131.3 446c-4.3-4.4-4.4-11.5-.2-15.8L298.3 256z"/>
+                  </svg> </label>
+              </div>
+              <div class="previous control">
+                <label for="slider_1" class="numb1"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <path d="M213.7 256L380.9 81.9c4.2-4.3 4.1-11.4-.2-15.8l-29.9-30.6c-4.3-4.4-11.3-4.5-15.5-.2L131.1 247.9c-2.2 2.2-3.2 5.2-3 8.1-.1 3 .9 5.9 3 8.1l204.2 212.7c4.2 4.3 11.2 4.2 15.5-.2l29.9-30.6c4.3-4.4 4.4-11.5.2-15.8L213.7 256z"/>
+                  </svg> </label>
+                <label for="slider_2" class="numb2"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <path d="M213.7 256L380.9 81.9c4.2-4.3 4.1-11.4-.2-15.8l-29.9-30.6c-4.3-4.4-11.3-4.5-15.5-.2L131.1 247.9c-2.2 2.2-3.2 5.2-3 8.1-.1 3 .9 5.9 3 8.1l204.2 212.7c4.2 4.3 11.2 4.2 15.5-.2l29.9-30.6c4.3-4.4 4.4-11.5.2-15.8L213.7 256z"/>
+                  </svg> </label>
+              </div>
+              <div class="slider slide_img_01"></div>
+              <div class="slider slide_img_02"></div>
+            </div> -->
+            <div class="owl-carousel owl-theme">
+              <img src="img/800x450.png" class="img-fluid" alt="">
+              <img src="img/800x450.png" class="img-fluid" alt="">
+              <img src="img/800x450.png" class="img-fluid" alt="">
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </header>
+
+  <!-- <section class="download bg-primary text-center" id="download">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <h2 class="section-heading">Discover what all the buzz is about!</h2>
+          <p>Our app is available on any mobile device! Download now to get started!</p>
+          <div class="badges">
+            <a class="badge-link" href="#"><img src="img/google-play-badge.svg" alt=""></a>
+            <a class="badge-link" href="#"><img src="img/app-store-badge.svg" alt=""></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- Project 1 -->
+  <section class="features" id="about">
+    <div class="container">
+      <div class="section-heading text-center">
+        <h2>we are passionate to bring great ideas to life</h2>
+        <p class="text-muted">Check out who we are!</p>
+        <hr>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 my-auto pb-5">
+          <!-- <img src="img/800x450.png" class="img-fluid" alt=""> -->
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/MDSwtBJT6og?rel=0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="col-lg-6 my-auto">
+          <div class="container-fluid">
+            <h2 class="row-title">Who we are</h2>
+              <p>Illum omnis veritatis nostrum dolorem est. Provident officiis voluptate modi sunt facere cumque beatae. Facere praesentium et sit voluptas. Omnis sit officiis id autem. Sit voluptatibus placeat esse impedit mollitia. Ipsam voluptates molestias modi nostrum vitae fuga.</p>
+              <input class="form-control" type="text" name="" placeholder="search our project">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" id="products">
+    <div class="container">
+      <div class="section-heading text-center">
+        <h2>We will create products with great quality from fresh idea to reality</h2>
+        <p class="text-muted">Check out what we offer!</p>
+        <hr>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 my-auto">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="feature-item">
+                  <i class="icon-picture text-primary"></i>
+                  <h3>2D design</h3>
+                  <p class="text-muted">Vitae laborum unde aut eum sit sit aut quos!</p>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="feature-item">
+                  <i class="icon-film text-primary"></i>
+                  <h3>3D design</h3>
+                  <p class="text-muted">Occaecati vitae exercitationem molestiae maxime ad id explicabo corporis.!</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="feature-item">
+                  <i class="icon-present text-primary"></i>
+                  <h3>Pack</h3>
+                  <p class="text-muted">Ducimus eos vero aliquam quia magni.</p>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="feature-item">
+                  <i class="icon-lock-open text-primary"></i>
+                  <h3>Lorem Ipsum</h3>
+                  <p class="text-muted">Consequuntur est quasi aliquam dicta</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 my-auto">
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="cta">
+    <div class="cta-content">
+      <div class="container">
+        <h2>Stop waiting.<br>Start building.</h2>
+        <a href="#contact" class="btn btn-outline btn-xl js-scroll-trigger">Let's Get Started!</a>
+      </div>
+    </div>
+    <div class="overlay"></div>
+  </section> -->
+
+ <!--  <section class="contact bg-primary" id="contact">
+    <div class="container">
+      <h2>We
+        <i class="fas fa-heart"></i>
+        new friends!</h2>
+      <ul class="list-inline list-social">
+        <li class="list-inline-item social-twitter">
+          <a href="#">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </li>
+        <li class="list-inline-item social-facebook">
+          <a href="#">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </li>
+        <li class="list-inline-item social-google-plus">
+          <a href="#">
+            <i class="fab fa-google-plus-g"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section> -->
+
+  <footer>
+    <div class="container-fluid" id="contact">
+      <div class="row">
+        <div class="col-md-6 ">
+          <h5>Address</h5><br>
+          <span>Jl. Wonosari KM 6 no 26 Baturetno, Banguntapan, Bantul, Yogyakarta.</span>
+          <br><br><br>
+          <h5>Office Hour</h5><br>
+          <span>Monday - Saturday 08:00-16:00</span>
+        </div>
+         <div class="col-md-6 ">
+           <h5>Contact Us</h5><br>
+           <span>+62 000 0000 0000</span>
+           <br>
+           <span>ziemotion@gmail.com</span>
+           <br><br><br>
+           <h5>Social</h5><br>
+           <ul class="list-inline list-social">
+              <li class="list-inline-item social-twitter">
+                <a href="#">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item social-facebook">
+                <a href="#">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item social-google-plus">
+                <a href="#">
+                  <i class="fab fa-google-plus-g"></i>
+                </a>
+              </li>
+            </ul>
+
+         </div>
+      </div>
+
+         <span>&copy; ziemotion 2020. All Rights Reserved.</span><br>
+          <span>Supported by javalatte.xyz</span>
+      
+      <!-- <ul class="list-inline">
+        <li class="list-inline-item">
+          <a href="#">Privacy</a>
+        </li>
+        <li class="list-inline-item">
+          <a href="#">Terms</a>
+        </li>
+        <li class="list-inline-item">
+          <a href="#">FAQ</a>
+        </li>
+      </ul> -->
+    </div>
+  </footer>
+
+  <ul id="social-sidebar">
+  <li>
+    <a class="entypo-twitter fab fa-twitter"><span>Tweeter</span></a>
+  </li>
+  <li>
+    <a class="entypo-facebook fab fa-facebook"><span>Facebook</span></a>
+  </li>
+  <li>
+    <a class="entypo-gplus fab fa-google-plus-g"><span>Google+</span></a>
+  </li>
+</ul>
+
+<!-- Chat -->
+<button class="chatbox-open">
+    <i class="fa fa-comment fa-2x" aria-hidden="true"></i>
+  </button>
+<button class="chatbox-close">
+    <i class="fas fa-times fa-2x" aria-hidden="true"></i>
+  </button>
+<section class="chatbox-popup">
+  <header class="chatbox-popup__header">
+    <aside style="flex:3">
+      <i class="fa fa-user-circle fa-4x chatbox-popup__avatar" aria-hidden="true"></i>
+    </aside>
+    <aside style="flex:8">
+      <h1>Sussanah Austin</h1> Agent (Online)
+    </aside>
+    <aside style="flex:1">
+      <button class="chatbox-maximize"><i class="fa fa-window-maximize" aria-hidden="true"></i></button>
+    </aside>
+  </header>
+  <main class="chatbox-popup__main">
+    We make it simple and seamless for<br> bussiness and people to talk to each<br> other. Ask us anything.
+  </main>
+  <footer class="chatbox-popup__footer">
+    <aside style="flex:1;color:#888;text-align:center;">
+      <i class="fa fa-camera" aria-hidden="true"></i>
+    </aside>
+    <aside style="flex:10">
+      <textarea type="text" placeholder="Type your message here..." autofocus></textarea>
+    </aside>
+    <aside style="flex:1;color:#888;text-align:center;">
+      <i class="fa fa-paper-plane" aria-hidden="true"></i>
+    </aside>
+  </footer>
+</section>
+<section class="chatbox-panel">
+  <header class="chatbox-panel__header">
+    <aside style="flex:3">
+      <i class="fa fa-user-circle fa-3x chatbox-popup__avatar" aria-hidden="true"></i>
+    </aside>
+    <aside style="flex:6">
+      <h1>Sussanah Austin</h1> Agent (Online)
+    </aside>
+    <aside style="flex:3;text-align:right;">
+      <button class="chatbox-minimize"><i class="fa fa-window-restore" aria-hidden="true"></i></button>
+      <button class="chatbox-panel-close"><i class="fa fa-close" aria-hidden="true"></i></button>
+    </aside>
+  </header>
+  <main class="chatbox-panel__main" style="flex:1">
+    We make it simple and seamless for<br> bussiness and people to talk to each<br> other. Ask us anything.
+  </main>
+  <footer class="chatbox-panel__footer">
+    <aside style="flex:1;color:#888;text-align:center;">
+      <i class="fa fa-camera" aria-hidden="true"></i>
+    </aside>
+    <aside style="flex:10">
+      <textarea type="text" placeholder="Type your message here..." autofocus></textarea>
+    </aside>
+    <aside style="flex:1;color:#888;text-align:center;">
+      <i class="fa fa-paper-plane" aria-hidden="true"></i>
+    </aside>
+  </footer>
+</section>
+
+<style type="text/css">
+  body {
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+  background-color: #f6f7f9;
+}
+h1 {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1;
+}
+button {
+  color: inherit;
+  background-color: transparent;
+  border: 0;
+  outline: 0 !important;
+  cursor: pointer;
+}
+button.chatbox-open {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 52px;
+  height: 52px;
+  color: #fff;
+  background-color: #68258a;
+  background-position: center center;
+  background-repeat: no-repeat;
+  box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.15);
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 16px;
+  z-index: 9
+}
+button.chatbox-close {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 52px;
+  height: 52px;
+  color: #fff;
+  background-color: #0360a5;
+  background-position: center center;
+  background-repeat: no-repeat;
+  box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.15);
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+  margin: 16px calc(2 * 16px + 52px) 16px 16px;
+  z-index: 9
+}
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  height: calc(16px + 16px / 2);
+  padding: 0 calc(16px / 2);
+  font-family: inherit;
+  font-size: 16px;
+  line-height: calc(16px + 16px / 2);
+  color: #888;
+  background-color: none;
+  border: 0;
+  outline: 0 !important;
+  resize: none;
+  overflow: hidden;
+}
+textarea::placeholder {
+  color: #888;
+}
+.chatbox-popup {
+  display: flex;
+  position: absolute;
+  box-shadow: 5px 5px 25px 0 rgba(46, 61, 73, 0.2);
+  flex-direction: column;
+  display: none;
+  bottom: calc(2 * 16px + 52px);
+  right: 16px;
+  width: 377px;
+  height: auto;
+  background-color: #fff;
+  border-radius: 16px;
+  padding: unset;
+      position: fixed;
+      z-index: 9
+}
+.chatbox-popup .chatbox-popup__header {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  padding: 16px;
+  color: #fff;
+  background-color: #0360a5;
+  align-items: center;
+  justify-content: space-around;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+}
+.chatbox-popup .chatbox-popup__header .chatbox-popup__avatar {
+  margin-top: -32px;
+  background-color: #0360a5;
+  border: 5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+}
+.chatbox-popup .chatbox-popup__main {
+  box-sizing: border-box;
+  width: 100%;
+  padding: calc(2 * 16px) 16px;
+  line-height: calc(16px + 16px / 2);
+  color: #888;
+  text-align: center;
+}
+.chatbox-popup .chatbox-popup__footer {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  padding: 16px;
+  border-top: 1px solid #ddd;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+.chatbox-panel {
+  display: flex;
+  position: absolute;
+  box-shadow: 5px 5px 25px 0 rgba(46, 61, 73, 0.2);
+  flex-direction: column;
+  display: none;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 377px;
+  background-color: #fff;
+}
+.chatbox-panel .chatbox-panel__header {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  padding: 16px;
+  color: #fff;
+  background-color: #0360a5;
+  align-items: center;
+  justify-content: space-around;
+  flex: 0 0 auto;
+}
+.chatbox-panel .chatbox-panel__main {
+  box-sizing: border-box;
+  width: 100%;
+  padding: calc(2 * 16px) 16px;
+  line-height: calc(16px + 16px / 2);
+  color: #888;
+  text-align: center;
+  flex: 1 1 auto;
+}
+.chatbox-panel .chatbox-panel__footer {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  padding: 16px;
+  border-top: 1px solid #ddd;
+  align-items: center;
+  justify-content: space-around;
+  flex: 0 0 auto;
+}
+
+</style>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="https://cdn.boomcdn.com/libs/owl-carousel/2.3.4/owl.carousel.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script> -->
+
+  <!-- Custom scripts for this template -->
+  <script src="js/new-age.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $(".owl-carousel").owlCarousel({
+        items:1,
+        loop:true,
+        dots:true,
+        autoplay:true
+      });
+    });
+  </script>
+  <script type="text/javascript">
+  $(function(){
+    const chatbox = jQuery.noConflict();
+
+    chatbox(() => {
+      chatbox(".chatbox-open").click(() =>
+        chatbox(".chatbox-popup, .chatbox-close").fadeIn()
+      );
+
+      chatbox(".chatbox-close").click(() =>
+        chatbox(".chatbox-popup, .chatbox-close").fadeOut()
+      );
+
+      chatbox(".chatbox-maximize").click(() => {
+        chatbox(".chatbox-popup, .chatbox-open, .chatbox-close").fadeOut();
+        chatbox(".chatbox-panel").fadeIn();
+        chatbox(".chatbox-panel").css({ display: "flex" });
+      });
+
+      chatbox(".chatbox-minimize").click(() => {
+        chatbox(".chatbox-panel").fadeOut();
+        chatbox(".chatbox-popup, .chatbox-open, .chatbox-close").fadeIn();
+      });
+
+      chatbox(".chatbox-panel-close").click(() => {
+        chatbox(".chatbox-panel").fadeOut();
+        chatbox(".chatbox-open").fadeIn();
+      });
+    });
+
+  })
+</script>
+</body>
+
+</html>
