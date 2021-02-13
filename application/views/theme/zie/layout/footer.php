@@ -1,0 +1,87 @@
+  <footer>
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-md-6">
+          <div class="logo-container pb-5">
+            <img src="<?=base_url()?>img/logo-v2-white.png" alt="Site Logo" class="img-responsive front-logo"  />
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+                <ul class="">
+                  <li><a href=""></a>Home</li>
+                  <li><a href=""></a>About</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+              <ul class="">
+                  <li><a href=""></a>Projects</li>
+                  <li><a href=""></a>Contact</li>
+                </ul>
+            </div>
+          </div>
+          <hr>
+          <p style="font-size: 30px">Stay up-to-date on our latest projects</p>
+          <p style="font-size: 30px">Subscribe to our Youtube Channel</p>
+          <button class="btn btn-danger mt-4"><i class="fab fa-youtube"></i> Subscribe Now</button>
+          <hr>
+          <span class="copyright">&copy; ziemotion 2020. All Rights Reserved.</span><br>
+          <span class="copyright">Supported by javalatte.xyz</span>
+        </div>
+        <div class="col-md-6">
+          <div style="padding-left: 100px">
+            <p class="mb-5" style="font-size: 30px;font-weight: 600">Get in Touch</p>
+             
+            <p class="big"><?=$site['email']?></p>
+            
+            <p class="big"><?=$site['phone_number']?></p>
+             
+             <ul class="list-inline list-social social">
+                <li class="list-inline-item social-twitter">
+                  <a href="<?=$site['twitter']?>">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item social-facebook">
+                  <a href="<?=$site['facebook']?>">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item social-google-plus">
+                  <a href="<?=$site['google_plus']?>">
+                    <i class="fab fa-google-plus-g"></i>
+                  </a>
+                </li>
+              </ul>
+
+            <h3>Office</h3><br>
+            <span><?=$site['address']?></span>
+            <br>
+            <span>Monday - Saturday 08:00-16:00</span>
+
+           
+             
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  <ul id="social-sidebar">
+  <li>
+    <a class="entypo-twitter fab fa-twitter" href="<?=$site['twitter']?>"><span>Twitter</span></a>
+  </li>
+  <li>
+    <a class="entypo-facebook fab fa-facebook" href="<?=$site['facebook']?>"><span>Facebook</span></a>
+  </li>
+  <li>
+    <a class="entypo-gplus fab fa-google-plus-g" href="<?=$site['google_plus']?>"><span>Google+</span></a>
+  </li>
+</ul>
+<a href="https://api.whatsapp.com/send?phone=6289520208808" class="whatsapp-float" target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>

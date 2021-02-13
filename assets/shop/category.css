@@ -1,0 +1,100 @@
+.category-menu{
+    /*border: 1px solid #e9ecef;*/
+    /*padding-bottom: 5px;*/
+        box-shadow: 0 9px 10px -2px #e9ecef;
+}
+
+.category-menu .category-parent.list-group-item:after {
+    font-family: 'Font Awesome\ 5 Free';  
+    content: "\f068";
+    float: right; 
+    font-weight: 900;
+}
+.category-menu .category-parent.list-group-item.collapsed:after {
+    /* symbol for "collapsed" panels */
+     font-family: 'Font Awesome\ 5 Free';
+    content: "\f067"; .
+    font-weight: 900;
+}
+
+.category-menu .list-group-item {
+    border-left : transparent;
+    border-right : transparent;
+    border-top : transparent;
+    border: transparent;
+} 
+
+.category-menu a.list-group-item {
+    text-decoration: none;
+    /*border-top-color: transparent;*/
+}
+
+.category-menu .list-title {
+    background-color: #e9ecef;
+    /*border-color: transparent;*/
+}
+
+.list-group-item.active {
+    z-index: 2;
+    color: #383d41;
+    background-color: #ffffff;
+    border-color: transparent;
+    font-weight: 600;
+    /*border-bottom-color: transparent;*/
+}
+
+.list-group-item:last-child.active {
+    /*border-bottom-color: transparent;*/
+    /*border-bottom: 1px solid #e9ecef;*/
+}
+
+.category-parent.list-group-item {
+    border-bottom: transparent;
+}
+
+.category-children.go-category.list-group-item{
+    border-bottom: transparent;
+} 
+
+
+
+@media only screen and (max-width: 600px) {
+
+    .category-menu {
+        box-shadow: none !important;
+    }
+
+    .category-menu .category-title.collapsed::after {
+        font-family: 'Font Awesome\ 5 Free';
+        content: "\f067";
+        . font-weight: 900;
+    }
+
+    .category-menu .category-title::after {
+        font-family: 'Font Awesome\ 5 Free';
+        content: "\f068";
+        float: right;
+        font-weight: 900;
+    }
+
+}
+
+@media (min-width: 768px) {
+
+    .category-menu .category-title {
+        cursor: default;
+    }
+
+    .category-menu > .category-body.collapse {
+        display: block;
+        height: auto !important;
+        visibility: visible;
+    }
+
+    .category-menu > .category-body.collapsing{
+      position: relative;
+      height: unset !important;
+      overflow: hidden;
+    }
+
+}
