@@ -27,7 +27,10 @@
   <link rel="stylesheet" href="https://cdn.boomcdn.com/libs/owl-carousel/2.3.4/assets/owl.carousel.min.css">
   <link rel="stylesheet" href="https://cdn.boomcdn.com/libs/owl-carousel/2.3.4/assets/owl.theme.default.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-  
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 
   <!-- Custom styles for this template -->
   <link href="css/new-age.min.css" rel="stylesheet">
@@ -206,9 +209,9 @@
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-    <div class="container">
+    <div class="container-fluid">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
-        <img src="img/zie-logo-1.png" alt="Site Logo" class="img-responsive front-logo"  />
+        <img src="img/logo-ziemotion-v2.png" alt="Site Logo" class="img-responsive front-logo"  />
       </a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
@@ -252,9 +255,54 @@
           background-color: #0000002b;
     }
 
-    .bg-primary {
+    /*.floating {   
+        animation-name: floating; 
+        animation-duration: 3s; 
+        animation-iteration-count: infinite; 
+        animation-timing-function: ease-in-out; 
+        margin-left: 30px; 
+        margin-top: 5px; 
+    }*/ 
+
+    .floating{
+    animation: floating linear 10s;
+  animation-iteration-count: infinite;
+  transform-origin: 50% 50%;
+  -webkit-animation: floating linear 10s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-transform-origin: 50% 50%;
+  -moz-animation: floating linear 10s;
+  -moz-animation-iteration-count: infinite;
+  -moz-transform-origin: 50% 50%;
+  -o-animation: floating linear 10s;
+  -o-animation-iteration-count: infinite;
+  -o-transform-origin: 50% 50%;
+  -ms-animation: floating linear 10s;
+  -ms-animation-iteration-count: infinite;
+  -ms-transform-origin: 50% 50%;
+}
+      
+    @keyframes floating { 
+        0% {
+          transform:  rotate(0deg) ;
+        }
+        50% {
+          transform:  rotate(10deg) ;
+        }
+        100% {
+          transform:  rotate(0deg) ;
+        }   
+    } 
+
+    /*.bg-primary {
         background: #fdcc52;
         background: linear-gradient(#7733c7,#fff);
+    }*/
+
+    .btn-primary {
+        color: #fff;
+        background-color: #9e99d4;
+        border-color: #9e99d4;
     }
 
     .navbar{
@@ -277,10 +325,11 @@
 
   </style>
 
-  <header>
+  <header class="d-none">
     <!-- Top content -->
-<div class="top-content text-center">
+    <div class="top-content text-center">
     <!-- Carousel -->
+
     <div id="carousel-header" class="carousel slide" data-ride="carousel" data-interval="4000" data-pause="false">
  
         <ol class="carousel-indicators">
@@ -346,17 +395,76 @@
 </div>
   </header>
 
-  <section class="download bg-primary text-center" id="download">
+
+  <div class="container">
+    <!-- Top content -->
+    <div class="top-content">
+      <div class="row" style="height: 100vh;display: flex;flex-direction: center;align-items: center;">
+        <div class="col-md-6 animate__animated animate__zoomIn">
+          <h1 style="
+                font-size: 3vw;
+    line-height: 1;
+    margin-bottom: 2vw;
+    font-weight: 900;
+    font-family: Rightgrotesk,Arial,sans-serif;
+          ">
+              Ziemotion Studio
+          </h1>
+          <p>Illum omnis veritatis nostrum dolorem est. Provident officiis voluptate modi sunt facere cumque beatae. Facere praesentium et sit voluptas. Omnis sit officiis id autem. Sit voluptatibus placeat esse impedit mollitia. Ipsam voluptates molestias modi nostrum vitae fuga.</p>
+          <button class="btn btn-primary p-3">Get In Touch</button>
+        </div>
+        <div class="col-md-6 text-center animate__animated animate__zoomIn">
+          <div class="floating" style= "
+                    /*height: 150px; width: 150px; */
+                    /*background: rgb(200, 200, 200); */
+                    /*padding: 10px*/
+                    "> 
+                <img src="img/Logo-v2.png" style="width:300px"> 
+            </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="about text-center" id="about">
     <div class="container">
+      <div class="section-heading text-center pb-5" data-aos="zoom-in">
+        <h2 class="pb-4">we are passionate to bring great ideas to life</h2>
+        <p class="text-muted">Check out who we are!</p>
+      </div>
       <div class="row">
-        <div class="col-md-12 mx-auto">
-          <div class="embed-responsive embed-responsive-16by9">
-             <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/B_JrO48-gts?rel=0" allowfullscreen></iframe>
-            <!-- <video width="400" controls>
-              <source src="./vid/home/imlek.mp4" type="video/mp4">
-              Your browser does not support HTML5 video.
-            </video> -->
+        <div class="col-md-12 mx-auto" data-aos="zoom-in" style="position: relative;">
+          <div style="background-image: url(https://www.datocms-assets.com/2625/1611673928-awell-case-entry.png?auto=format,compress&w=1200);    max-width: 1067px;
+    height: 600px;
+    margin-bottom: 40px;
+    margin-left: auto;"></div>
+
+          <div style="    position: absolute;
+    top: 16%;
+    left: -4%;
+    width: 100%;
+    max-width: 400px;
+    margin: 0;
+    padding: 49px 50px;
+    padding-top: 60px;
+    background-color: rgb(158 153 212);
+    color: white;">
+            <h2 class="row-title pb-3">Who we are</h2>
+              <p class="pb-4">Illum omnis veritatis nostrum dolorem est. Provident officiis voluptate modi sunt facere cumque beatae. Facere praesentium et sit voluptas. Omnis sit officiis id autem.</p>
+              <div class="input-group">
+                <div class="custom-file">
+                 <input class="form-control" type="text" name="" placeholder="search our project">
+                </div>
+                <div class="input-group-append">
+                  <i class="fa fa-arrow-right" style="font-size: xx-large;    padding-left: 10px;"></i>
+                </div>
+              </div>
+              
           </div>
+
+          <!-- <div class="embed-responsive embed-responsive-16by9">
+             <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/B_JrO48-gts?rel=0" allowfullscreen></iframe>
+          </div> -->
              <!--  <h2 class="section-heading">Discover what all the buzz is about!</h2>
               <p>Our app is available on any mobile device! Download now to get started!</p>
               <div class="badges">
@@ -369,10 +477,10 @@
   </section>
 
   <!-- Project 1 -->
-  <section class="features" id="about">
+  <section class="features d-none" id="">
     <div class="container">
       <div class="section-heading text-center">
-        <h2>we are passionate to bring great ideas to life</h2>
+        <h2 class="pb-3">we are passionate to bring great ideas to life</h2>
         <p class="text-muted">Check out who we are!</p>
         <hr>
       </div>
@@ -380,7 +488,7 @@
         <div class="col-lg-6 my-auto pb-5">
           <!-- <img src="img/800x450.png" class="img-fluid" alt=""> -->
           <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/iAlMVsvGQNA?rel=0" allowfullscreen></iframe>
+            <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/iAlMVsvGQNA?rel=0" allowfullscreen></iframe> -->
           </div>
         </div>
         <div class="col-lg-6 my-auto">
@@ -412,12 +520,12 @@
 
   <section class="features" id="projects">
     <div class="container">
-      <div class="section-heading text-center">
-        <h2>We will create products with great quality from fresh idea to reality</h2>
+      <div class="section-heading text-center" data-aos="zoom-in">
+        <h2 class="pb-3">We will create products with great quality from fresh idea to reality</h2>
         <p class="text-muted">Check out what we offer!</p>
         <hr>
       </div>
-      <div class="row">
+      <div class="row" data-aos="zoom-in">
         <div class="col-lg-12 my-auto">
           <div class="container-fluid">
             <div class="row">
@@ -872,9 +980,16 @@ textarea::placeholder {
 
   <!-- Custom scripts for this template -->
   <script src="js/new-age.min.js"></script>
+  <!-- <script src="js/animate_on_scroll_akzn.js"></script> -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
   <script type="text/javascript">
     $(document).ready(function(){
+      AOS.init({
+        duration: 1000,
+      });
+
       $(".owl-carousel").owlCarousel({
         items:1,
         loop:true,
