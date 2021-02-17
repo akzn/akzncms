@@ -26,35 +26,8 @@
         margin-top: 5px; 
     }*/ 
 
-    .floating{
-    animation: floating linear 10s;
-  animation-iteration-count: infinite;
-  transform-origin: 50% 50%;
-  -webkit-animation: floating linear 10s;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-transform-origin: 50% 50%;
-  -moz-animation: floating linear 10s;
-  -moz-animation-iteration-count: infinite;
-  -moz-transform-origin: 50% 50%;
-  -o-animation: floating linear 10s;
-  -o-animation-iteration-count: infinite;
-  -o-transform-origin: 50% 50%;
-  -ms-animation: floating linear 10s;
-  -ms-animation-iteration-count: infinite;
-  -ms-transform-origin: 50% 50%;
-}
       
-    @keyframes floating { 
-        0% {
-          transform:  rotate(0deg) ;
-        }
-        50% {
-          transform:  rotate(10deg) ;
-        }
-        100% {
-          transform:  rotate(0deg) ;
-        }   
-    } 
+   
 
     /*.bg-primary {
         background: #fdcc52;
@@ -78,6 +51,10 @@
     background-color: #ffffff!important;
     }
 
+    section{
+      background-color: white;
+    }
+
      @media (max-width: 768px){
         .top-content{
               padding-top: 100px;
@@ -94,7 +71,7 @@
   </style>
 
 
-
+<?php /*
   <div class="container-fluid" style="background: url('<?=base_url()?>img/bg.svg');background-position: center;
   background-size: cover;">
     <!-- Top content -->
@@ -114,19 +91,72 @@
           <a href="<?=base_url()?>contact" class="btn btn-primary p-3">Get In Touch</a>
         </div>
         <div class="col-md-6 text-center animate__animated animate__zoomIn">
-          <div class="floating" style= "
-                    /*height: 150px; width: 150px; */
-                    /*background: rgb(200, 200, 200); */
-                    /*padding: 10px*/
-                    "> 
+          <div class="floating" style= ""> 
                 <img src="img/Logo-v2.png" style="width:300px"> 
             </div> 
         </div>
       </div>
     </div>
   </div>
+*/?>
 
-  <section class="about text-center" id="about">
+<?php /*  
+
+  <div class="container-fluid" style="background: url('<?=base_url()?>img/bg.svg');background-position: center;
+  background-size: cover;">
+    <!-- Top content -->
+    <div class="top-content container">
+      <div class="row" style="height: 100vh;display: flex;flex-direction: center;align-items: center;">
+        <div class="col-md-12"></div>
+      </div>
+    </div>
+  </div>
+*/ ?>
+  
+  <style type="text/css">
+    header {
+  position: relative;
+  background-color: black;
+  height: 100vh;
+  min-height: 25rem;
+  width: 100%;
+  overflow: hidden;
+  z-index: -8;
+}
+    header video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  z-index: -9;
+}
+
+  </style>
+
+  <header>
+  <div class="overlay"></div>
+  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+    <source src="<?=base_url()?>video/header.mp4" type="video/mp4">
+  </video>
+  <!-- <div class="container h-100">
+    <div class="d-flex h-100 text-center align-items-center">
+      <div class="w-100 text-white">
+        <h1 class="display-3">Video Header</h1>
+        <p class="lead mb-0">With HTML5 Video and Bootstrap 4</p>
+      </div>
+    </div>
+  </div> -->
+</header>
+
+  <section class="about text-center" id="about" style="">
     <div class="container">
       <div class="section-heading text-center pb-5" data-aos="zoom-in">
         <h2 class="pb-4">we are passionate to bring great ideas to life</h2>
@@ -142,7 +172,7 @@
             margin-left: auto;" 
             class="bootstrap-fancy-youtube" data-fancy-src="https://www.youtube.com/embed/iAlMVsvGQNA"></div>
 
-          <div class="zoom" style="    position: absolute;
+          <div class="zoom" id="about-box-caption" style="    position: absolute;
             top: 16%;
             left: -4%;
             width: 100%;
@@ -150,10 +180,11 @@
             margin: 0;
             padding: 49px 50px;
             padding-top: 60px;
-            background-color: rgb(158 153 212);
+            /*background-color: rgb(158 153 212);*/
+            background-color: #ffc107;
             color: white;">
             <h2 class="row-title pb-3">Who we are</h2>
-              <p class="pb-4">We create products with great quality from fresh idea to reality, producing many animation product like TVCs, short movies, IP (Intellectual Property), toys, game assets and many more.</p>
+              <p class="pb-4">We create products with great quality from fresh idea to reality, producing many animation product (2D and 3D), graphic design and interior design</p>
               <div class="input-group">
                 <div class="custom-file">
                  <input class="form-control" type="text" name="" placeholder="search our project">
@@ -229,16 +260,16 @@
                     <!-- <i class="icon-picture text-primary"></i> -->
                     <ul class="owl-carousel owl-theme">
                       <li class="project-list bg-img">
-                          <img class="img-fluid" src="img/product/1.jpg">
+                          <img class="img-fluid" src="img/services/1/1.jpg">
                       </li>
                        <li class="project-list bg-img">
-                          <img class="img-fluid" src="img/product/2.jpg">
+                          <img class="img-fluid" src="img/services/1/2.jpg">
                       </li>
                        <li class="project-list bg-img">
-                          <img class="img-fluid" src="img/product/3.jpg">
+                          <img class="img-fluid" src="img/services/1/3.jpg">
                       </li>
                        <li class="project-list bg-img">
-                          <img class="img-fluid" src="img/product/4.jpg">
+                          <img class="img-fluid" src="img/services/1/4.jpg">
                       </li>
                     </ul>
                     <div class="feature-caption">
@@ -267,7 +298,7 @@
                       </li>
                     </ul>
                     <div class="feature-caption">
-                      <h3 class="mb-3">Audio Visual </h3>
+                      <h3 class="mb-3 h2">Audio Visual </h3>
                       <p class="text-muted">Content creation that consists of audio and visual aspects, including video and audio editing for vlogs, advertisements, presentations and others.</p>
                     </div>
                   </div>
@@ -282,20 +313,20 @@
                     <!-- <i class="icon-film text-primary"></i> -->
                     <ul class="owl-carousel owl-theme">
                       <li class="project-list bg-img">
-                          <img class="img-fluid" src="img/product/9.jpg">
+                          <img class="img-fluid" src="img/services/3/1.jpg">
                       </li>
                        <li class="project-list bg-img">
-                          <img class="img-fluid" src="img/product/10.jpg">
+                          <img class="img-fluid" src="img/services/3/2.jpg">
                       </li>
                        <li class="project-list bg-img">
-                          <img class="img-fluid" src="img/product/11.jpg">
+                          <img class="img-fluid" src="img/services/3/3.jpg">
                       </li>
                        <li class="project-list bg-img">
-                          <img class="img-fluid" src="img/product/12.jpg">
+                          <img class="img-fluid" src="img/services/3/4.jpg">
                       </li>
                     </ul>
                     <div class="feature-caption">
-                      <h3 class="mb-3">Design Graphic </h3>
+                      <h3 class="mb-3 h2">Design Graphic </h3>
                       <p class="text-muted">Creating designs for posters, banners, packaging designs and others.</p>
                     </div>
                   </div>
@@ -320,7 +351,7 @@
                       </li>
                     </ul>
                     <div class="feature-caption">
-                      <h3 class="mb-3">Course & Education </h3>
+                      <h3 class="mb-3 h2">Course & Education </h3>
                       <p class="text-muted">We also offer training services and courses on digital art, including 2d & 3d animation, audio visual, graphic design, and collaboration with educational institutions.</p>
                     </div>
                   </div>
@@ -337,3 +368,10 @@
   </section>
 
 
+<script type="text/javascript">
+  $(function(){
+    $('#about-box-caption').on('click',function(){
+      window.location.href = '<?=base_url()?>projects';
+    })
+  })
+</script>

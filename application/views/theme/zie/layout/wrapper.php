@@ -10,7 +10,7 @@
 
   <title><?php echo $title;?></title>
 
-  <link href="img/Logo-70x70.png" rel="shortcut icon">
+  <link href="<?=base_url()?>img/favicon.ico" rel="shortcut icon">
 
   <!-- Bootstrap core CSS -->
   <link href="<?=base_url()?>assets/default/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -36,7 +36,7 @@
 
   <!-- Custom styles for this template -->
   <link href="<?=base_url()?>assets/theme/zie1/css/new-age.min.css" rel="stylesheet">
-  <link href="<?=base_url()?>assets/theme/zie1/custom.css?v=0.2" rel="stylesheet">
+  <link href="<?=base_url()?>assets/theme/zie1/custom.css?v=0.6" rel="stylesheet">
 
 
   <!-- Bootstrap core JavaScript -->
@@ -106,7 +106,7 @@
 
   <!-- Plugin JavaScript -->
   <script src="<?=base_url()?>assets/default/vendor/jquery-easing/jquery.easing.min.js">"></script>
-  <script src="<?=base_url()?>assets/bootstrap-fancy-img/bootstrap-fancy-img.js?v=0.5"></script>
+  <script src="<?=base_url()?>assets/bootstrap-fancy-img/bootstrap-fancy-img.js?v=0.6"></script>
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.min.js"></script>
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.plugins.min.js"></script>
   <script src="https://cdn.boomcdn.com/libs/owl-carousel/2.3.4/owl.carousel.min.js"></script>

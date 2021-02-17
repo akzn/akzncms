@@ -28,19 +28,32 @@ class Projects extends CI_Controller {
 	/*ajax*/
 	public function fetch_posts(){
 		if (isset($_POST['getData']) && !empty($_POST['getData'])) {
-	
+			
 		    $start = $this->input->post('start');
 		    $limit = $this->input->post('limit');
 
-		    $query = "SELECT * FROM galleries where position='project' order by gallery_id desc LIMIT $start, $limit";
+		    /*For filtering service type on gallery_description*/
+		    // $q = '['.'2d-3d-animation'.']';
+		    if (isset($_POST['q'])) {
+		    	$q = '['.$this->input->post('q').']';
+		    	$que = "AND gallery_description like '%".$q."%'";
+		    	$rep_gallery_description = ",replace(gallery_description,'$q','') as gallery_description";
+		    } else {
+		    	$que='';
+		    	$rep_gallery_description='';
+		    }
 
-		    // $query = "SELECT * FROM galleries where position='project' order by gallery_id desc";
+		    // $query = "SELECT * FROM galleries where position='project' order by gallery_id desc LIMIT $start, $limit";
+
+		    $query = "SELECT * $rep_gallery_description FROM galleries where position='project' $que order by gallery_id desc LIMIT $start, $limit";
+		    // $query = "SELECT * $rep_gallery_description FROM galleries where position='project' $que order by gallery_id desc ";
 
 		    $result = $this->db->query($query);
 
 		    foreach ($result->result() as $key) {	
 		    	$key->gallery_name = ucwords($key->gallery_name);
-		    	$key->gallery_description_short = substr_replace($key->gallery_description,"...",200);
+		    	$key->gallery_description = preg_replace('#([).*?(])#', '', $key->gallery_description);
+		    	$key->gallery_description_short = preg_replace('/\[(.*?)\]/', '',substr_replace($key->gallery_description,"...",200));
 		    	if ($key->type == 'image') {
 		    		$key->src_url = base_url('img/gallery/').$key->image;
 		    	} else {

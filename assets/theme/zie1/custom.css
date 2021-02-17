@@ -66,6 +66,26 @@
       font-size: 28px;
     }
 
+    .floating{
+    animation: floating linear 10s;
+  animation-iteration-count: infinite;
+  transform-origin: 50% 50%;
+  -webkit-animation: floating linear 10s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-transform-origin: 50% 50%;
+  -moz-animation: floating linear 10s;
+  -moz-animation-iteration-count: infinite;
+  -moz-transform-origin: 50% 50%;
+  -o-animation: floating linear 10s;
+  -o-animation-iteration-count: infinite;
+  -o-transform-origin: 50% 50%;
+  -ms-animation: floating linear 10s;
+  -ms-animation-iteration-count: infinite;
+  -ms-transform-origin: 50% 50%;
+}
+
+
+
 
     #social-sidebar {
       right: 0;
@@ -119,7 +139,12 @@
       top: 50%;
       transform: rotate(45deg);
     }
-     
+    
+
+    #social-sidebar a[class*="instagram"]:hover,
+    #social-sidebar a[class*="instagram"] span,
+    #social-sidebar a[class*="instagram"] span:before {background: #795548;}
+
     #social-sidebar a[class*="twitter"]:hover,
     #social-sidebar a[class*="twitter"] span,
     #social-sidebar a[class*="twitter"] span:before {background: #00aced;}
@@ -148,6 +173,12 @@
     #social-sidebar a[class*="evernote"] span,
     #social-sidebar a[class*="evernote"] span:before {background: #6BB130;}
 
+
+    #social-sidebar a[class*="linkedin"]:hover,
+    #social-sidebar a[class*="linkedin"] span,
+    #social-sidebar a[class*="linkedin"] span:before {background: #007bff;}
+
+
       .whatsapp-float{
         position:fixed;
         width:60px;
@@ -168,7 +199,8 @@
       }
 
 #mainNav .navbar-nav>li>a{
-	color:white;
+	    color: #0a878a;
+    text-shadow: 2px 1px #f1f1f1;
 }
 h1.page-title{
 	font-size: 3vw;
@@ -181,6 +213,13 @@ h1.page-title{
 	padding-top: 80px;
 	background-color: rgb(158 153 212);
 	color:white;
+  background: url('../../../img/bg.svg');
+  background-position: center;
+  background-size: cover;
+}
+
+.section-header .page-title{
+  color:#22262a;
 }
 
 footer{
@@ -250,8 +289,10 @@ section.projects .project-item-content:hover{
 section.projects .project-item-content{
 	position: relative;
 	height: 100%;
-	background-color: #f8f9fa8f;
-	opacity: 0;
+	/*background-color: #f8f9fa8f;*/
+	background-color: #000000b3;
+  color: white;
+  opacity: 0;
 	transition: opacity 0.3s;
 	padding: 20px;
 	cursor:pointer;
@@ -267,7 +308,7 @@ section.projects .project-item-caption{
 
 section.projects .project-item-caption span{
 	line-height: 25px;
-	font-weight: 600
+	/*font-weight: 600*/
 }
 
 section.services a{
@@ -298,35 +339,68 @@ section.contact p{
 	font-weight: 600;
 }
 
-section.about h3{
+section.about h3, section.guarantee h3{
 	font-size: 2.3rem;
 	font-weight: 600;
 }
 
-.services-category-tab p{
+section.guarantee {
+  padding-top: unset;
+}
+
+section.guarantee .row{
+    padding-bottom: 2rem
+  }
+section.guarantee .card .card-icon-top{
+  font-size: 5rem;
+}
+section.guarantee .card .card-title{
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+section.guarantee .card {
+  padding:30px;
+}
+
+.category-tab p{
 	color: black;
 	font-size: 18px;
 	margin-bottom: unset;
 }
 
-.services-category-tab:hover{
-	background-color: #510E91;
-	border-radius: 5px;
+.category-tab:hover{
+	background-color: #7accc8;
 	color: white!important;
 }
 
-.services-category-tab:hover p{
+.category-tab:hover p{
 	color: white!important;
 }
 
-.services-category-tab.active{
-	background-color: #510E91;
-	border-radius: 5px;
+.category-tab.active{
+	background-color: rgb(248, 171, 7)!important;
+	/*border-radius: 5px;*/
 	color: white!important;
 }
 
-.services-category-tab.active p{
+.category-tab.active p{
 	color: white!important;
+  /*font-weight: 600;*/
+}
+
+.project-tab .category-tab{
+  /*border: 1px solid #000;"*/
+  background-color: #7accc8;border:unset;color:white
+}
+
+.project-tab .category-tab:hover{
+  background-color: rgb(248, 171, 7);
+  border:unset;
+  color: white!important;
+}
+
+.project-tab .category-tab p{
+  color: white!important;
 }
 
 a.decoration-n{
@@ -337,3 +411,21 @@ a.decoration-n{
 section.about .video-link{
 	cursor:pointer;
 }
+
+section.about h4{
+  font-size: 1.5rem;
+    font-weight: 600;
+}
+
+
+ @keyframes floating { 
+        0% {
+          transform:  rotate(0deg) ;
+        }
+        50% {
+          transform:  rotate(10deg) ;
+        }
+        100% {
+          transform:  rotate(0deg) ;
+        }   
+    } 

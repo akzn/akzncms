@@ -10,7 +10,9 @@ class About extends CI_Controller {
 		$site  		= $this->mConfig->list_config();
 		// $about = $this->mConfig->get_about();
 
-		$data = array(	'site' 	=> $site,
+		$data = array(	
+			'title' => 'About Us - '.$site['nameweb'],
+			'site' 	=> $site,
 						'isi'		=> 'theme/zie/about/about',
 					);
 		$this->load->view('theme/'.$this->config->item('theme').'/layout/wrapper',$data);

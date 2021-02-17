@@ -109,7 +109,7 @@ $(function () {
 
         srcUrl = srcUrl+youtubeparam;
         // srcUrl = 'https://www.youtube.com/embed/QH2-TGUlwu4?modestbranding=1';
-        console.log(srcUrl)
+        // console.log(srcUrl)
         jvideo.attr('src', srcUrl);
         
         // // video.appendChild(source);
@@ -138,11 +138,11 @@ $(function () {
     botstrapFancyA = (selector)=>{
         classDone = 'fancied';
         ele = $(selector).not('.fancied');
-         console.log(ele);
+         // console.log(ele);
         // src = ele.data('fancy-src');
 
         ele.each(function(index,e){
-            console.log($(this));
+            // console.log($(this));
             type = $(this).data('fancy-type');
             switch(type) {
                 case 'image':
@@ -161,7 +161,7 @@ $(function () {
 
 
         // $(selector).not('.fancied').addClass('fancied');
-        console.log($(selector).not('.fancied'));
+        // console.log($(selector).not('.fancied'));
     }
 
 })

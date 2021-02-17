@@ -32,7 +32,7 @@ class Galleries extends CI_Controller {
 			
 			$config['upload_path'] 		= './img/gallery/';
 			$config['allowed_types'] 	= 'jpg|png';
-			$config['max_size']			= '2000'; // KB	
+			$config['max_size']			= '500'; // KB	
 
 			/*random image name*/
 			$fileName = md5(date('ymdhis').rand(10,100));

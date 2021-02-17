@@ -37,7 +37,7 @@ if($this->session->flashdata('sukses')) {
 echo validation_errors('<div class="alert alert-success">','</div>'); 
 ?>
 
-<form action="<?php echo base_url('admin/dashboard/social') ?>" method="post">
+<form action="<?php echo base_url('admin/settings/social') ?>" method="post">
 
 <input type="hidden" name="config_id" value="<?php echo $site['config_id'] ?>">
 
@@ -59,6 +59,14 @@ echo validation_errors('<div class="alert alert-success">','</div>');
     <div class="form-group">
         <label>Instagram</label>
         <input type="text" name="instagram" placeholder="Account Instagram" value="<?php echo $site['instagram'] ?>" class="form-control">
+    </div> 
+    <div class="form-group">
+        <label>Linked In</label>
+        <input type="text" name="linkedin" placeholder="Account linkedin" value="<?php echo $site['linkedin'] ?>" class="form-control">
+    </div> 
+    <div class="form-group">
+        <label>Youtube</label>
+        <input type="text" name="youtube" placeholder="Account youtube" value="<?php echo $site['youtube'] ?>" class="form-control">
     </div> 
     <!-- <div class="form-group">
         <label>Pinterest</label>    

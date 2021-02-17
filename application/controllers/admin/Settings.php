@@ -74,11 +74,13 @@ class Settings extends CI_Controller {
 							'twitter'	=> $i->post('twitter'),
 							'google_plus'=> $i->post('google_plus'),
 							'instagram'	=> $i->post('instagram'),
-							'pinterest'	=> $i->post('pinterest')
+							'pinterest'	=> $i->post('pinterest'),
+							'youtube'	=> $i->post('youtube'),
+							'linkedin'	=> $i->post('linkedin')
 						);
 			$this->mConfig->edit_config($data);
 			$this->session->set_flashdata('sukses','Configuration has updated');
-			redirect(base_url('admin/dashboard/social'));
+			redirect(base_url('admin/settings/social'));
 		}
 	}
 

@@ -36,7 +36,12 @@
             
             <p class="big"><?=$site['phone_number']?></p>
              
-             <ul class="list-inline list-social social">
+             <ul class="list-inline list-social social my-4">
+                <li class="list-inline-item social-instagram">
+                  <a href="<?=$site['instagram']?>">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </li>
                 <li class="list-inline-item social-twitter">
                   <a href="<?=$site['twitter']?>">
                     <i class="fab fa-twitter"></i>
@@ -48,19 +53,22 @@
                   </a>
                 </li>
                 <li class="list-inline-item social-google-plus">
+                  <a href="<?=$site['youtube']?>">
+                    <i class="fab fa-youtube"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item social-google-plus">
                   <a href="<?=$site['google_plus']?>">
-                    <i class="fab fa-google-plus-g"></i>
+                    <i class="fab fa-linkedin"></i>
                   </a>
                 </li>
               </ul>
 
-            <h3>Office</h3><br>
-            <span><?=$site['address']?></span>
-            <br>
-            <span>Monday - Saturday 08:00-16:00</span>
-
-           
-             
+            <h3>Visit Us At</h3><br>
+            <p class="mb-3"><?=$site['address']?></p>
+            <h3 class="mt-5 mb-3">Office Hours</h3>
+            <p>Mon – Sat : 9am – 5pm</p>
+            <p>Sun : Closed</p>
 
           </div>
         </div>
@@ -73,13 +81,19 @@
 
   <ul id="social-sidebar">
   <li>
+    <a class="entypo-instagram fab fa-instagram" href="<?=$site['instagram']?>"><span>Instagram</span></a>
+  </li>
+  <li>
     <a class="entypo-twitter fab fa-twitter" href="<?=$site['twitter']?>"><span>Twitter</span></a>
   </li>
   <li>
     <a class="entypo-facebook fab fa-facebook" href="<?=$site['facebook']?>"><span>Facebook</span></a>
   </li>
   <li>
-    <a class="entypo-gplus fab fa-google-plus-g" href="<?=$site['google_plus']?>"><span>Google+</span></a>
+    <a class="entypo-gplus fab fa-youtube" href="<?=$site['youtube']?>"><span>Youtube</span></a>
+  </li>
+  <li>
+    <a class="entypo-linkedin fab fa-linkedin" href="<?=$site['linkedin']?>"><span>LinkedIn</span></a>
   </li>
 </ul>
 <a href="https://api.whatsapp.com/send?phone=6289520208808" class="whatsapp-float" target="_blank">
