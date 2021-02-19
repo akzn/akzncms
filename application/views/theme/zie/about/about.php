@@ -37,9 +37,6 @@
 </div>
 </section>
 
-<style type="text/css">
-  
-</style>
 
 <section class="guarantee text-center">
   <div class="container container-content">
@@ -50,7 +47,7 @@
     </div>
     <div class="row">
       <div class="col-md-6" data-aos="zoom-in">
-        <div class="card mx-auto" style="width: 25rem;">
+        <div class="card mx-auto">
           <i class="card-icon-top fa fa-clock" src="..." alt="Card image cap"></i>
           <div class="card-body">
             <h3 class="card-title">Works On Time</h3>
@@ -59,7 +56,7 @@
         </div>
       </div>
       <div class="col-md-6" data-aos="zoom-in">
-        <div class="card mx-auto" style="width: 25rem;">
+        <div class="card mx-auto">
           <i class="card-icon-top fa fa-users" src="..." alt="Card image cap"></i>
           <div class="card-body">
             <h3 class="card-title">Professional Team</h3>
@@ -70,8 +67,8 @@
       </div>
       <div class="row">
       <div class="col-md-6" data-aos="zoom-in">
-        <div class="card mx-auto" style="width: 25rem;">
-          <i class="card-icon-top fa fa-users" src="..." alt="Card image cap"></i>
+        <div class="card mx-auto">
+          <i class="card-icon-top fa fa-money-bill-wave" src="..." alt="Card image cap"></i>
           <div class="card-body">
             <h3 class="card-title">Affordable Prices</h3>
             <p class="card-text">Provide The Best Results On Time With a Competitive Prices.</p>
@@ -79,8 +76,8 @@
         </div>
       </div>
       <div class="col-md-6" data-aos="zoom-in">
-        <div class="card mx-auto" style="width: 25rem;">
-          <i class="card-icon-top fa fa-clock" src="..." alt="Card image cap"></i>
+        <div class="card mx-auto">
+          <i class="card-icon-top fa fa-thumbs-up" src="..." alt="Card image cap"></i>
           <div class="card-body">
             <h3 class="card-title">Satisfactory Result</h3>
             <p class="card-text">Speed ?? And Amazing Results Is A Challenge For Us. Creativity and effectiveness, it all flows in our blood.</p>

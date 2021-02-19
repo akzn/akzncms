@@ -2,18 +2,18 @@
     <div class="container">
       
       <div class="row">
-        <div class="col-md-6">
-          <div class="logo-container pb-5">
+        <div class="col-md-6 mb-5">
+          <div class="logo-container pb-md-5">
             <img src="<?=base_url()?>img/logo-v2-white.png" alt="Site Logo" class="img-responsive front-logo"  />
           </div>
-          <div class="row">
-            <div class="col-md-3">
+          <div class="row d-none d-md-block">
+            <div class="col-md-3 col-3">
                 <ul class="">
                   <li><a href=""></a>Home</li>
                   <li><a href=""></a>About</li>
                 </ul>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 col-3">
               <ul class="">
                   <li><a href=""></a>Projects</li>
                   <li><a href=""></a>Contact</li>
@@ -21,15 +21,17 @@
             </div>
           </div>
           <hr>
-          <p style="font-size: 30px">Stay up-to-date on our latest projects</p>
-          <p style="font-size: 30px">Subscribe to our Youtube Channel</p>
+          <p class="big">Stay up-to-date on our latest projects</p>
+          <p class="big">Subscribe to our Youtube Channel</p>
           <button class="btn btn-danger mt-4"><i class="fab fa-youtube"></i> Subscribe Now</button>
-          <hr>
-          <span class="copyright">&copy; ziemotion 2020. All Rights Reserved.</span><br>
-          <span class="copyright">Supported by javalatte.xyz</span>
+          <div class="copyright-left d-none d-md-block">
+            <hr>
+            <span class="copyright">&copy; ziemotion 2020. All Rights Reserved.</span><br>
+            <span class="copyright">Supported by javalatte.xyz</span>
+          </div>
         </div>
         <div class="col-md-6">
-          <div style="padding-left: 100px">
+          <div class="ml-md-5">
             <p class="mb-5" style="font-size: 30px;font-weight: 600">Get in Touch</p>
              
             <p class="big"><?=$site['email']?></p>
@@ -69,6 +71,12 @@
             <h3 class="mt-5 mb-3">Office Hours</h3>
             <p>Mon – Sat : 9am – 5pm</p>
             <p>Sun : Closed</p>
+
+            <div class="copyright-right d-md-none">
+              <hr>
+              <span class="copyright">&copy; ziemotion 2020. All Rights Reserved.</span><br>
+              <span class="copyright">Supported by javalatte.xyz</span>
+            </div>
 
           </div>
         </div>

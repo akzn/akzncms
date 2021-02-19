@@ -36,7 +36,7 @@
 
   <!-- Custom styles for this template -->
   <link href="<?=base_url()?>assets/theme/zie1/css/new-age.min.css" rel="stylesheet">
-  <link href="<?=base_url()?>assets/theme/zie1/custom.css?v=0.6" rel="stylesheet">
+  <link href="<?=base_url()?>assets/theme/zie1/custom.css?v=0.9" rel="stylesheet">
 
 
   <!-- Bootstrap core JavaScript -->

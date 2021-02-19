@@ -213,7 +213,7 @@ h1.page-title{
 	padding-top: 80px;
 	background-color: rgb(158 153 212);
 	color:white;
-  background: url('../../../img/bg.svg');
+  background: url('../../../img/bg_2.svg');
   background-position: center;
   background-size: cover;
 }
@@ -263,7 +263,7 @@ footer span{
 }
 
 footer span.copyright{
-	color: #585858;;
+	color: #585858;
 }
 
 .zoom{
@@ -281,7 +281,10 @@ hr.red.left{
     border-color: #dc3545;
     margin-bottom: 10px;
 }
-
+section.projects .gal-column .row.h-50{
+  margin-left: unset;
+  margin-right: unset;
+}
 section.projects .project-item-content:hover{
 	opacity: 1;
 }
@@ -348,8 +351,8 @@ section.guarantee {
   padding-top: unset;
 }
 
-section.guarantee .row{
-    padding-bottom: 2rem
+section.guarantee .card {
+    margin-bottom: 3rem
   }
 section.guarantee .card .card-icon-top{
   font-size: 5rem;
@@ -386,6 +389,10 @@ section.guarantee .card {
 .category-tab.active p{
 	color: white!important;
   /*font-weight: 600;*/
+}
+
+.project-desc{
+  padding: 90px 90px;
 }
 
 .project-tab .category-tab{
@@ -429,3 +436,91 @@ section.about h4{
           transform:  rotate(0deg) ;
         }   
     } 
+
+@media screen and (max-width: 600px) {
+  h1.page-title {
+    font-size: 9vw;
+    text-shadow: 2px 1px #f1f1f1;
+  }
+  p {
+    margin-bottom: unset;
+  }
+  #social-sidebar a {
+      height: 37px;
+      width: 30px;
+      font-size: 15px;
+      line-height: 40px;
+  }
+  footer p.big {
+      font-size: unset;
+      line-height: unset;
+  }
+
+  section {
+    padding: 50px 0;
+  }
+  section.contact p.h1{
+    font-size: 1.5rem;
+  }
+  .row.service-tab{
+    margin: unset;
+  }
+  .project-desc{
+    padding: 15px;
+  }
+  .project-desc .text-center-text{
+    font-weight: unset;
+  }
+  section.projects #project-list{
+    padding:10px;
+  }
+
+  section.projects .gal-item{
+    margin-bottom: 42px;
+  }
+  section.projects #project-list .box{
+    background-position: center;
+    background-size: cover;
+  }
+
+  section.projects #project-list .gal-item .c1-i1 {
+      min-height: 300px;
+  }
+
+  section.projects .project-item-content{
+    opacity: 1;
+    background-color: unset;
+  }
+
+  section.projects .project-item-caption {
+    position: absolute;
+    bottom: 0;
+    top: unset;
+    transform: unset;
+    padding: 9px;
+    background-color: #00aaad;
+    margin-right: 20px;
+        min-width: 200px;
+  }
+
+  section.projects .project-item-caption hr.left {
+    border-color: #ffc107;
+  }
+
+  section.projects .project-item-caption .h2{
+    font-size: 1.2rem;
+  }
+  section.projects .project-item-caption span{
+    display: none;
+  }
+
+}
+
+@media screen and (min-width: 900px) {
+  section.guarantee .card {
+    width:25rem;
+  }
+  section.contact .img-fluid.map{
+    height: 450px;
+  }
+}

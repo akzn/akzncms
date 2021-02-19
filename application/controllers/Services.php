@@ -9,14 +9,18 @@ class Services extends CI_Controller {
 	// 	redirect(base_url());
 	// }
 
-	function _remap($method) {
+	function _remap($method=null) {
 		$category = array(
 			'2d-3d-animation',
 			'audio-visual',
 			'design-graphic',
 			'course-education'
 		);
-        if (in_array($method,$category))
+		if ($method==null)
+	    {
+	        $this->index('2d-3d-animation');
+	    }
+	    else if (in_array($method,$category))
 	    {
 	        $this->index($method);
 	    }
@@ -27,10 +31,10 @@ class Services extends CI_Controller {
     }
 
 	// Main Page Home
-	public function index($param) {
+	public function index($param=null) {
 
 		if (!$param) {
-			redirect(base_url());
+			redirect(base_url('services/2d-3d-animation'));
 		}
 
 		if ($param=='2d-3d-animation') {

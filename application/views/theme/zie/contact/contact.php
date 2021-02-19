@@ -11,22 +11,28 @@
     </div>
   </div>
 
-  <section class="contact">
-    <div class="row pb-5">
-      <div class="col-md-12 text-center">
-        <p class="h1 mb-5">Contact Us At</p>
-        <p class="h1"><?=$site['phone_number']?></p>
-        <p class="h1"><?=$site['email']?></p>
-      </div>
-    </div>
 
-    <div class="row mt-5">
-      <div class="col-md-12 text-center">
-        <p class="h3 mb-3">Or Find us here</p>
-        <div id="k-contact-map" class="clearfi d-none d-md-block"><!-- map -->
-            <iframe width="700" height="450" frameborder="0" style="border:0"
-            src="<?php echo $site['google_maps'];?>" allowfullscreen></iframe>                
+<section class="contact">
+    <div class="container container-content">
+     <div class="row">
+       <div class="col-md-12" data-aos="zoom-in">
+        <div class=" text-center mb-5">
+          <p class="h1 mb-5">Contact Us At</p>
+          <p class="h1"><?=$site['phone_number']?></p>
+          <p class="h1"><?=$site['email']?></p>
         </div>
-      </div>
-    </div>
-  </section>
+       </div>
+       <div class="col-md-12" data-aos="zoom-in">
+        <div class=" text-center">
+          <div class="col-md-12 text-center">
+            <p class="h3 mb-3">Or Find us here</p>
+            <div id="k-contact-map" class="clearfix"><!-- map -->
+                <iframe class="map img-fluid" width="700" height="450" frameborder="0" style="border:0"
+                src="<?php echo $site['google_maps'];?>" allowfullscreen></iframe>                
+            </div>
+          </div>
+        </div>
+       </div>
+     </div>
+  </div>
+</section>

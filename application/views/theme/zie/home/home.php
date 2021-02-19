@@ -138,7 +138,15 @@
   transform: translateX(-50%) translateY(-50%);
   z-index: -9;
 }
-
+@media screen and (max-width: 600px) {
+  header {
+    height: unset;
+    min-height: 18rem;
+  }
+  header video {
+    top: 31%;
+  }
+}
   </style>
 
   <header>
@@ -155,26 +163,20 @@
     </div>
   </div> -->
 </header>
-
-  <section class="about text-center" id="about" style="">
-    <div class="container">
-      <div class="section-heading text-center pb-5" data-aos="zoom-in">
-        <h2 class="pb-4">we are passionate to bring great ideas to life</h2>
-        <p class="text-muted">Check out who we are!</p>
-      </div>
-      <div class="row">
-        <div class="col-md-12 mx-auto video-link" data-aos="zoom-in" style="position: relative;">
-          <div style="background-image: url(<?=base_url()?>img/6.jpg);
+  
+  <style type="text/css">
+    section#about .video-link{
+      background-image: url(<?=base_url()?>img/6.jpg);
             background-size: cover;
             max-width: 1067px;
             height: 600px;
             margin-bottom: 40px;
-            margin-left: auto;" 
-            class="bootstrap-fancy-youtube" data-fancy-src="https://www.youtube.com/embed/iAlMVsvGQNA"></div>
-
-          <div class="zoom" id="about-box-caption" style="    position: absolute;
-            top: 16%;
-            left: -4%;
+            margin-left: auto;
+    }
+    section#about #about-box-caption{
+      position: absolute;
+                top: 36%;
+    left: 10%;
             width: 100%;
             max-width: 400px;
             margin: 0;
@@ -182,7 +184,50 @@
             padding-top: 60px;
             /*background-color: rgb(158 153 212);*/
             background-color: #ffc107;
-            color: white;">
+            color: white;
+    }
+    @media screen and (max-width: 1024px) {
+      section#about .video-link{
+        max-width: 1000px;
+        height: 600px;
+      }
+      section#about #about-box-caption{
+        position: relative;
+        margin: -90px 10px 0 10px;
+            top: 36%;
+          left: 0;
+            width: 100%;
+            max-width: unset;
+            padding: 49px 50px;
+            padding-top: 60px;
+            /*background-color: rgb(158 153 212);*/
+            background-color: #ffc107;
+            color: white;
+      }
+    }
+    @media screen and (max-width: 600px) {
+      section#about .video-link{
+        max-width: 600px;
+        height: 300px;
+      }
+    }
+  </style>
+  <section class="about text-center" id="about" style="position: relative;">
+    <div class="container">
+      <div class="section-heading text-center pb-5" data-aos="zoom-in">
+        <h2 class="pb-4">we are passionate to bring great ideas to life</h2>
+        <p class="text-muted">Check out who we are!</p>
+      </div>
+      <div class="row">
+        <div class="col-md-12 mx-auto video-link" data-aos="zoom-in" style="position: relative;">
+          <div style="" 
+            class="bootstrap-fancy-youtube" data-fancy-src="https://www.youtube.com/embed/iAlMVsvGQNA"></div>
+
+          
+
+        </div>
+        <!-- <div class="col-md-12"> -->
+        <div class="zoom" id="about-box-caption" style="" data-aos="zoom-in">
             <h2 class="row-title pb-3">Who we are</h2>
               <p class="pb-4">We create products with great quality from fresh idea to reality, producing many animation product (2D and 3D), graphic design and interior design</p>
               <div class="input-group">
@@ -192,10 +237,9 @@
                 <div class="input-group-append">
                   <a href="<?=base_url()?>projects" style="color:white"><i class="fa fa-arrow-right" style="font-size: xx-large;    padding-left: 10px;"></i></a>
                 </div>
-              </div>
+              <!-- </div> -->
               
           </div>
-
         </div>
       </div>
     </div>

@@ -12,7 +12,7 @@
   </div>
 
 <div class="row service-tab" style="box-shadow: 0 25px 50px 0 rgb(0 0 0 / 20%);}">
-  <div class="col-md-3 text-center">
+  <div class="col-md-3 col-6 text-center">
     <a class="decoration-n" href="<?=base_url()?>services/2d-3d-animation">
       <div class="py-3 m-2 category-tab <?=($category=='2d-3d-animation')?'active':'';?>">
         <i class="fa fa-cube fa-2x mb-2"></i>
@@ -20,7 +20,7 @@
       </div>
     </a>
   </div>
-  <div class="col-md-3 text-center">
+  <div class="col-md-3 col-6 text-center">
     <a class="decoration-n" href="<?=base_url()?>services/audio-visual">
       <div class="py-3 m-2 category-tab <?=($category=='audio-visual')?'active':'';?>">
         <i class="fa fa-video fa-2x mb-2"></i>
@@ -28,7 +28,7 @@
       </div>
     </a>
   </div>
-  <div class="col-md-3 text-center">
+  <div class="col-md-3 col-6 text-center">
     <a class="decoration-n" href="<?=base_url()?>services/design-graphic">
       <div class="py-3 m-2 category-tab <?=($category=='design-graphic')?'active':'';?>">
         <i class="fa fa-highlighter fa-2x mb-2"></i>
@@ -36,7 +36,7 @@
       </div>
     </a>
   </div>
-  <div class="col-md-3 text-center">
+  <div class="col-md-3 col-6 text-center">
     <a class="decoration-n" href="<?=base_url()?>services/course-education">
       <div class="py-3 m-2 category-tab <?=($category=='course-education')?'active':'';?>">
         <i class="fa fa-shapes fa-2x mb-2"></i>
@@ -78,7 +78,7 @@
   </div>
 
   <div class="container">
-    <div class="row my-10">
+    <!-- <div class="row my-10"> -->
 
 
       <?php if ($category=='2d-3d-animation'): ?>
@@ -187,7 +187,7 @@
         </div>
       <?php endif ?>
 
-    </div>
+    <!-- </div> -->
 
   </div>
 </section>

@@ -32,7 +32,7 @@
             <a class="nav-link js-scroll-trigger" href="<?=base_url()?>about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="<?=base_url()?>#services">Services</a>
+            <a class="nav-link js-scroll-trigger" href="<?=base_url()?>services">Services</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="<?=base_url()?>projects">Projects</a>
