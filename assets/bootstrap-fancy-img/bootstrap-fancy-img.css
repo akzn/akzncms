@@ -1,3 +1,8 @@
+  .bootstrap-fancy-img,.bootstrap-fancy-video,.bootstrap-fancy-youtube{
+    cursor: pointer;
+  }
+
+
     /*Bootstrap Gallery Fancy Akzn*/
     .bootstrap-fancy-img {
       border-radius: 5px;

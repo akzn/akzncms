@@ -48,7 +48,7 @@ class Home extends CI_Controller {
 
 		$data = array(	
 						'page' 		=> 'Home',
-						'title'		=> $site['nameweb'],
+						'title'		=> $site['nameweb'] .' - '. $site['metatitle'],
 						'site'		=> $site,
 						'slider'	=> $slider,
 						'galleries'	=> $galleries,

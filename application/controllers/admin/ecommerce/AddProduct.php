@@ -39,10 +39,15 @@ class AddProduct extends CI_Controller
                 $id = 0;
             }
 
+            /*if is edit*/
+             if ($id > 0 ) {
+                $productData = $this->Products_model->getOneProduct($id);
+            }
             
             /* if there is new image*/
             if ( isset( $_FILES["userfile"] ) && !empty( $_FILES["userfile"]["name"] ) ) {
-                $_POST['image'] = $this->uploadImage();
+                $old_image = (isset($productData))? $productData['image']: NULL;
+                $_POST['image'] = $this->uploadImage($old_image);
             } else {
                 $_POST['image'] = '';
             }
@@ -109,7 +114,7 @@ class AddProduct extends CI_Controller
         $this->load->view('admin/layout/wrapper',$data);
     }
 
-    private function uploadImage()
+    private function uploadImage($oldImage = null)
     {   
         $upload_path = './img/shop/';
         $upload_path_temp = './img/shop/temp';
@@ -118,6 +123,12 @@ class AddProduct extends CI_Controller
         $config['allowed_types'] = 'jpg|jpeg|png';
         $config['quality'] = '50%';
         $config['max_size'] = 5*1024;
+
+         /*random image name*/
+        $fileName = md5(date('ymdhis').rand(10,100));
+        $config['file_name'] = $fileName;
+
+        
         $this->load->library('upload', $config);
         $this->upload->initialize($config);
         if (!$this->upload->do_upload('userfile')) {
@@ -130,6 +141,13 @@ class AddProduct extends CI_Controller
             unlink($data['full_path']);       
         }
         $img = $this->upload->data();
+
+        /*if change image / edit old product*/
+        if (!(empty($oldImage))) {
+            unlink($upload_path.$oldImage);
+            unlink($upload_path.$oldImage.'/thumb');
+        }
+
         return $img['file_name'];
     }
 

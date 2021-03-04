@@ -6,27 +6,28 @@
           <div class="logo-container pb-md-5">
             <img src="<?=base_url()?>img/logo-v2-white.png" alt="Site Logo" class="img-responsive front-logo"  />
           </div>
-          <div class="row d-none d-md-block">
+          <div class="row d-none d-md-flex">
             <div class="col-md-3 col-3">
                 <ul class="">
-                  <li><a href=""></a>Home</li>
-                  <li><a href=""></a>About</li>
+                  <li><a href="<?=base_url()?>">Home</a></li>
+                  <li><a href="<?=base_url()?>services">Services</a></li>
+                  <li><a href="<?=base_url()?>projects">Projects</a></li>
                 </ul>
             </div>
             <div class="col-md-6 col-3">
               <ul class="">
-                  <li><a href=""></a>Projects</li>
-                  <li><a href=""></a>Contact</li>
+                  <li><a href="<?=base_url()?>about">About</a></li>
+                  <li><a href="<?=base_url()?>contact">Contact</a></li>
                 </ul>
             </div>
           </div>
           <hr>
           <p class="big">Stay up-to-date on our latest projects</p>
           <p class="big">Subscribe to our Youtube Channel</p>
-          <button class="btn btn-danger mt-4"><i class="fab fa-youtube"></i> Subscribe Now</button>
+          <a class="btn btn-danger mt-4" href="https://www.youtube.com/channel/UCxTRPlaitifbKKmKKLrK8MQ?sub_confirmation=1" target="_blank"><i class="fab fa-youtube"></i> Subscribe Now</a>
           <div class="copyright-left d-none d-md-block">
             <hr>
-            <span class="copyright">&copy; ziemotion 2020. All Rights Reserved.</span><br>
+            <span class="copyright">&copy; ziemotion <?=date("Y");?>. All Rights Reserved.</span><br>
             <span class="copyright">Supported by javalatte.xyz</span>
           </div>
         </div>

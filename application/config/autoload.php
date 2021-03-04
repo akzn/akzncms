@@ -141,4 +141,5 @@ $autoload['model'] = array( 'config_model' 		=> 'mConfig',
 							'konstruksi_model'		=> 'mKonstruksi',
 							'sewaalat_model'		=> 'mSewaalat',
 							'project_model'		=> 'mProject',
+							'pages_model'		=> 'mPages',
 						);

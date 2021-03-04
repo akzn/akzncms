@@ -37,8 +37,10 @@ class Services extends CI_Controller {
 			redirect(base_url('services/2d-3d-animation'));
 		}
 
+		$pages = $this->mPages->detailPagebyName($param);
+
 		if ($param=='2d-3d-animation') {
-			$title = '2d & 3d Animation';
+			
 		}elseif ($param=='audio-visual') {
 			$title = 'Audio Visual';
 		}elseif ($param=='design-graphic') {
@@ -47,6 +49,7 @@ class Services extends CI_Controller {
 			$title = 'Course & Education';
 		}
 
+
 		$site  	= $this->mConfig->list_config();
 
 		// $galleries = $this->mGalleries->listGalleries();
@@ -54,7 +57,9 @@ class Services extends CI_Controller {
 		$data = array(	
 						'page' 		=> 'Services',
 						'category'	=> $param,
-						'title'		=> $title.' - '.$site['nameweb'],
+						// 'title'		=> $title.' - '.$site['nameweb'],
+						'title' => ucwords($pages['metatitle']),
+						'meta_desc' => $pages['metatext'],
 						'site'		=> $site,
 						'isi'		=> 'theme/zie/services/services',
 						// 'projects'	=> $galleries

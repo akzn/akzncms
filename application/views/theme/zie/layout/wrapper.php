@@ -5,8 +5,7 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="description" content="<?=(isset($meta_desc)) ? $meta_desc : $site['metatext']?>">
 
   <title><?php echo $title;?></title>
 
@@ -31,12 +30,13 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
-  <link rel="stylesheet" href="<?=base_url()?>assets/bootstrap-fancy-img/bootstrap-fancy-img.css?v=0.5" />
+  
   <link rel="stylesheet" href="<?=base_url()?>assets/front/aos/aos.css">
+  <link rel="stylesheet" href="<?=base_url()?>assets/bootstrap-fancy-img/bootstrap-fancy-img.css?v=0.6" />
 
   <!-- Custom styles for this template -->
   <link href="<?=base_url()?>assets/theme/zie1/css/new-age.min.css" rel="stylesheet">
-  <link href="<?=base_url()?>assets/theme/zie1/custom.css?v=0.9" rel="stylesheet">
+  <link href="<?=base_url()?>assets/theme/zie1/custom.css?v=1.0" rel="stylesheet">
 
 
   <!-- Bootstrap core JavaScript -->

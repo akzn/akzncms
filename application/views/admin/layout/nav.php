@@ -22,20 +22,7 @@
             <li><a href="<?php echo base_url('admin/price') ?>">List Price</a></li>
         </ul>
     </li>      -->
-
-    <!-- <li><a href="#"><i class="fa fa-building-o"></i> Konstruksi<span class="fa arrow"></span></a>
-        <ul class="nav nav-second-level">
-            <li><a href="<?php echo base_url('admin/konstruksi') ?>">Text</a></li>
-            <li><a href="<?php echo base_url('admin/konstruksi/item') ?>">Item</a></li>
-        </ul>
-    </li>     -->
-
-   <!--  <li><a href="#"><i class="fa fa-car"></i> Sewa Alat<span class="fa arrow"></span></a>
-        <ul class="nav nav-second-level">
-            <li><a href="<?php echo base_url('admin/sewaalat') ?>">Text</a></li>
-            <li><a href="<?php echo base_url('admin/sewaalat/item') ?>">Item</a></li>
-        </ul>
-    </li>     --> 
+ 
     <!-- <li><a href="#"><i class="fa fa-flag-o"></i> Project<span class="fa arrow"></span></a>
         <ul class="nav nav-second-level">
             <li><a href="<?php echo base_url('admin/project') ?>">List</a></li>
@@ -69,10 +56,10 @@
             <li><a href="<?php echo base_url('admin/testimonials/create') ?>">Tambah Testimonial</a></li>
         </ul>
     </li>  
-    <li><a href="#"><i class="fa fa-image"></i> Galleries<span class="fa arrow"></span></a>
+    <li><a href="#"><i class="fa fa-image"></i> Post Types<span class="fa arrow"></span></a>
         <ul class="nav nav-second-level">
-            <li><a href="<?php echo base_url('admin/galleries') ?>">List Galleries</a></li>
-            <li><a href="<?php echo base_url('admin/galleries/create') ?>">Create Galleries</a></li>
+            <li><a href="<?php echo base_url('admin/galleries') ?>">List Post</a></li>
+            <li><a href="<?php echo base_url('admin/galleries/create') ?>">Create New Post</a></li>
         </ul>
     </li>               
     <!--<li><a href="#"><i class="fa fa-file"></i> Downloads<span class="fa arrow"></span></a>
@@ -100,9 +87,10 @@
         </ul>
     </li>  
     <?php if ($this->session->userdata('userlevel')=='administrator'): ?>
-    <li><a href="#"><i class="fa fa-users"></i> Users<span class="fa arrow"></span></a>
+    <li><a href="#"><i class="fa fa-users"></i> Administrator<span class="fa arrow"></span></a>
         <ul class="nav nav-second-level">
             <li><a href="<?php echo base_url('admin/users/admin') ?>">List Admin</a></li>
+            <li><a href="<?php echo base_url('admin/pages') ?>">Pages</a></li>
         </ul>
     </li>
     <?php endif ?>

@@ -43,9 +43,11 @@ echo validation_errors('<div class="alert alert-success">','</div>');
 
 <div class="col-md-6">
 	<h3>General Settings</h3><hr>
-    <div class="form-group hidden">
+    <div class="form-group">
         <label>Company</label>
-        <input type="text" name="nameweb" placeholder="Nama Website" value="<?php echo $site['nameweb'] ?>" required class="form-control">
+        <input type="text" name="nameweb" placeholder="Nama Website" value="<?php echo $site['nameweb'] ?>" required class="form-control"
+        <?=($this->session->userdata('userlevel')=='administrator') ? '':'disabled readonly';?>
+        >
     </div>
     <div class="form-group">
         <label>Address</label>
@@ -66,14 +68,17 @@ echo validation_errors('<div class="alert alert-success">','</div>');
 </div>
 
 <div class="col-md-6">
-	<!-- <h3>Meta</h3><hr>
-	<div class="form-group">
-    <label>Keywords (Google search keywords)</label>
-    <textarea name="keywords" rows="3" class="form-control" placeholder="Kata kunci / keywords"><?php echo $site['keywords'] ?></textarea>
+	<h3>Meta Header (for seo)</h3><hr>
+	<!-- <div class="form-group">
+        <label>Keywords (Google search keywords)</label>
+        <textarea name="keywords" rows="3" class="form-control" placeholder="Kata kunci / keywords"><?php echo $site['keywords'] ?></textarea>
     </div> -->
-    
     <div class="form-group">
-    <label>Metatext (Ex : Description)</label>
+        <label>Home Title </label>
+        <input type="text" name="metatitle" placeholder="Home Title" value="<?php echo $site['metatitle'] ?>" required class="form-control">
+    </div>
+    <div class="form-group">
+    <label>Default Description</label>
     <textarea name="metatext" rows="5" class="form-control" placeholder="Kode metatext"><?php echo $site['metatext'] ?></textarea>
     </div>
 

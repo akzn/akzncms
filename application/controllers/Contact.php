@@ -8,6 +8,8 @@ class Contact extends CI_Controller {
 		$site  		= $this->mConfig->list_config();
 		$gallery    = $this->mGalleries->listGalleryPubProfile();
 		$blogs		= $this->mBlogs->listBlogsPub();
+
+		$pages = $this->mPages->detailPagebyName('contact');
 		
 		// Validasi
 		$valid = $this->form_validation;
@@ -18,8 +20,9 @@ class Contact extends CI_Controller {
 		
 		if($valid->run() === FALSE) {
 		
-			$data = array(	'title'	=> 'Kontak Kami - '.$site['nameweb'],
-							'site'	=> $site,
+			$data = array(	'site'	=> $site,
+							'title'	=> 'Contact Us - '.$site['nameweb']. ' - ' .$pages['metatitle'],
+							'meta_desc' => $pages['metatext'],
 							'blogs'	=> $blogs,
 							'gallery'=> $gallery,
 							'isi'		=> 'theme/zie/contact/contact',

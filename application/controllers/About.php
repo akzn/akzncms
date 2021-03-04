@@ -8,10 +8,12 @@ class About extends CI_Controller {
 	{
 		
 		$site  		= $this->mConfig->list_config();
+		$pages = $this->mPages->detailPagebyName('about');
 		// $about = $this->mConfig->get_about();
 
 		$data = array(	
-			'title' => 'About Us - '.$site['nameweb'],
+			'title' => 'About Us - '.$site['nameweb']. ' - ' .$pages['metatitle'],
+			'meta_desc' => $pages['metatext'],
 			'site' 	=> $site,
 						'isi'		=> 'theme/zie/about/about',
 					);

@@ -53,6 +53,8 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+
+
 // /*product url*/
 // $route['product/'] = "product/index/";
 // $route['product/(:any)'] = "product/view/$1";

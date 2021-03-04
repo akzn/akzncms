@@ -96,42 +96,42 @@
   </h2>
     <div class="row my-10">
       <div class="col-md-6" data-aos="zoom-in">
-        <h1 class="h1">Heard about Design Sprints?</h1>
-        <p>Need a facilitator or a full design team for your Design Sprint? This 5-day process allows you to look into the future and learn how your customers respond to new ideas before investing large amounts of time and money. After having executed over 50 Design Sprints we started offering Design Sprint masterclasses in our Academy.</p>
+        <h1 class="h1">Khendak Semesta (sebuah kisah Ayu dan Abimanyu)</h1>
+        <p>A story about love, friends, and things in between. How to love someone sincerely. Everyone must have been Ayu, once in their life. Or if it wasn’t, must have been Abimanyu, for part of loving someone unconditionally. Because, sometimes our wishes are not the wishes of universe.</p>
       </div>
       <div class="col-md-6" data-aos="zoom-in">
-        <img src="<?=base_url()?>img/services/1.png" class="img-fluid">
+        <img src="<?=base_url()?>img/services/1.png" class="img-fluid bootstrap-fancy-youtube" data-fancy-src="https://www.youtube.com/embed/B_JrO48-gts">
       </div>
     </div>
 
     <div class="row my-10">
       <div class="col-md-6" data-aos="zoom-in">
-        <img src="<?=base_url()?>img/services/2.png" class="img-fluid">
+        <img src="<?=base_url()?>img/services/2.png" class="img-fluid bootstrap-fancy-youtube" data-fancy-src="https://www.youtube.com/embed/iAlMVsvGQNA">
       </div>
       <div class="col-md-6" data-aos="zoom-in">
-        <h1 class="h1">Heard about Design Sprints?</h1>
-        <p>Need a facilitator or a full design team for your Design Sprint? This 5-day process allows you to look into the future and learn how your customers respond to new ideas before investing large amounts of time and money. After having executed over 50 Design Sprints we started offering Design Sprint masterclasses in our Academy.</p>
+        <h1 class="h1">Covid-19 socialization</h1>
+        <p>Pandemic Covid-19 have attacked us. Everyone keep trying to fights, keep trying to survives againsts it. It should be in the right way. How to fights and survive will be delivered with Covid-19 socialization.</p>
       </div>
     </div>
 
 
     <div class="row my-10">
       <div class="col-md-6" data-aos="zoom-in">
-        <h1 class="h1">Heard about Design Sprints?</h1>
-        <p>Need a facilitator or a full design team for your Design Sprint? This 5-day process allows you to look into the future and learn how your customers respond to new ideas before investing large amounts of time and money. After having executed over 50 Design Sprints we started offering Design Sprint masterclasses in our Academy.</p>
+        <h1 class="h1">Explanation for traffic signs</h1>
+        <p>Many people can drive. Some of them are so amazing on the road. But not all of them really knows what the meaning of traffic signs. We all know red light means stop but, do we know what the meaning of triangle shapes with diagonal line sign?</p>
       </div>
       <div class="col-md-6" data-aos="zoom-in">
-        <img src="<?=base_url()?>img/services/3.png" class="img-fluid">
+        <img src="<?=base_url()?>img/services/3.png" class="img-fluid bootstrap-fancy-youtube" data-fancy-src="https://www.youtube.com/embed/MOJd1uKUkOY">
       </div>
     </div>
 
       <div class="row my-10">
       <div class="col-md-6" data-aos="zoom-in">
-        <img src="<?=base_url()?>img/services/4.png" class="img-fluid">
+        <img src="<?=base_url()?>img/services/4.png" class="img-fluid bootstrap-fancy-youtube" data-fancy-src="https://www.youtube.com/embed/mjp5gHIi55s">
       </div>
       <div class="col-md-6" data-aos="zoom-in">
-        <h1 class="h1">Heard about Design Sprints?</h1>
-        <p>Need a facilitator or a full design team for your Design Sprint? This 5-day process allows you to look into the future and learn how your customers respond to new ideas before investing large amounts of time and money. After having executed over 50 Design Sprints we started offering Design Sprint masterclasses in our Academy.</p>
+        <h1 class="h1">Good Morning Jogja</h1>
+        <p>Good Morning Jogja is a comedy show of Ziemotion Production, which tells the life of several professions in Yogyakarta in a funny way.</p>
       </div>
     </div>
 

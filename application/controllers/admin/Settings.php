@@ -41,6 +41,7 @@ class Settings extends CI_Controller {
 							'address'	=> $i->post('address'),
 							'email'		=> $i->post('email'),
 							'keywords'	=> $i->post('keywords'),
+							'metatitle'	=> $i->post('metatitle'),
 							'metatext'	=> $i->post('metatext'),
 							'about'		=> $i->post('about'),
 							'phone_number'=> $i->post('phone_number'),

@@ -98,7 +98,7 @@
           </div>
           <div class="col-md-6" data-aos="zoom-in">
             <h1 class="h1">3D Animation</h1>
-            <p>Need a facilitator or a full design team for your Design Sprint? This 5-day process allows you to look into the future and learn how your customers respond to new ideas before investing large amounts of time and money. After having executed over 50 Design Sprints we started offering Design Sprint masterclasses in our Academy.</p>
+            <p>Ziemotion have many experience on creating 3D animations for various clients that have been used for an amazing advertisements, impressive shows, and many more</p>
           </div>
         </div>
 
@@ -106,7 +106,7 @@
         <div class="row my-10">
           <div class="col-md-6" data-aos="zoom-in">
             <h1 class="h1">Motion Graphic</h1>
-            <p>Need a facilitator or a full design team for your Design Sprint? This 5-day process allows you to look into the future and learn how your customers respond to new ideas before investing large amounts of time and money. After having executed over 50 Design Sprints we started offering Design Sprint masterclasses in our Academy.</p>
+            <p>Ziemotion is able to make an awesome motion graphic from client's brief. It could be used for campaign, socialization, and many other purposes.</p>
           </div>
           <div class="col-md-6" data-aos="zoom-in">
             <img src="<?=base_url()?>img/services/3.png" class="img-fluid">
@@ -117,7 +117,7 @@
         <div class="row my-10">
           <div class="col-md-6" data-aos="zoom-in">
             <h1 class="h1">Film</h1>
-            <p>Need a facilitator or a full design team for your Design Sprint? This 5-day process allows you to look into the future and learn how your customers respond to new ideas before investing large amounts of time and money. After having executed over 50 Design Sprints we started offering Design Sprint masterclasses in our Academy.</p>
+            <p>Ziemotion created and produced several films. We dedicate ourselves to make an interesting and high quality films.</p>
           </div>
           <div class="col-md-6" data-aos="zoom-in">
             <img src="<?=base_url()?>img/services/1.png" class="img-fluid">
@@ -130,7 +130,7 @@
           </div>
           <div class="col-md-6" data-aos="zoom-in">
             <h1 class="h1">Photo Product</h1>
-            <p>Need a facilitator or a full design team for your Design Sprint? This 5-day process allows you to look into the future and learn how your customers respond to new ideas before investing large amounts of time and money. After having executed over 50 Design Sprints we started offering Design Sprint masterclasses in our Academy.</p>
+            <p>Our Clients can rely on us to make their products more attractive once their products are combined with our creativity.</p>
           </div>
         </div>
 
@@ -138,7 +138,7 @@
         <div class="row my-10">
           <div class="col-md-6" data-aos="zoom-in">
             <h1 class="h1">Video</h1>
-            <p>Need a facilitator or a full design team for your Design Sprint? This 5-day process allows you to look into the future and learn how your customers respond to new ideas before investing large amounts of time and money. After having executed over 50 Design Sprints we started offering Design Sprint masterclasses in our Academy.</p>
+            <p>Video editing is one of the most important part to make a high quality video. Ziemotion have a lot of creative stuff to make our client's videos really extraordinary.</p>
           </div>
           <div class="col-md-6" data-aos="zoom-in">
             <img src="<?=base_url()?>img/services/2/3.jpg" class="img-fluid">
@@ -149,7 +149,7 @@
         <div class="row my-10">
           <div class="col-md-6 my-auto" data-aos="zoom-in">
             <h1 class="h1">Packaging</h1>
-            <p>Ziemotion also works on packaging design for various products.</p>
+            <p>Ziemotion has been working on many packaging design for various products.</p>
           </div>
           <div class="col-md-6" data-aos="zoom-in">
             <img src="<?=base_url()?>img/services/3/3-1.jpg" class="img-fluid">
@@ -170,7 +170,7 @@
         <div class="row my-10">
           <div class="col-md-6" data-aos="zoom-in">
             <h1 class="h1">Course</h1>
-            <p>Need a facilitator or a full design team for your Design Sprint? This 5-day process allows you to look into the future and learn how your customers respond to new ideas before investing large amounts of time and money. After having executed over 50 Design Sprints we started offering Design Sprint masterclasses in our Academy.</p>
+            <p>Ziemotion opens our doors wide for everyone who wants to learn everything about our field. We can make great things together. Sharing is caring</p>
           </div>
           <div class="col-md-6" data-aos="zoom-in">
             <img src="<?=base_url()?>img/services/4/4-1.jpg" class="img-fluid">
@@ -182,7 +182,7 @@
           </div>
           <div class="col-md-6" data-aos="zoom-in">
             <h1 class="h1">Education</h1>
-            <p>Need a facilitator or a full design team for your Design Sprint? This 5-day process allows you to look into the future and learn how your customers respond to new ideas before investing large amounts of time and money. After having executed over 50 Design Sprints we started offering Design Sprint masterclasses in our Academy.</p>
+            <p>The world's greatest heritage is education. Ziemotion collaborates with many schools and educational institutions to find and create many new talent in the creative industry.</p>
           </div>
         </div>
       <?php endif ?>

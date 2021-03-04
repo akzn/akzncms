@@ -232,6 +232,11 @@ footer ul li{
 	font-size:18px;
 }
 
+footer ul li a {
+    color: rgba(255,255,255,.3);
+    font-size: 1.2rem;
+}
+
 footer hr {
 	max-width: unset;
 	margin: 40px auto 40px;
