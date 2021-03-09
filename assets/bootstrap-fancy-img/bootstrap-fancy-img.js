@@ -20,7 +20,10 @@
  */
 
 $(function () {
-    $('body').append('<div id="bootstrap-fancy" class="bootstrap-fancy modal"><span class="close">&times;</span><img class="modal-content" id="img01"><div id="caption"></div></div>');
+    $('body').append(`<div id="bootstrap-fancy" class="bootstrap-fancy modal">
+        <span class="close">&times;</span><img class="modal-content" id="img01">
+        <div id="caption"></div>
+        </div>`);
 
     $('body').on('click','.bootstrap-fancy-img',function(){
         img=this;
@@ -32,7 +35,7 @@ $(function () {
         // modalImg.src = this.src;
         modalImg.src = $(this).data('fancy-src');
         // captionText.innerHTML = this.alt;
-        captionText.innerHTML = $(this).data('alt');;
+        captionText.innerHTML = (typeof ($(this).data('alt')) !== 'undefined' ) ? $(this).data('alt') : '';
 
         // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];

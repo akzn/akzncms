@@ -13,9 +13,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 
-$hook['post_controller_constructor'] = array(
+$hook['post_controller_constructor'][] = array(
    'class'    => 'LanguageLoader',
    'function' => 'initialize',
    'filename' => 'LanguageLoader.php',
    'filepath' => 'hooks'
+);
+
+$hook['post_controller_constructor'][] = array(
+	'function' => 'redirect_ssl',
+	'filename' => 'ssl.php',
+	'filepath' => 'hooks'
 );

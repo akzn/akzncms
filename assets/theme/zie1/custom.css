@@ -48,6 +48,10 @@
     	letter-spacing: 0.5px;
     }
 
+    section h1{
+      font-size: 50px;
+    }
+
     section h2.row-title{
             font-size: 40px;
     }
@@ -343,6 +347,11 @@ section.services .feature-caption{
 	padding: 10px;
 }
 
+section.services .feature-caption p{
+   text-align: justify;
+}
+   
+
 section.contact p{
 	font-weight: 600;
 }
@@ -361,6 +370,7 @@ section.guarantee .card {
   }
 section.guarantee .card .card-icon-top{
   font-size: 5rem;
+  color:#379492;
 }
 section.guarantee .card .card-title{
   font-size: 1.5rem;

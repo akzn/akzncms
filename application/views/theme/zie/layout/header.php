@@ -26,19 +26,26 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger active" href="<?=base_url()?>">Home</a>
+            <a class="nav-link js-scroll-trigger active" href="<?=base_url()?>"><?=$this->lang->line('home')?></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="<?=base_url()?>about">About</a>
+            <a class="nav-link js-scroll-trigger" href="<?=base_url()?>about"><?=$this->lang->line('about')?></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="<?=base_url()?>services">Services</a>
+            <a class="nav-link js-scroll-trigger" href="<?=base_url()?>services"><?=$this->lang->line('services')?></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="<?=base_url()?>projects">Projects</a>
+            <a class="nav-link js-scroll-trigger" href="<?=base_url()?>projects"><?=$this->lang->line('projects')?></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="<?=base_url()?>contact">Contact</a>
+            <a class="nav-link js-scroll-trigger" href="<?=base_url()?>contact"><?=$this->lang->line('contact')?></a>
+          </li>
+          <li>
+            <i class="fa fa-globe-asia"></i>
+            <select onchange="javascript:window.location.href='<?php echo base_url(); ?>ch_lang/'+this.value;">
+              <option value="english" <?php if($_COOKIE['lang'] == 'english') echo 'selected="selected"'; ?>>English</option>
+              <option value="indonesian" <?php if($_COOKIE['lang'] == 'indonesian') echo 'selected="selected"'; ?>>Bahasa Indonesia</option>
+            </select>
           </li>
         </ul>
       </div>

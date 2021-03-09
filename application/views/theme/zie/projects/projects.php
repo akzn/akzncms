@@ -66,7 +66,7 @@
       <div class="row" style="height: 40vh;display: flex;flex-direction: center;align-items: center;">
         <div class="col-md-12 text-center animate__animated animate__zoomIn">
             <h1 class="page-title">
-              Our Previous Projects
+              <?=$this->lang->line('h-projects')['header-caption']?>
             </h1>
         </div>
       </div>
@@ -76,9 +76,9 @@
 <div class="container project-desc my-md-5" style="" data-aos="zoom-in">
   <div class="text-center text-center-text" style="font-family: Muli">
 
-    Ziemotion is a professional animation service and content creation company. We create products with great quality from fresh idea to reality. Our team is composed of creative individuals who has years of experience producing many animation product like TVCs, short movies, IP (Intellectual Property), toys, game assets and many more.
+    <?=$description?>
 
-    <h2 class="text center h2 pt-5">Below here are some of our previous works</h2>
+    <h2 class="text center h2 pt-5"><?=$this->lang->line('h-projects')['title']?></h2>
   </div>
 </div>
 
@@ -88,7 +88,7 @@
     <a class="decoration-n" href="<?=base_url()?>services/2d-3d-animation" data-category="2d-3d-animation">
       <div class="py-3 m-2 category-tab <?=($category=='2d-3d-animation')?'active':'';?>" style="">
         <i class="fa fa-cube fa-2x mb-2"></i>
-        <p > 2d & 3d Animation</p>
+        <p> 2d & 3d Animation</p>
       </div>
     </a>
   </div>

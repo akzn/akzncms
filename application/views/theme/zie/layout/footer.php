@@ -9,15 +9,15 @@
           <div class="row d-none d-md-flex">
             <div class="col-md-3 col-3">
                 <ul class="">
-                  <li><a href="<?=base_url()?>">Home</a></li>
-                  <li><a href="<?=base_url()?>services">Services</a></li>
-                  <li><a href="<?=base_url()?>projects">Projects</a></li>
+                  <li><a href="<?=base_url()?>"><?=$this->lang->line('home')?></a></li>
+                  <li><a href="<?=base_url()?>services"><?=$this->lang->line('services')?></a></li>
+                  <li><a href="<?=base_url()?>projects"><?=$this->lang->line('projects')?></a></li>
                 </ul>
             </div>
             <div class="col-md-6 col-3">
               <ul class="">
-                  <li><a href="<?=base_url()?>about">About</a></li>
-                  <li><a href="<?=base_url()?>contact">Contact</a></li>
+                  <li><a href="<?=base_url()?>about"><?=$this->lang->line('about')?></a></li>
+                  <li><a href="<?=base_url()?>contact"><?=$this->lang->line('contact')?></a></li>
                 </ul>
             </div>
           </div>
@@ -33,7 +33,7 @@
         </div>
         <div class="col-md-6">
           <div class="ml-md-5">
-            <p class="mb-5" style="font-size: 30px;font-weight: 600">Get in Touch</p>
+            <p class="mb-5" style="font-size: 30px;font-weight: 600"><?=$this->lang->line('get_in_touch')?></p>
              
             <p class="big"><?=$site['email']?></p>
             
@@ -67,11 +67,11 @@
                 </li>
               </ul>
 
-            <h3>Visit Us At</h3><br>
+            <h3><?=$this->lang->line('visit_us_at')?></h3><br>
             <p class="mb-3"><?=$site['address']?></p>
-            <h3 class="mt-5 mb-3">Office Hours</h3>
-            <p>Mon – Sat : 9am – 5pm</p>
-            <p>Sun : Closed</p>
+            <h3 class="mt-5 mb-3"><?=$this->lang->line('office_hours')?></h3>
+            <p><?=$this->lang->line('monday')?> – <?=$this->lang->line('saturday')?> : 9am – 5pm</p>
+            <p><?=$this->lang->line('sunday')?> : Closed</p>
 
             <div class="copyright-right d-md-none">
               <hr>

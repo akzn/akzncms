@@ -71,47 +71,6 @@
   </style>
 
 
-<?php /*
-  <div class="container-fluid" style="background: url('<?=base_url()?>img/bg.svg');background-position: center;
-  background-size: cover;">
-    <!-- Top content -->
-    <div class="top-content container">
-      <div class="row" style="height: 100vh;display: flex;flex-direction: center;align-items: center;">
-        <div class="col-md-6 animate__animated animate__zoomIn">
-          <h1 style="
-                font-size: 3vw;
-    line-height: 1;
-    margin-bottom: 2vw;
-    font-weight: 900;
-    font-family: Rightgrotesk,Arial,sans-serif;
-          ">
-              Ziemotion Studio
-          </h1>
-          <p>Ziemotion is a professional animation service and content creation company. we are passionate to bring great ideas to life. through uncompromising detail, and a passion for quality.</p>
-          <a href="<?=base_url()?>contact" class="btn btn-primary p-3">Get In Touch</a>
-        </div>
-        <div class="col-md-6 text-center animate__animated animate__zoomIn">
-          <div class="floating" style= ""> 
-                <img src="img/Logo-v2.png" style="width:300px"> 
-            </div> 
-        </div>
-      </div>
-    </div>
-  </div>
-*/?>
-
-<?php /*  
-
-  <div class="container-fluid" style="background: url('<?=base_url()?>img/bg.svg');background-position: center;
-  background-size: cover;">
-    <!-- Top content -->
-    <div class="top-content container">
-      <div class="row" style="height: 100vh;display: flex;flex-direction: center;align-items: center;">
-        <div class="col-md-12"></div>
-      </div>
-    </div>
-  </div>
-*/ ?>
   
   <style type="text/css">
     header {
@@ -154,14 +113,6 @@
   <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
     <source src="<?=base_url()?>video/header.mp4" type="video/mp4">
   </video>
-  <!-- <div class="container h-100">
-    <div class="d-flex h-100 text-center align-items-center">
-      <div class="w-100 text-white">
-        <h1 class="display-3">Video Header</h1>
-        <p class="lead mb-0">With HTML5 Video and Bootstrap 4</p>
-      </div>
-    </div>
-  </div> -->
 </header>
   
   <style type="text/css">
@@ -215,8 +166,8 @@
   <section class="about text-center" id="about" style="position: relative;">
     <div class="container">
       <div class="section-heading text-center pb-5" data-aos="zoom-in">
-        <h2 class="pb-4">we are passionate to bring great ideas to life</h2>
-        <p class="text-muted">Check out who we are!</p>
+        <h1 class="pb-4"><?=$this->lang->line('landing')['section-1']['block-1']['title']?></h1>
+        <p class="text-muted"><?=$this->lang->line('landing')['section-1']['block-1']['sub-title']?></p>
       </div>
       <div class="row">
         <div class="col-md-12 mx-auto video-link" data-aos="zoom-in" style="position: relative;">
@@ -228,8 +179,8 @@
         </div>
         <!-- <div class="col-md-12"> -->
         <div class="zoom" id="about-box-caption" style="" data-aos="zoom-in">
-            <h2 class="row-title pb-3">Who we are</h2>
-              <p class="pb-4">We create products with great quality from fresh idea to reality, producing many animation product (2D and 3D), graphic design and interior design</p>
+            <h2 class="row-title pb-3"><?=$this->lang->line('landing')['section-1']['block-1']['heading-1']?></h2>
+              <p class="pb-4"><?=$this->lang->line('landing')['section-1']['block-1']['content-1']?></p>
               <div class="input-group">
                 <div class="custom-file">
                  <input class="form-control" type="text" name="" placeholder="search our project">
@@ -239,32 +190,6 @@
                 </div>
               <!-- </div> -->
               
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Project 1 -->
-  <section class="features d-none" id="">
-    <div class="container">
-      <div class="section-heading text-center">
-        <h2 class="pb-3">we are passionate to bring great ideas to life</h2>
-        <p class="text-muted">Check out who we are!</p>
-        <hr>
-      </div>
-      <div class="row">
-        <div class="col-lg-6 my-auto pb-5">
-          <!-- <img src="img/800x450.png" class="img-fluid" alt=""> -->
-          <div class="embed-responsive embed-responsive-16by9">
-
-          </div>
-        </div>
-        <div class="col-lg-6 my-auto">
-          <div class="container-fluid">
-            <h2 class="row-title">Who we are</h2>
-              <p>Illum omnis veritatis nostrum dolorem est. Provident officiis voluptate modi sunt facere cumque beatae. Facere praesentium et sit voluptas. Omnis sit officiis id autem. Sit voluptatibus placeat esse impedit mollitia. Ipsam voluptates molestias modi nostrum vitae fuga.</p>
-              <input class="form-control" type="text" name="" placeholder="search our project">
           </div>
         </div>
       </div>
@@ -290,8 +215,8 @@
   <section class="features services" id="services">
     <div class="container">
       <div class="section-heading text-center" data-aos="zoom-in">
-        <h2 class="pb-3">We will create products with great quality from fresh idea to reality</h2>
-        <p class="text-muted">Check out what we offer!</p>
+        <h1 class="pb-3"><?=$this->lang->line('landing')['section-2']['block-1']['title']?></h1>
+        <p class="text-muted"><?=$this->lang->line('landing')['section-2']['block-1']['sub-title']?></p>
         <hr>
       </div>
       <div class="row" data-aos="zoom-in">
@@ -317,8 +242,8 @@
                       </li>
                     </ul>
                     <div class="feature-caption">
-                      <h3 class="mb-3 h2">2D & 3D Animation</h3>
-                      <p class="text-muted">We create 2D and 3D animated films, starting from making assets to rendering, which can be used for various purposes. </p>
+                      <h3 class="mb-3 h2"><?=$this->lang->line('landing')['section-2']['block-1']['heading-1']?></h3>
+                      <p class="text-muted"><?=$this->lang->line('landing')['section-2']['block-1']['content-1']?></p>
                     </div>
                   </div>
                 </a>
@@ -342,8 +267,8 @@
                       </li>
                     </ul>
                     <div class="feature-caption">
-                      <h3 class="mb-3 h2">Audio Visual </h3>
-                      <p class="text-muted">Content creation that consists of audio and visual aspects, including video and audio editing for vlogs, advertisements, presentations and others.</p>
+                      <h3 class="mb-3 h2"><?=$this->lang->line('landing')['section-2']['block-1']['heading-2']?> </h3>
+                      <p class="text-muted"><?=$this->lang->line('landing')['section-2']['block-1']['content-2']?></p>
                     </div>
                   </div>
                 </a>
@@ -370,8 +295,8 @@
                       </li>
                     </ul>
                     <div class="feature-caption">
-                      <h3 class="mb-3 h2">Design Graphic </h3>
-                      <p class="text-muted">Creating designs for posters, banners, packaging designs and others.</p>
+                      <h3 class="mb-3 h2"><?=$this->lang->line('landing')['section-2']['block-1']['heading-3']?></h3>
+                      <p class="text-muted"><?=$this->lang->line('landing')['section-2']['block-1']['content-3']?></p>
                     </div>
                   </div>
                 </a>
@@ -395,8 +320,8 @@
                       </li>
                     </ul>
                     <div class="feature-caption">
-                      <h3 class="mb-3 h2">Course & Education </h3>
-                      <p class="text-muted">We also offer training services and courses on digital art, including 2d & 3d animation, audio visual, graphic design, and collaboration with educational institutions.</p>
+                      <h3 class="mb-3 h2"><?=$this->lang->line('landing')['section-2']['block-1']['heading-4']?></h3>
+                      <p class="text-muted"><?=$this->lang->line('landing')['section-2']['block-1']['content-4']?></p>
                     </div>
                   </div>
                 </a>

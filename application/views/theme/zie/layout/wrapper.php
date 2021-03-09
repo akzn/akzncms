@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="<?=html_lang()?>">
 
 <head>
 
@@ -32,11 +33,11 @@
   />
   
   <link rel="stylesheet" href="<?=base_url()?>assets/front/aos/aos.css">
-  <link rel="stylesheet" href="<?=base_url()?>assets/bootstrap-fancy-img/bootstrap-fancy-img.css?v=0.6" />
+  <link rel="stylesheet" href="<?=base_url()?>assets/bootstrap-fancy-img/bootstrap-fancy-img.css?v=0.8" />
 
   <!-- Custom styles for this template -->
   <link href="<?=base_url()?>assets/theme/zie1/css/new-age.min.css" rel="stylesheet">
-  <link href="<?=base_url()?>assets/theme/zie1/custom.css?v=1.0" rel="stylesheet">
+  <link href="<?=base_url()?>assets/theme/zie1/custom.css?v=1.2" rel="stylesheet">
 
 
   <!-- Bootstrap core JavaScript -->
@@ -106,7 +107,7 @@
 
   <!-- Plugin JavaScript -->
   <script src="<?=base_url()?>assets/default/vendor/jquery-easing/jquery.easing.min.js">"></script>
-  <script src="<?=base_url()?>assets/bootstrap-fancy-img/bootstrap-fancy-img.js?v=0.6"></script>
+  <script src="<?=base_url()?>assets/bootstrap-fancy-img/bootstrap-fancy-img.js?v=0.7"></script>
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.min.js"></script>
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.plugins.min.js"></script>
   <script src="https://cdn.boomcdn.com/libs/owl-carousel/2.3.4/owl.carousel.min.js"></script>

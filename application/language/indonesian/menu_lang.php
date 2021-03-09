@@ -1,9 +1,11 @@
 <?php
 /*menu*/
 $lang['home'] = 'Beranda';
-$lang['products'] = 'Produk Kami';
+$lang['products'] = 'Produk';
 $lang['about'] = 'Tentang';
-$lang['contact'] = 'Kontak Kami';
+$lang['contact'] = 'Kontak';
+$lang['services'] = 'Service';
+$lang['projects'] = 'Proyek';
 
 /*shop*/
 $lang['category'] = 'Kategori';
@@ -17,3 +19,11 @@ $lang['btn_read_more'] = 'Lebih Lanjut';
 $lang['btn_see_more'] = 'Lihat Lainnya';
 $lang['btn_more'] = 'Lainnya';
 $lang['btn_send_message'] = 'Kirim Pesan';
+
+/*Footer*/
+$lang['get_in_touch'] = 'Hubungi Kami';
+$lang['visit_us_at'] = 'Alamat';
+$lang['office_hours'] = 'Jam Kantor';
+$lang['monday'] = 'Senin';
+$lang['saturday'] = 'Sabtu';
+$lang['sunday'] = 'Minggu';

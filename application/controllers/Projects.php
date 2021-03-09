@@ -13,13 +13,16 @@ class Projects extends CI_Controller {
 		$galleries = $this->mGalleries->listGalleries();
 		$pages = $this->mPages->detailPagebyName('projects');
 
+		$content = langify($pages['content']);
+
 		$data = array(	
 						'page' 		=> 'Projects',
 						'title'		=> 'Projects - '.$site['nameweb']. ' - ' .$pages['metatitle'],
 						'meta_desc' => $pages['metatext'],
 						'site'		=> $site,
 						'isi'		=> 'theme/zie/projects/projects',
-						'projects'	=> $galleries
+						'projects'	=> $galleries,
+						'description' => $content
 				);
 
 

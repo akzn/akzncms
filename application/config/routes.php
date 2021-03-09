@@ -99,3 +99,7 @@ $route['admin/changePosition'] = "admin/ecommerce/ShopCategories/changePosition"
 $route['admin/changePass'] = "admin/home/home/changePass";
 $route['admin/uploadOthersImages'] = "admin/ecommerce/AddProduct/do_upload_others_images";
 $route['admin/loadOthersImages'] = "admin/ecommerce/AddProduct/loadOthersImages";
+
+
+//Lang Route
+$route['id'] = 'home';

@@ -41,3 +41,36 @@ function get_string_between($string, $start, $end){
     $len = strpos($string, $end, $ini) - $ini;
     return substr($string, $ini, $len);
 }
+
+function langify($string){
+  $ci =& get_instance();
+  $ci->load->helper('language');
+
+  $siteLang = (isset($_COOKIE['lang'])) ? $_COOKIE['lang'] : $ci->config->item('language');
+
+  if ($siteLang == 'indonesian') {
+    $content = get_string_between($string,'[id]','[/id]');
+  } else {
+    $content = get_string_between($string,'[en]','[/en]');
+  }
+
+  if ($content=='') {
+    $content = $string;
+  }
+
+  return $content;
+}
+
+function html_lang(){
+  $ci =& get_instance();
+  $ci->load->helper('language');
+  $siteLang = (isset($_COOKIE['lang'])) ? $_COOKIE['lang'] : $ci->config->item('language');
+
+  if ($siteLang == 'indonesian') {
+    $lang = 'id';
+  } else {
+    $lang = 'en';
+  }
+
+  return $lang;
+}
