@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://ziemotionstudio.com/</loc>
+  <lastmod>2021-03-09T13:37:47+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://ziemotionstudio.com/about</loc>
+  <lastmod>2021-03-09T13:37:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziemotionstudio.com/services/2d-3d-animation</loc>
+  <lastmod>2021-03-09T13:37:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziemotionstudio.com/projects</loc>
+  <lastmod>2021-03-09T13:37:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziemotionstudio.com/contact</loc>
+  <lastmod>2021-03-09T13:37:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziemotionstudio.com/services/audio-visual</loc>
+  <lastmod>2021-03-09T13:37:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziemotionstudio.com/services/design-graphic</loc>
+  <lastmod>2021-03-09T13:37:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ziemotionstudio.com/services/course-education</loc>
+  <lastmod>2021-03-09T13:37:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+
+</urlset>

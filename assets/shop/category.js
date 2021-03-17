@@ -1,0 +1,2 @@
+$('.category-children.active').parent().closest('div').prev().removeClass('collapsed').attr('aria-expanded',true);
+$('.category-children.active').parent().closest('div').addClass('show').attr('aria-expanded',true);
