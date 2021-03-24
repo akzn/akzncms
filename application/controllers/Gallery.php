@@ -17,17 +17,19 @@ class Gallery extends CI_Controller {
 		$site  		= $this->mConfig->list_config();
 		// $gallery = $this->gallery_model->getGalleries($this->num_rows);
 		$gallery = $this->gallery_model->getGalleries();
-
+		$pages = $this->mPages->detailPagebyName('gallery');
 		
 
 		$data = array(	
 			'site' 	=> $site,
-			'isi' 	=> 'front2/gallery/gallery',
 			'gallery' => $gallery,
-			'title'		=> 'Gallery - '.$site['nameweb'],
+			// 'title'		=> 'Gallery - '.$site['nameweb'],
+			'title'		=> $pages['metatitle'].' - '.$site['nameweb'],
+			'meta_desc' => $pages['metatext'],
+			'isi' 	=> 'theme/'.$this->config->item('theme').'/gallery/gallery',
 		);
 		
-		$this->load->view('front2/layout/wrapper',$data);
+		$this->load->view('theme/'.$this->config->item('theme').'/layout/wrapper',$data);
 	}
 
 	/*ajax*/

@@ -9,7 +9,7 @@
                 	<ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="<?=base_url()?>">Home</a></li>
                     	<li class="breadcrumb-item"><a href="<?php echo base_url('about');?>">About</a></li>
-                        <li class="breadcrumb-item active"><?=$this->lang->line('h_contact_us')?></li>
+                        <li class="breadcrumb-item active"><?=$this->lang->line('h-contact-us')['header-caption']?></li>
                     </ol>
                 </nav>
                 </div><!-- breadcrumbs end -->               
@@ -35,26 +35,26 @@
                         
                         	<div class="col-lg-12 col-md-12">
                             
-                                <h1 class="page-title pb-4"><?=$this->lang->line('h_contact_us')?></h1>
+                                <h1 class="page-title pb-4"><?=$this->lang->line('h-contact-us')['header-caption']?></h1>
                                 
                                 <div class="news-body">
                                     
                                     <div class="row" style="margin-top:-40px;">
                                     	<div class="col-lg-6 col-md-6 col-sm-12" data-aos="zoom-in">
-                                        	<h6 class="remove-margin-bottom"><?=$this->lang->line('h_our_address')?></h6>
+                                        	<h6 class="remove-margin-bottom"><?=$this->lang->line('h-contact-us')['address']?></h6>
 											<p class="small"><?php echo $site['address'];?></p>  
                                   
                                         </div>
                                         
                                     	<div class="col-lg-6 col-md-6 col-sm-12">
-                                        	<h6 class="remove-margin-bottom"><?=$this->lang->line('h_phone')?></h6>
+                                        	<h6 class="remove-margin-bottom"><?=$this->lang->line('h-contact-us')['phone']?></h6>
 											<p class="small">Tel: <?php echo $site['phone_number'];?>   |   Fax: <?php echo $site['fax'];?></p>
 
 
                                             <h6 class="remove-margin-bottom">Email</h6>
                                             <p class="small"><?php echo $site['email'];?></p> 
 
-                                            <h6 class="remove-margin-bottom"><?=$this->lang->line('h_social_media')?></h6>
+                                            <h6 class="remove-margin-bottom"><?=$this->lang->line('h-contact-us')['social']?></h6>
                                             <ul class="list-inline social-buttons mt-3" style ="    text-align: center;">
                                                 <?php if ($site['twitter']!=''): ?>
                                                   <li class="list-inline-item" >
@@ -87,7 +87,7 @@
                                     
                                     
                                     
-                                    <h6 class="mt-5 mt-md-1"><?=$this->lang->line('h_message_us')?></h6>
+                                    <h6 class="mt-5 mt-md-1"><?=$this->lang->line('h-contact-us')['message']?></h6>
                                     
                                     <form id="contactform" method="post" action="<?php echo base_url('kontak');?>">
                                         <div class="row"><!-- starts row -->

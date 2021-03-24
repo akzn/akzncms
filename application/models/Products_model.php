@@ -25,7 +25,7 @@
         {
             $this->db->where('products.id', $id);
 
-            $this->db->select('products.*, title,description, price, old_price, products.url, product_categories.name as categorie_name');
+            $this->db->select('products.*, title,description, price, old_price, products.url, product_categories.name as categorie_name, product_categories.slug as categorie_slug');
 
             $this->db->join('product_categories', 'product_categories.id = products.shop_categorie', 'inner');
             $this->db->where('visibility', 1);

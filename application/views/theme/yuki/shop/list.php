@@ -139,6 +139,9 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="<?=base_url()?>">Home</a></li>
           <li class="breadcrumb-item active" aria-current="page">Products</li>
+          <?php if (isset($category_data)): ?>
+              <li class="breadcrumb-item active" aria-current="page"><?=$category_data->name?></li>
+          <?php endif ?>
         </ol>
       </nav> 
 
@@ -193,7 +196,10 @@
                                             </a> -->
                                     <?php foreach ($nav_category['children'] as $key ): ?>
                                         <!-- <li class="list-group-item"> -->
-                                            <a href="javascript:void(0);" data-categorie-id="<?= $key['id'] ?>"  class="category-children go-category list-group-item <?=($_GET['category']==$key['id'])?'active':'';?>">
+                                            <!-- <a href="javascript:void(0);" data-categorie-id="<?= $key['id'] ?>"  class="category-children go-category list-group-item <?=($_GET['category']==$key['id'])?'active':'';?>">
+                                                <span><?=$key['name']?></span>
+                                            </a> -->
+                                            <a href="<?=base_url('products/'.$key['slug'])?>"  class="category-children go-category list-group-item <?=($_GET['category']==$key['id'])?'active':'';?>">
                                                 <span><?=$key['name']?></span>
                                             </a>
                                         <!-- </li> -->
@@ -204,7 +210,7 @@
                             
                         } else {
                             ?>
-                            <a href="javascript:void(0);" data-categorie-id="<?= $nav_category['id'] ?>"  class="list-group-item go-category <?=($_GET['category']==$nav_category['id'])?'active':'';?>">
+                            <a href="<?=base_url('products/'.$nav_category['slug'])?>"  class="list-group-item go-category <?=($_GET['category']==$nav_category['id'])?'active':'';?>">
                                 <span><?=$nav_category['name']?></span>
                             </a>
                             <?php
@@ -376,7 +382,7 @@
  </div>
     </div>
 
-<?php $this->load->view('front2/shop/product-modal')?>
+<?php //$this->load->view('front2/shop/product-modal')?>
 
 
 

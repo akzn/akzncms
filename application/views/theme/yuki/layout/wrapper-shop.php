@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?=html_lang()?>">
 
 <head>
 
+  <title><?=(isset($title) && $title!='') ? $title : $site['metatitle']?></title>
+  <meta name="description" content="<?=(isset($meta_desc) && $meta_desc!='') ? $meta_desc : $site['metatext']?>">
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="<?=$site['metatext']?>">
-  <meta name="author" content="andika.nur.bayu@gmail.com">
+  <meta name="robots" content="index, follow">
 
-  <title><?php echo $title;?></title>
 
   <!-- Bootstrap core CSS -->
   <!-- <link href="<?=base_url()?>assets/default/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
@@ -60,7 +61,7 @@
 
 <body id="page-top" class="style-green">
 
-<?php $this->load->view('front2/layout/header');?>
+<?php $this->load->view('theme/yuki/layout/header');?>
 
 <?php
 /*

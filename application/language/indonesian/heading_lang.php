@@ -22,10 +22,19 @@ $lang['h-projects'] = array(
 );
 
 /*contact us*/
+// $lang['h-contact-us'] = array(
+// 	'header-caption' => 'Mulai Petualangan Tiada Batas',
+// 	'contact-us' => 'Hubungi Kami Sekarang Juga',
+// 	'find-us' => 'Atau cari kami di sini',
+// );
+/*contact us*/
 $lang['h-contact-us'] = array(
-	'header-caption' => 'Mulai Petualangan Tiada Batas',
-	'contact-us' => 'Hubungi Kami Sekarang Juga',
-	'find-us' => 'Atau cari kami di sini',
+	'header-caption' => 'Hubungi Kami',
+	'address' => 'Alamat Kami',
+	'phone' => 'Nomor Telepon',
+	'social' => 'Social Media',
+	'find-us' => 'Or Find Us Here',
+	'message' => 'Kirim Pesan'
 );
 // $lang['h_header'] = 'Hubungi Kami Sekarang Juga';
 // $lang['h_contact_us'] = 'Hubungi Kami';

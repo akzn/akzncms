@@ -13,6 +13,7 @@ class Home extends CI_Controller {
 	public function index() {
 
 		$this->load->model('products_model');
+		$pages = $this->mPages->detailPagebyName('home');
 
 		$site  	= $this->mConfig->list_config();
 		$slider = $this->db->select()->get('config_slider')->result();
@@ -49,6 +50,7 @@ class Home extends CI_Controller {
 		$data = array(	
 						'page' 		=> 'Home',
 						'title'		=> $site['nameweb'] .' - '. $site['metatitle'],
+						'meta_desc' => isset($pages) ? langify($pages['metatext']) : langify($site['metatext']),
 						'site'		=> $site,
 						'slider'	=> $slider,
 						'galleries'	=> $galleries,
@@ -58,10 +60,16 @@ class Home extends CI_Controller {
 
 						'clients'	=> $clients,
 						'videos'	=> $videos,
-						'isi'		=> 'theme/zie/home/home');
+						'isi'		=> 'theme/'.$this->config->item('theme').'/home/home');
 
 
 
 		$this->load->view('theme/'.$this->config->item('theme').'/layout/wrapper',$data);
+	}
+
+	public function maintenance(){
+		$this->output->set_status_header('503'); 
+		$data['site'] = $this->mConfig->list_config();
+     	$this->load->view('maintenance',$data);
 	}
 }

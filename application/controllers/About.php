@@ -7,7 +7,7 @@ class About extends CI_Controller {
 	public function index()
 	{
 		
-		$site  		= $this->mConfig->list_config();
+		$site  = $this->mConfig->list_config();
 		$pages = $this->mPages->detailPagebyName('about');
 		// $about = $this->mConfig->get_about();
 
@@ -15,7 +15,7 @@ class About extends CI_Controller {
 			'title' => 'About Us - '.$site['nameweb']. ' - ' .$pages['metatitle'],
 			'meta_desc' => $pages['metatext'],
 			'site' 	=> $site,
-						'isi'		=> 'theme/zie/about/about',
+						'isi'		=> 'theme/'.$this->config->item('theme').'/about/about',
 					);
 		$this->load->view('theme/'.$this->config->item('theme').'/layout/wrapper',$data);
 

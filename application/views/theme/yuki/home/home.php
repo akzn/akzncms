@@ -165,7 +165,7 @@
             <div class="ibox-content product-box">
                 <a href="<?=base_url()?>product/<?=$key->url?>">
                 <!-- <div class="product-imitation" style="background-image: url('<?=$image?>');"> -->
-                <div class="product-imitation lazy" style="background-position: center;background-size: contain;border-radius: unset;" data-src="<?=base_url()?>img/shop/<?=$key->image?>" >
+                <div class="product-imitation lazy" style="background-position: center;background-size: cover;border-radius: unset;" data-src="<?=base_url()?>img/shop/<?=$key->image?>" >
                     <!-- <img class="img-fluid" src="<?=base_url()?>img/shop/<?=$key->image?>"> -->
                 </div>
                 </a>
@@ -209,7 +209,7 @@
           <div class="ibox">
             <div class="ibox-content product-box">
                 <a href="<?=base_url()?>product/<?=$key->url?>">
-                <div class="product-imitation lazy spinner" style="background-position: center;background-size: contain;border-radius: unset;" data-src="<?=base_url()?>img/shop/<?=$key->image?>" >
+                <div class="product-imitation lazy spinner" style="background-position: center;background-size: cover;border-radius: unset;" data-src="<?=base_url()?>img/shop/<?=$key->image?>" >
                 <!-- <div class="product-imitation lazy spinner" style="background-image: url('<?=$image?>');"> -->
                     <!-- <img class="img-fluid" src="<?=base_url()?>img/shop/<?=$key->image?>"> -->
                 </div>
@@ -289,7 +289,7 @@
       <hr class="divider my-4 mb-5">
       <div class="justify-content-center owl-carousel owl-theme mt-5 pt-5" data-aos="zoom-in">
         <?php foreach ($clients as $key): ?>
-          <div class="item"><img class="img-fluid d-block mx-auto owl-lazy lazy" data-src="<?=base_url()?>assets/upload/image/<?=$key->image?>" alt="" style="height: 80px;width:auto"></div>
+          <div class="item"><img class="img-fluid d-block mx-auto owl-lazy lazy" data-src="<?=base_url()?>img/clients/<?=$key->image?>" alt="" style="height: 80px;width:auto"></div>
         <?php endforeach ?>
       </div>
     </div>

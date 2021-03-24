@@ -56,10 +56,7 @@ class Shop extends CI_Controller {
     }
 
     public function index($page = 0){
-    	$page = $this->uri->segment(2);
-    	if (!$page) {
-    		$page = 0;
-    	}
+    	
     	$site  		= $this->mConfig->list_config();
         $data = array();
         // $head = array();
@@ -75,23 +72,48 @@ class Shop extends CI_Controller {
         // $data['showOutOfStock'] = $this->Home_admin_model->getValueStore('outOfStock');
         // $data['shippingOrder'] = $this->Home_admin_model->getValueStore('shippingOrder');
 
+        /*SEO URL for categories*/
+        $category_slug = $this->uri->segment(2);
+        $category = $this->shop_model->getCategoryBySlug($category_slug); 
+        if (isset($category)) {
+        	$data['category_data'] = $category;
+        	$_GET['category'] = $category->id;
+            $pagination_uri = 'products/'.$category_slug;
+            $page = $this->uri->segment(3);
+            $page_segment = 3;
+        } else {
+        	$data['category_data'] = $this->shop_model->getCategoryData($_GET);
+            $pagination_uri = 'products/';
+            $page = $this->uri->segment(2);
+            $page_segment = 2;
+        }
+        if (!$page) {
+            $page = 0;
+        }
+
+
         $data['products'] = $this->shop_model->getProducts($this->num_rows, $page, $_GET);
         $rowscount = $this->shop_model->productsCount($_GET);
-        $data['category_data'] = $this->shop_model->getCategoryData($_GET);
+        
         $data['rowscount'] = $rowscount;
-        $data['links_pagination'] = pagination('shop', $rowscount, $this->num_rows);
+        $data['links_pagination'] = pagination( $pagination_uri, $rowscount, $this->num_rows, $page_segment);
         $nav_categories = $this->getCategoryList();
 
         /*render view*/
-        $data['title'] = 'Produk - '.$site['nameweb'];
+        
 		$data['site'] = $site;
 						// 'products'	=> $products,
 		$data['nav_categories'] = $nav_categories;
 		$data['blogs']		= $blogs;
 		// $data['pagin'] 	= $this->pagination->create_links();																		
-		$data['isi']	= 'front2/shop/list';
+		// $data['isi']	= 'front2/shop/list';
+        $data['title'] = ucwords($this->lang->line('ecommerce')['list'].' '.$this->lang->line('ecommerce')['product'].' '.$data['category_data']->name.' '.$site['nameweb']);
+        $data['meta_desc'] = langify($data['category_data']->category_description);
+		$data['isi']	= 'theme/'.$this->config->item('theme').'/shop/list';
 
-		$this->load->view('front2/layout/wrapper-shop',$data);
+
+		// $this->load->view('front2/layout/wrapper-shop',$data);
+		$this->load->view('theme/'.$this->config->item('theme').'/layout/wrapper-shop',$data);
     }
 
 

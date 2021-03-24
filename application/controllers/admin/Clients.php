@@ -30,7 +30,7 @@ class Clients extends CI_Controller {
 		if($v->run()) {
 			$nmfile = "imgclient_".$this->input->post('client_name')."_".time();
 			$config['file_name'] = $nmfile; 
-			$config['upload_path'] 		= './assets/upload/image/';
+			$config['upload_path'] 		= './img/clients/';
 			$config['allowed_types'] 	= 'gif|jpg|png';
 			$config['max_size']			= '5000'; // KB			
 			$this->load->library('upload', $config);
@@ -45,8 +45,8 @@ class Clients extends CI_Controller {
 				$upload_data				= array('uploads' =>$this->upload->data());
 				
 				$config['image_library']	= 'gd2';
-				$config['source_image'] 	= './assets/upload/image/'.$upload_data['uploads']['file_name']; 
-				$config['new_image'] 		= './assets/upload/image/thumbs/';
+				$config['source_image'] 	= './img/clients/'.$upload_data['uploads']['file_name']; 
+				$config['new_image'] 		= './img/clients/thumbs/';
 				$config['create_thumb'] 	= TRUE;
 				$config['maintain_ratio'] 	= TRUE;
 				$config['width'] 			= 150; // Pixel
@@ -91,7 +91,7 @@ class Clients extends CI_Controller {
 			if(!empty($_FILES['image']['name'])) {
 			$nmfile = "imgclient_".$this->input->post('client_name')."_".time();
 			$config['file_name'] = $nmfile;
-			$config['upload_path'] 		= './assets/upload/image/';
+			$config['upload_path'] 		= './img/clients/';
 			$config['allowed_types'] 	= 'gif|jpg|png|svg';
 			$config['max_size']			= '5000'; // KB			
 			$this->load->library('upload', $config);
@@ -105,8 +105,8 @@ class Clients extends CI_Controller {
 		}else{
 				$upload_data				= array('uploads' =>$this->upload->data());
 				$config['image_library']	= 'gd2';
-				$config['source_image'] 	= './assets/upload/image/'.$upload_data['uploads']['file_name']; 
-				$config['new_image'] 		= './assets/upload/image/thumbs/';
+				$config['source_image'] 	= './img/clients/'.$upload_data['uploads']['file_name']; 
+				$config['new_image'] 		= './img/clients/thumbs/';
 				$config['create_thumb'] 	= TRUE;
 				$config['quality'] 			= "100%";
 				$config['maintain_ratio'] 	= FALSE;
@@ -120,8 +120,8 @@ class Clients extends CI_Controller {
 				
 			$i = $this->input;
 
-			unlink('./assets/upload/image/'.$client['image']);
-			unlink('./assets/upload/image/thumbs/'.$client['image']);
+			unlink('./img/clients/'.$client['image']);
+			unlink('./img/clients/thumbs/'.$client['image']);
 
 			$slugClient = $endClient['client_id'].'-'.url_title($i->post('client_name'),'dash', TRUE);
 			$data = array(	'client_id'     => $client['client_id'],

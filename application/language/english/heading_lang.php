@@ -25,9 +25,12 @@ $lang['h-projects'] = array(
 
 /*contact us*/
 $lang['h-contact-us'] = array(
-	'header-caption' => 'How can we help you?',
-	'contact-us' => 'Call Us at',
+	'header-caption' => 'Contact Us',
+	'address' => 'Address',
+	'phone' => 'Phone',
+	'social' => 'Social Media',
 	'find-us' => 'Or Find Us Here',
+	'message' => 'Message Us'
 );
 // $lang['h_header'] = 'How can we help you?';
 // $lang['h_contact_us'] = 'Contact Us At';

@@ -4,11 +4,12 @@
 
 <head>
 
+  <title><?=(isset($title) && $title!='') ? $title : $site['metatitle']?></title>
+  <meta name="description" content="<?=(isset($meta_desc) && $meta_desc!='') ? $meta_desc : $site['metatext']?>">
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="<?=(isset($meta_desc)) ? $meta_desc : $site['metatext']?>">
 
-  <title><?php echo $title;?></title>
 
   <link href="<?=base_url()?>img/favicon.ico" rel="shortcut icon">
 

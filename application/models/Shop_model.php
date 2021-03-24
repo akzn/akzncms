@@ -18,7 +18,7 @@
 
         public function getShopCategories()
         {
-            $this->db->select('sub_for, id, name');
+            $this->db->select('sub_for, id, name, slug');
             $this->db->order_by('position', 'asc');
             // $this->db->join('product_categories', 'product_categories.id = product_categories_translations.for_id', 'INNER');
             $query = $this->db->get('product_categories');
@@ -146,6 +146,13 @@
             $name = $this->db->get('product_categories')->row();
 
             return $name;
-        }                         
+        }           
+
+        public function getCategoryBySlug($slug){
+            $this->db->where('slug',$slug);
+            $data = $this->db->get('product_categories')->row();
+
+            return $data;
+        }              
 
     }

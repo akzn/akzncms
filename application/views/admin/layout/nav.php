@@ -84,13 +84,13 @@
             <li><a href="<?php echo base_url('admin/settings/locations') ?>">Locations</a></li>
             <li><a href="<?php echo base_url('admin/settings/social') ?>">Social Media</a></li>
             <li><a href="<?php echo base_url('admin/settings/site') ?>">Site Settings</a></li>
+            <li><a href="<?php echo base_url('admin/pages') ?>">Pages SEO</a></li>
         </ul>
     </li>  
     <?php if ($this->session->userdata('userlevel')=='administrator'): ?>
     <li><a href="#"><i class="fa fa-users"></i> Administrator<span class="fa arrow"></span></a>
         <ul class="nav nav-second-level">
             <li><a href="<?php echo base_url('admin/users/admin') ?>">List Admin</a></li>
-            <li><a href="<?php echo base_url('admin/pages') ?>">Pages</a></li>
         </ul>
     </li>
     <?php endif ?>
@@ -100,7 +100,10 @@
 </ul>
 </div>
 
+<div class="text-center" style="padding: 10px"><?=$this->config->item('core-version')?></div>
+
 </nav>  
+
 <!-- /. NAV SIDE  -->
 <div id="page-wrapper" >
 <div id="page-inner">

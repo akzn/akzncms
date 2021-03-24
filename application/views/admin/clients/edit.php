@@ -81,7 +81,7 @@ echo validation_errors('<div class="alert alert-success">','</div>');
     <div class="form-group">
         <label>Upload Cover</label>
       <input type="file" name="image" class="form-control" id="file">
-        <div class="imagePreview"><img src="<?php echo base_url('assets/upload/image/thumbs/'.$client['image']) ?>" width="458px" height="355px"></div>
+        <div class="imagePreview"><img src="<?php echo base_url('/img/clients/thumbs/'.$client['image']) ?>" class="img img-fluid" width="300"></div>
     </div>
 </div>
 <div class="col-md-6">

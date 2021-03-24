@@ -39,11 +39,13 @@ class LanguageLoader
           $ci->lang->load('heading',$siteLang);
           $ci->lang->load('slider',$siteLang);
           $ci->lang->load('landing_page',$siteLang);
+          $ci->lang->load('ecommerce',$siteLang);
       } else {
           $ci->lang->load('menu',$ci->config->item('language'));
           $ci->lang->load('heading',$ci->config->item('language'));
           $ci->lang->load('slider',$ci->config->item('language'));
           $ci->lang->load('landing_page',$ci->config->item('language'));
+          $ci->lang->load('ecommerce',$ci->config->item('language'));
       }
 
       // if ($siteLang == 'english') {

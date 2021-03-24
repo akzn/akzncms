@@ -100,7 +100,7 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="<?=base_url()?>">Home</a></li>
           <li class="breadcrumb-item"><a href="<?=base_url()?>products">Products</a></li>
-          <li class="breadcrumb-item"><a href="<?=base_url()?>products?category=<?=$product['shop_categorie']?>"><?=$product['categorie_name']?></a></li>
+          <li class="breadcrumb-item"><a href="<?=base_url()?>products/<?=$product['categorie_slug']?>"><?=$product['categorie_name']?></a></li>
           <li class="breadcrumb-item active" aria-current="page"><?=$product['title']?></li>
         </ol>
       </nav> 
@@ -117,9 +117,9 @@
 
                 <!-- <div class="panel list-group"> -->
                 <div class="category-body collapse" id="categoryCollapse">
-                        <a href="javascript:void(0);" data-categorie-id=""  class="list-group-item go-category <?=($_GET['category']=='')?'active':'';?>">
+                        <!-- <a href="javascript:void(0);" data-categorie-id=""  class="list-group-item go-category <?=($_GET['category']=='')?'active':'';?>">
                                 <span><?=$this->lang->line('all')?></span>
-                            </a>
+                            </a> -->
                   <?php
 
                     foreach ($nav_categories as $nav_category) {
@@ -149,14 +149,14 @@
                             "  
                             data-parent="#category-menu" id="<?=$href_Id?>">
                                 <ul class="list-group-item-text">
-                                        <a href="javascript:void(0);" data-categorie-id="<?= $nav_category['id'] ?>"  class="go-category list-group-item
+                                        <!-- <a href="javascript:void(0);" data-categorie-id="<?= $nav_category['id'] ?>"  class="go-category list-group-item
                                             <?=($_GET['category']==$nav_category['id'])?'active':'';?>
                                         ">
                                                 <span><?=$this->lang->line('show_all')?></span>
-                                            </a>
+                                            </a> -->
                                     <?php foreach ($nav_category['children'] as $key ): ?>
                                         <!-- <li class="list-group-item"> -->
-                                            <a href="javascript:void(0);" data-categorie-id="<?= $key['id'] ?>"  class="category-children go-category list-group-item <?=($_GET['category']==$key['id'])?'active':'';?>">
+                                            <a href="<?=base_url('products/'.$key['slug'])?>" data-categorie-id="<?= $key['id'] ?>"  class="category-children go-category list-group-item <?=($_GET['category']==$key['id'])?'active':'';?>">
                                                 <span><?=$key['name']?></span>
                                             </a>
                                         <!-- </li> -->
@@ -167,7 +167,7 @@
                             
                         } else {
                             ?>
-                            <a href="javascript:void(0);" data-categorie-id="<?= $nav_category['id'] ?>"  class="list-group-item go-category <?=($_GET['category']==$nav_category['id'])?'active':'';?>">
+                            <a href="<?=base_url('products/'.$nav_category['slug'])?>" data-categorie-id="<?= $nav_category['id'] ?>"  class="list-group-item go-category <?=($_GET['category']==$nav_category['id'])?'active':'';?>">
                                 <span><?=$nav_category['name']?></span>
                             </a>
                             <?php

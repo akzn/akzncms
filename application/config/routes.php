@@ -62,6 +62,8 @@ $route['translate_uri_dashes'] = FALSE;
 
 //hotfix shopController to Products(with s) controller
 $route['products'] = "shop";
+$route['products/(:any)'] = "shop/$2";
+$route['products/(:any)/(:num)'] = "shop/$2/$3";
 
 
 // Products urls style
@@ -103,3 +105,11 @@ $route['admin/loadOthersImages'] = "admin/ecommerce/AddProduct/loadOthersImages"
 
 //Lang Route
 $route['id'] = 'home';
+
+// Maintenance
+$this->config->load('akzncms_config');
+if(!in_array($_SERVER['REMOTE_ADDR'], $this->config->item('maintenance_ips')) && $this->config->item('maintenance_mode'))
+{	
+	$route['default_controller'] = "home/maintenance";
+    $route['(:any)'] = "home/maintenance";
+}

@@ -136,15 +136,19 @@ class Product extends CI_Controller {
         // $this->render('view_product', $head, $data);
 
         /*render view*/
-        $data['title'] = 'Produk - '.$site['nameweb'];
+        $data['title'] = $data['product']['categorie_name'].' - '. $data['product']['title'].' - '.$site['nameweb'];
+        $data['meta_desc'] = strip_tags(langify($data['product']['description']));
+
 		$data['site'] = $site;
 		
 		$data['nav_categories'] =  $this->getCategoryList();
 		$data['blogs']		= $blogs;
 		$data['pagin'] 	= $this->pagination->create_links();																		
-		$data['isi']	= 'front2/product/detail';
-        // var_dump($data['product']);exit;
-		$this->load->view('front2/layout/wrapper-shop',$data);
+		// $data['isi']	= 'front2/product/detail';
+        $data['isi']    = 'theme/'.$this->config->item('theme').'/product/detail';
+      
+		// $this->load->view('front2/layout/wrapper-shop',$data);
+        $this->load->view('theme/'.$this->config->item('theme').'/layout/wrapper-shop',$data);
 	}	
 
 	function getCategoryList(){

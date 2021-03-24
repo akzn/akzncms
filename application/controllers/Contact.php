@@ -25,7 +25,7 @@ class Contact extends CI_Controller {
 							'meta_desc' => $pages['metatext'],
 							'blogs'	=> $blogs,
 							'gallery'=> $gallery,
-							'isi'		=> 'theme/zie/contact/contact',
+							'isi'		=> 'theme/'.$this->config->item('theme').'/contact/contact',
 						);
 			$this->load->view('theme/'.$this->config->item('theme').'/layout/wrapper',$data);
 		}else{
@@ -40,7 +40,7 @@ class Contact extends CI_Controller {
 						);
 			$this->mContacts->sendMessage($data);		
 			$this->session->set_flashdata('sukses','Success');
-			redirect(base_url('kontak'));
+			redirect(base_url('contact'));
 		}
 	}
 	

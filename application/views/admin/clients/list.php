@@ -33,7 +33,7 @@ echo validation_errors('<div class="alert alert-success">','</div>');
     <tr class="odd gradeX">
         <td><?php echo $i; ?></td>
         <td>
-        <img src="<?php echo base_url('assets/upload/image/thumbs/'.$list['image']);?>" width="150px">
+        <img src="<?php echo base_url('/img/clients/thumbs/'.$list['image']);?>" width="150px">
         </td>
         <td>
         <?php echo substr(strip_tags($list['client_name']),0,20) ?>

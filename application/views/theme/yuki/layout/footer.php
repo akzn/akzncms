@@ -70,16 +70,16 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="<?=base_url()?>products?category=11">Attachments</a>
+            <a href="<?=base_url()?>products/attachments">Attachments</a>
           </li>
           <li>
-            <a href="<?=base_url()?>products?category=15">Spareparts</a>
+            <a href="<?=base_url()?>products/sparepart-breaker">Spareparts</a>
           </li>
           <li>
-            <a href="<?=base_url()?>products?category=16"><?=$this->lang->line('landing_service_repair_heading')?></a>
+            <a href="<?=base_url()?>products/fix-repair"><?=$this->lang->line('landing_service_repair_heading')?></a>
           </li>
           <li>
-            <a href="<?=base_url()?>products?category=17"><?=$this->lang->line('landing_service_rental_heading')?></a>
+            <a href="<?=base_url()?>products/rental"><?=$this->lang->line('landing_service_rental_heading')?></a>
           </li>
         </ul>
 

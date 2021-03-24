@@ -188,10 +188,10 @@ body {
               <?=$this->lang->line('products')?>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a style="color: black" class="dropdown-item" href="<?=base_url()?>products?category=11">Attachments</a>
-              <a style="color: black" class="dropdown-item" href="<?=base_url()?>products?category=15">Spareparts</a>
-              <a style="color: black" class="dropdown-item" href="<?=base_url()?>products?category=16"><?=$this->lang->line('landing_service_repair_heading')?></a>
-              <a style="color: black" class="dropdown-item" href="<?=base_url()?>products?category=17"><?=$this->lang->line('landing_service_rental_heading')?></a>
+              <a style="color: black" class="dropdown-item" href="<?=base_url()?>products/attachments">Attachments</a>
+              <a style="color: black" class="dropdown-item" href="<?=base_url()?>products/sparepart-breaker">Spareparts</a>
+              <a style="color: black" class="dropdown-item" href="<?=base_url()?>products/fix-repair"><?=$this->lang->line('landing_service_repair_heading')?></a>
+              <a style="color: black" class="dropdown-item" href="<?=base_url()?>products/rental"><?=$this->lang->line('landing_service_rental_heading')?></a>
             </div>
           </li>
 
@@ -208,7 +208,7 @@ body {
             <a class="nav-link js-scroll-trigger" href="#team">Team</a>
           </li> -->
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="<?=base_url()?>about/contact"><?=$this->lang->line('contact')?></a>
+            <a class="nav-link js-scroll-trigger" href="<?=base_url()?>contact"><?=$this->lang->line('contact')?></a>
           </li>
         </ul>
         <ul class="navbar-nav flex-row social-nav">
