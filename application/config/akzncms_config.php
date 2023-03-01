@@ -1,8 +1,8 @@
 <?php  if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-$config['core-version'] = 'akzn-cms.0.3.5'; 
-$config['theme'] = 'zie';
-$config['maintenance_mode'] = FALSE;
-$config['maintenance_ips'] = array('0.0.0.0', '1.1.1.1', '2.2.2.2');
+$config['cms-version'] = 'akzn-cms.0.3.6'; 
+$config['theme'] = 'spe';
+$config['maintenance_mode'] = true;
+$config['maintenance_ips'] = array('');
 
 ?>
