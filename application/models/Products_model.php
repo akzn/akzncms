@@ -35,7 +35,7 @@
             return $query->row_array();
         }
 
-        public function sameCagegoryProducts($categorie, $noId, $vendor_id = false)
+        public function sameCategoryProducts($categorie, $noId, $vendor_id = false)
         {
             $this->db->select('products.id, products.quantity, products.image, products.url, price, title, old_price');
             $this->db->where('products.id !=', $noId);

@@ -21,7 +21,7 @@ class ShopCategories_model extends CI_Model
         }
 
         // $query = $this->db->query('SELECT translations_first.*, (SELECT name FROM product_categories_translations WHERE for_id = sub_for AND abbr = translations_first.abbr) as sub_is, product_categories.position FROM product_categories_translations as translations_first INNER JOIN product_categories ON product_categories.id = translations_first.for_id ORDER BY position ASC ' . $limit_sql);
-        $query = $this->db->query('SELECT *,(SELECT name FROM product_categories WHERE id = a.sub_for) as sub_is from product_categories a ORDER BY position ASC ' . $limit_sql);
+        $query = $this->db->query('SELECT *,(SELECT name FROM product_categories WHERE id = a.sub_for) as sub_is from product_categories a ORDER BY active desc,position ASC  ' . $limit_sql);
         $arr = array();
         foreach ($query->result() as $shop_categorie) {
             $arr[$shop_categorie->id]['info'][] = array(
@@ -30,6 +30,29 @@ class ShopCategories_model extends CI_Model
             );
             $arr[$shop_categorie->id]['sub'][] = $shop_categorie->sub_is;
             $arr[$shop_categorie->id]['position'] = $shop_categorie->position;
+            $arr[$shop_categorie->id]['active'] = $shop_categorie->active;
+        }
+        return $arr;
+    }
+
+    public function getShopCategoriesActive($limit = null, $start = null)
+    {
+        $limit_sql = '';
+        if ($limit !== null && $start !== null) {
+            $limit_sql = ' LIMIT ' . $start . ',' . $limit;
+        }
+
+        // $query = $this->db->query('SELECT translations_first.*, (SELECT name FROM product_categories_translations WHERE for_id = sub_for AND abbr = translations_first.abbr) as sub_is, product_categories.position FROM product_categories_translations as translations_first INNER JOIN product_categories ON product_categories.id = translations_first.for_id ORDER BY position ASC ' . $limit_sql);
+        $query = $this->db->query("SELECT *,(SELECT name FROM product_categories WHERE id = a.sub_for) as sub_is from product_categories a where a.active='1' ORDER BY active desc,position ASC  " . $limit_sql);
+        $arr = array();
+        foreach ($query->result() as $shop_categorie) {
+            $arr[$shop_categorie->id]['info'][] = array(
+                'abbr' => $shop_categorie->abbr,
+                'name' => $shop_categorie->name
+            );
+            $arr[$shop_categorie->id]['sub'][] = $shop_categorie->sub_is;
+            $arr[$shop_categorie->id]['position'] = $shop_categorie->position;
+            $arr[$shop_categorie->id]['active'] = $shop_categorie->active;
         }
         return $arr;
     }
@@ -40,7 +63,7 @@ class ShopCategories_model extends CI_Model
 
         $this->db->where('id', $id);
         $this->db->or_where('sub_for', $id);
-        if (!$this->db->delete('product_categories')) {
+        if (!$this->db->update('product_categories',array('active'=>'0'))) {
             log_message('error', print_r($this->db->error(), true));
         }
 
@@ -157,14 +180,14 @@ class ShopCategories_model extends CI_Model
 
         //     ' . $limit_sql);
 
-        if ($filter) {
-            if ($filter['cat']) {
-                $this->db->where('product_categories_id',$filter['cat']);
-            }
-            if ($filter['type']) {
-                $this->db->where('spec_type',$filter['type']);
-            }
-        }
+        // if ($filter) {
+        //     if ($filter['cat']) {
+        //         $this->db->where('product_categories_id',$filter['cat']);
+        //     }
+        //     if ($filter['type']) {
+        //         $this->db->where('spec_type',$filter['type']);
+        //     }
+        // }
 
         $this->db->join('product_categories b','a.product_categories_id = b.id');
         return $this->db->get('product_category_specification a',$limit,$start)->result();

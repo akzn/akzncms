@@ -33,14 +33,17 @@
 
   <link rel="stylesheet" href="<?=base_url()?>assets/bootstrap-fancy-img/bootstrap-fancy-img.css?v=0.4a" />
   <link rel="stylesheet" href="<?=base_url()?>assets/front/style.css?v=2.17" >
+  <link rel="stylesheet" href="<?=base_url()?>assets/theme/spe/style.css?v=0.1">
   
 
   <?php if ($page == 'Home'): ?>
      <style type="text/css">
-       header.masthead{
+       /* header.masthead{
           height: 100vh;
-          /*min-height: 40rem;*/
-        }
+          min-height: 40rem;
+        } */
+
+
      </style>
   <?php endif ?>
 
@@ -69,6 +72,9 @@
             right: 0; 
             margin: auto; 
         } 
+    .breadcrumb{
+      display: none;
+    }
   </style>
 
   <!-- Bootstrap core JavaScript -->
@@ -96,7 +102,7 @@
   <div id="page-loader" class="loader-center"></div> 
 
   <div id="page-content" style="display: none">
-  <?php $this->load->view('theme/yuki/layout/header');?>
+  <?php $this->load->view('theme/spe/layout/header');?>
   
   <content>
   <?php
@@ -131,6 +137,9 @@
 
   <!-- Custom scripts for this template -->
   <script src="<?=base_url()?>assets/default/js/agency.min.js?v=1.4"></script>
+
+  <script src="<?=base_url()?>assets/shop/js/system.js"></script>
+
 
   
 

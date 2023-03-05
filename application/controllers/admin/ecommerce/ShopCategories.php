@@ -106,6 +106,7 @@ class ShopCategories extends CI_Controller
         $head['description'] = '!';
         $head['keywords'] = '';
         $data['category_specification'] = $this->ShopCategories_model->getSpesification($this->num_rows, $page, $filter);
+
         $data['product_categories'] =  $this->db->get('product_categories')->result();
 
         // $data['languages'] = $this->Languages_model->getLanguages();

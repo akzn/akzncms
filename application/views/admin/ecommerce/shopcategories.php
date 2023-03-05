@@ -52,7 +52,7 @@
                     ?>
                     <tr>
                         <td><?= $key_cat ?></td>
-                        <td><?= $catName ?></td>
+                        <td><?= $catName ?> <?=($shop_categorie['active']=='0') ? '<span class="badge">deleted</span>': ''?></td>
                         <td> 
                             <a href="javascript:void(0);" class="editCategorieSub" data-sub-for-id="<?= $key_cat ?>">
                                 <i class="fa fa-pencil" aria-hidden="true"></i>
@@ -68,7 +68,10 @@
                             <span id="position-<?= $key_cat ?>"><?= $shop_categorie['position'] ?></span>
                         </td>
                         <td class="text-center">
+                            <?php if($shop_categorie['active']=='1'):?>
                             <a href="<?= base_url('admin/product-categories/?delete=' . $key_cat) ?>" class="btn btn-danger btn-xs confirm-delete"><span class="glyphicon glyphicon-remove"></span> Del</a>
+                            <?php endif; ?>
+
                         </td>
                     </tr>
                     <?php

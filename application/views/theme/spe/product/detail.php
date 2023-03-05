@@ -1,5 +1,17 @@
+<link href="<?=base_url()?>assets/theme/spe/product-list.css?v=0.1" rel="stylesheet">
+
 <style type="text/css">
-	.gallery-wrap .img-big-wrap img {
+
+.price span{
+	color: var(--primary-color)!important;
+    font-size: 21px;
+}
+
+.product-title h4.title{
+	font-size: 18px;
+}
+
+.gallery-wrap .img-big-wrap img {
     /*height: 450px;*/
     max-height: 430px;
     width: auto;
@@ -110,82 +122,18 @@
     </div>
 
     <div class="row">
-        <div class="col-md-3">
-            <!-- Category -->
-            <div id="category-menu" class="category-menu">
-                <a class="category-title list-group-item list-title collapsed" data-toggle="collapse" href="#categoryCollapse" aria-expanded="true" aria-controls="categoryCollapse"><?=$this->lang->line('category')?></a>          
-
-                <!-- <div class="panel list-group"> -->
-                <div class="category-body collapse" id="categoryCollapse">
-                        <!-- <a href="javascript:void(0);" data-categorie-id=""  class="list-group-item go-category <?=($_GET['category']=='')?'active':'';?>">
-                                <span><?=$this->lang->line('all')?></span>
-                            </a> -->
-                  <?php
-
-                    foreach ($nav_categories as $nav_category) {
-                        $children = false;
-                        if (isset($nav_category['children']) && !empty($nav_category['children'])) {
-                            $children = true;
-                        }
-                        if ($children === true) {
-                            $href_Id = preg_replace('/\s+/', '-', $nav_category['name']);
-                        ?>
-                        
-                            <a href="#<?=$href_Id?>" data-toggle="collapse" class="category-parent list-group-item 
-
-                                <?=($_GET['category']==$nav_category['id'])?'':'collapsed';?>
-
-                                <?=($_GET['category']==$nav_category['id'])?'active':'';?>
-
-                                " 
-
-                                <?=($_GET['category']==$nav_category['id'])?'aria-expanded="true"':'';?>
-                            >
-                                <span><?=$nav_category['name']?></span>
-                            </a>
-
-                            <div class="collapse 
-                                <?=($_GET['category']==$nav_category['id'])?'show':'';?>
-                            "  
-                            data-parent="#category-menu" id="<?=$href_Id?>">
-                                <ul class="list-group-item-text">
-                                        <!-- <a href="javascript:void(0);" data-categorie-id="<?= $nav_category['id'] ?>"  class="go-category list-group-item
-                                            <?=($_GET['category']==$nav_category['id'])?'active':'';?>
-                                        ">
-                                                <span><?=$this->lang->line('show_all')?></span>
-                                            </a> -->
-                                    <?php foreach ($nav_category['children'] as $key ): ?>
-                                        <!-- <li class="list-group-item"> -->
-                                            <a href="<?=base_url('products/'.$key['slug'])?>" data-categorie-id="<?= $key['id'] ?>"  class="category-children go-category list-group-item <?=($_GET['category']==$key['id'])?'active':'';?>">
-                                                <span><?=$key['name']?></span>
-                                            </a>
-                                        <!-- </li> -->
-                                    <?php endforeach ?>
-                                </ul>
-                            </div>
-                        <?php
-                            
-                        } else {
-                            ?>
-                            <a href="<?=base_url('products/'.$nav_category['slug'])?>" data-categorie-id="<?= $nav_category['id'] ?>"  class="list-group-item go-category <?=($_GET['category']==$nav_category['id'])?'active':'';?>">
-                                <span><?=$nav_category['name']?></span>
-                            </a>
-                            <?php
-                        }
-
-                    }
-                  ?>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-9">
+        <div class="col-md-12">
 			<!-- product detail -->
-			<div class="d-md-none d-block">
+			<div class="d-md-none d-block product-title">
 				<hr>
 				<span style="color:#8a8a8a"><?=$product['categorie_name']?></span>
 				<h4 class="title mb-3"><?=$product['title']?></h4>
+				<p class="price-detail-wrap"> 
+								<span class="price h3"> 
+									<span class="currency">Rp. </span><span class="num"><?=number_format($product['price'])?></span>
+								</span> 
+								<!-- <span>/per kg</span>  -->
+							</p> <!-- price-detail-wrap .// -->
 			</div>
 			<div class="card">
 				<div class="row">
@@ -193,11 +141,11 @@
 						<article class="gallery-wrap"> 
 							<div class="img-big-wrap">
 								<?php 
-									$u_path = 'img/shop/';
+									$u_path = 'img/product/';
 					                if ($product['image'] != null && file_exists($u_path . $product['image'])) {
 					                    $image = base_url($u_path . $product['image']);
 					                } else {
-					                    $image = base_url('img/no-image-1.png');
+					                    $image = base_url('img/no-image.jpg');
 					                }
 								?>
 							  <div class="row main-image"> 
@@ -236,7 +184,7 @@
 							  	</div> -->
 
 							  	<?php if ($product['folder'] != null) {
-					                	$dir = "img/shop/" . $product['folder'] . '/';
+					                	$dir = "img/product/" . $product['folder'] . '/';
 					                	}
 					                ?>
 
@@ -268,7 +216,7 @@
 								    <!-- <li><a href="<?=$image?>"><img src="<?=$image?>" alt="Thumbnails"></a></li>
 								    <li><a href="assets/img/img-03.jpg"><img src="assets/img/img-03-tn.jpg" alt="Thumbnails"></a></li> -->
 								    <?php if ($product['folder'] != null) {
-					                	$dir = "img/shop/" . $product['folder'] . '/';
+					                	$dir = "img/product/" . $product['folder'] . '/';
 					                	}
 					                ?>
 
@@ -300,9 +248,9 @@
 								<span style="color:#8a8a8a"><?=$product['categorie_name']?></span>
 								<h4 class="title mb-3"><?=$product['title']?></h4>
 							</div>
-							<p class="price-detail-wrap d-none"> 
+							<p class="price-detail-wrap d-none d-md-block"> 
 								<span class="price h3 text-warning"> 
-									<span class="currency">IDR Rp.</span><span class="num"><?=$product['price']?></span>
+									<span class="currency">Rp.</span><span class="num"><?=number_format($product['price'])?></span>
 								</span> 
 								<!-- <span>/per kg</span>  -->
 							</p> <!-- price-detail-wrap .// -->
@@ -425,7 +373,7 @@
 					  </div>
 					  <div class="tab-pane fade show active" id="nav-Specification" role="tabpanel" aria-labelledby="nav-Specification-tab">
 					  	<?php if ($specification): ?>
-					  	<h3><?=$this->lang->line('h_specification')?></h3>
+					  	<!-- <h3><?=$this->lang->line('h_specification')?></h3> -->
 					  	<table style="width: 100%;" class="table table-bordered table-striped">
 					  		<?php foreach ($specification as $key): ?>
 					  			<?php $tr_flag = 0?>
@@ -478,7 +426,74 @@
 
 		</div> <!-- end column -->
     </div>
-	</div>
+	
+	<hr class="mt-5 mb-5">
+	<h5> Properti Menarik Lainnya</h5>
+	<div class="row"> <!-- Other Products-->
+		<?php
+			if (!empty($sameCategoryProducts)) {
+				foreach ($sameCategoryProducts as $product) {
+					/* if image file exist or not*/
+					$u_path = 'img/product/';
+					if ($product['image'] != null && $product['image'] !='no-image' && file_exists($u_path . $product['image'])) {
+						$image = base_url($u_path . $product['image']);
+					} else {
+						$image = base_url('img/no-image.jpg');
+					}
+
+					?>
+					<div class="col-6 col-md-2 items">
+						<figure class="card card-product box-shadow">
+							<div class="img-wrap"> 
+								<!-- <a href="<?= base_url() . 'product/' . $product['url'] ?>" class="title"> -->
+								<!-- <a href="" class="product-item-modal" data-toggle="modal" data-target="#product-modal" data-id="<?=$product['id']?>"> -->
+								<a href="<?= base_url() . 'product/' . $product['url'] ?>" style="background-image: url('<?=$image;?>')">
+									<img class="lazy img-fluid" 
+									src="<?=base_url()?>img/loading.gif" alt="<?=$filename?>" data-src="<?= $image ?>">
+								</a>
+							</div>
+							<div class="card-body">
+								
+							
+							<!-- <figcaption class="info-wrap pt-4 mb-4 text-center"> -->
+							<figcaption class="text-center">
+								<a href="<?= base_url() . 'product/' . $product['url'] ?>" class="title"><?= $product['title'] ?> </a>
+								<div class="price-wrap pt-1">
+									<?php if ($product['old_price']>0): ?>
+										<del class="price price-old">Rp.<?=number_format($product['old_price'])?></del><br>
+									<?php endif ?>
+									<span class="price price-new">Rp.<?=number_format($product['price']) ?></span>
+								</div> <!-- price-wrap.// -->
+							</figcaption>
+
+							<div class="d-none justify-content-between align-items-center p10">
+								<div class="btn-group">
+									<button type="button"  class="btn btn-sm btn-outline-secondary product-item-modal" data-toggle="modal" data-target="#product-modal" data-id="<?=$product['id']?>">View</button>
+									<a href="<?= base_url() . 'product/' . $product['url'] ?>" type="button" class="btn btn-sm btn-outline-secondary">Detail</a>
+								</div>
+								<!-- <small class="text-muted">9 mins</small> -->
+								</div>
+								</div>
+						</figure> <!-- card // -->
+					</div> <!-- col // -->
+					
+					<?php
+				}
+			} else {
+				?>
+				<script>
+					$(document).ready(function () {
+						ShowNotificator('alert-info', '<?php echo('no_results') ?>');
+					});
+				</script>
+				<?php
+			} ?>
+		
+	</div> <!-- End Column-->
+
+</div>
+
+	
 
 <link rel="stylesheet" href="<?=base_url()?>assets/shop/fancybox/jquery.fancybox.min.css" />
 <script src="<?=base_url()?>assets/shop/fancybox/jquery.fancybox.min.js"></script>

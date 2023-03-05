@@ -16,8 +16,12 @@
             return $this->db->get('product_categories')->result();
         }      
 
-        public function getShopCategories()
+        public function getShopCategories($active=NULL)
         {
+            # get only active category if $active=='active'
+            if (isset($active) && $active=='active') {
+                $this->db->where('product_categories.active','1');
+            }
             $this->db->select('sub_for, id, name, slug');
             $this->db->order_by('position', 'asc');
             // $this->db->join('product_categories', 'product_categories.id = product_categories_translations.for_id', 'INNER');

@@ -177,7 +177,7 @@ a {
 }
 
 .style-green .btn-primary:active, .style-green .btn-primary:focus, .style-green .btn-primary:hover {
-    background-color: #ff7d7d!important;
+    /* background-color: #ff7d7d!important; */
     /*border-color: #007d1d !important;*/
 }
 

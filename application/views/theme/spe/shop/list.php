@@ -1,138 +1,37 @@
-<style type="text/css">
-    button,a.btn,.breadcrumb,.list-group-item {
-        /*border-radius: 0!important;*/
-    }
-	.gallery-wrap .img-big-wrap img {
-    height: 450px;
-    width: auto;
-    display: inline-block;
-    cursor: zoom-in;
-}
-
-
-.gallery-wrap .img-small-wrap .item-gallery {
-    width: 60px;
-    height: 60px;
-    border: 1px solid #ddd;
-    margin: 7px 2px;
-    display: inline-block;
-    overflow: hidden;
-}
-
-.gallery-wrap .img-small-wrap {
-    text-align: center;
-}
-.gallery-wrap .img-small-wrap img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: cover;
-    /*border-radius: 4px;*/
-    cursor: zoom-in;
-}
-
-.card-product {
-    margin-bottom: 1rem;
-    border:none;
-}
-.card .img-wrap {
-    overflow: hidden;
-}
-.card-product .img-wrap {
-    /*border-radius: 0.2rem 0.2rem 0 0;*/
-    overflow: hidden;
-    position: relative;
-    height: 350px;
-    text-align: center;
-}
-.img-wrap {
-    text-align: center;
-    display: block;
-}
-.card-product:hover{
-    background-color: transparent;
-    box-shadow: 2px 2px 10px 3px rgba(0, 0, 0, 0.5);
-}
-
-.card-product .img-wrap img {
-    height: 100%;
-    width: 100%;
-    display: inline-block;
-    -o-object-fit: cover;
-    object-fit: cover;
-}
-.card-product .info-wrap {
-    overflow: hidden;
-    /*padding-bottom: 20px;*/
-    border-top: 1px solid #eee;
-}
-.padding-y-sm {
-    padding-top: 16px;
-    padding-bottom: 16px;
-}
-.price{
-    font-weight: 600;
-    color: #606060;
-    font-size: 20px;
-}
-
-.price.price-old{
-    font-size: 16px;
-}
-
-.box-shadow {
-    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .10);
-}
-
-.category-menu {
-    margin-bottom: 20px;
-}
-
-@media only screen and (max-width: 600px) {
-
-    .card-product .img-wrap {
-        height: 210px!important;
-    }
-}
-
-@media (min-width: 600px) {
-     .card-product .img-wrap {
-        height: 180px;
-    }
-}
-
-@media (max-width: 768px) and (min-height: 768px) {
-     .card-product .img-wrap {
-        height: 180px !important;
-    }
-}
-
-@media (min-width: 768px) {
-
-    .card-product > .card-body > figcaption > .title {
-        color: #4a4a4a;
-        /*font-weight: 600;*/
-        font-size: 15px;
-    }
-
-    .card-product .img-wrap {
-        height: 200px;
-    }
-
-}
-
-@media (min-width: 1440px) {
-    .card-product .img-wrap {
-        height: 320px;
-    }
-}
-</style>
-
-
+<link href="<?=base_url()?>assets/theme/spe/product-list.css?v=0.1" rel="stylesheet">
+<div class="container container-sm">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item bg-cover active" style="background-image: url('<?=base_url('img/slider/')?><?=$slider[0]->slider_image?>');">
+        <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide [800x400]" src="<?=base_url('img/slider/')?><?=$slider[0]->slider_image?>" data-holder-rendered="true">
+        </div>
+        <div class="carousel-item bg-cover" style="background-image: url('<?=base_url('img/slider/')?><?=$slider[1]->slider_image?>');">
+        <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide [800x400]" src="<?=base_url('img/slider/')?><?=$slider[1]->slider_image?>" data-holder-rendered="true">
+        </div>
+        <div class="carousel-item bg-cover" style="background-image: url('<?=base_url('img/slider/')?><?=$slider[2]->slider_image?>');">
+        <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide [800x400]" src="<?=base_url('img/slider/')?><?=$slider[2]->slider_image?>" data-holder-rendered="true">
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    </div>
+</div>
 
 <div class="container mb-5">
 
 	<!-- breadcrumb -->
-	<div class="row">
+	<!-- <div class="row">
      <div class="col-md-12">
 
       <nav aria-label="breadcrumb">
@@ -147,9 +46,10 @@
 
       </div>
 
-    </div>
+    </div> -->
 
-    <div class="row">
+
+    <div class="row mt-4">
         <div class="col-md-3">
             <!-- Category -->
             <div id="category-menu" class="category-menu">
@@ -219,18 +119,7 @@
                     }
                   ?>
 
-                  
-                  <!-- <a href="#web_dev" data-toggle="collapse" class="category-header list-group-item collapsed">
-                    <span>Web Development</span>
-                  </a>
-                  <div class="collapse"  data-parent="#category-menu" id="web_dev">
-                    <ul class="list-group-item-text">
-                      <li>Javascript</li>
-                      <li>PHP</li>
-                      <li>Wordpress</li>
-                      <li>MYSQL</li>
-                    </ul>
-                  </div> -->
+
 
                 </div>
             </div>
@@ -293,28 +182,32 @@
                     <?php endif ?>
 
                 <?php else: ?>
-                    <span><?=$rowscount?> results</span>
+                    <!-- <span><?=$rowscount?> results</span> -->
                 <?php endif ?>	
         	</div>
-
-        	<div class="row">
+            
+            <div>
+            <h5 class="mb-3"> Pilihan Tepat Untuk Properti Anda</h5>
+            </div>
+        	<div class="row product-list">
         		<?php
                 if (!empty($products)) {
                     foreach ($products as $product) {
                     	/* if image file exist or not*/
-                    	$u_path = 'img/shop/';
-                        if ($product['image'] != null && file_exists($u_path . $product['image'])) {
+                    	$u_path = 'img/product/';
+                        if ($product['image'] != null && $product['image'] !='no-image' && file_exists($u_path . $product['image'])) {
                             $image = base_url($u_path . $product['image']);
                         } else {
-                            $image = base_url('img/no-image-1.png');
+                            $image = base_url('img/no-image.jpg');
                         }
+
                         ?>
-                        <div class="col-6 col-md-3 ">
+                        <div class="col-6 col-md-3 items">
         					<figure class="card card-product box-shadow">
         						<div class="img-wrap"> 
         							<!-- <a href="<?= base_url() . 'product/' . $product['url'] ?>" class="title"> -->
                                     <!-- <a href="" class="product-item-modal" data-toggle="modal" data-target="#product-modal" data-id="<?=$product['id']?>"> -->
-                                    <a href="<?= base_url() . 'product/' . $product['url'] ?>" >
+                                    <a href="<?= base_url() . 'product/' . $product['url'] ?>" style="background-image: url('<?=$image;?>')">
         								<img class="lazy img-fluid" 
                                         src="<?=base_url()?>img/loading.gif" alt="<?=$filename?>" data-src="<?= $image ?>">
         							</a>
@@ -325,12 +218,12 @@
         						<!-- <figcaption class="info-wrap pt-4 mb-4 text-center"> -->
                                 <figcaption class="text-center">
         							<a href="<?= base_url() . 'product/' . $product['url'] ?>" class="title"><?= $product['title'] ?> </a>
-        							<!-- <div class="price-wrap pt-1">
+        							<div class="price-wrap pt-1">
                                         <?php if ($product['old_price']>0): ?>
                                             <del class="price price-old">Rp.<?=number_format($product['old_price'])?></del><br>
                                         <?php endif ?>
         								<span class="price price-new">Rp.<?=number_format($product['price']) ?></span>
-        							</div> --> <!-- price-wrap.// -->
+        							</div> <!-- price-wrap.// -->
         						</figcaption>
 
                                 <div class="d-none justify-content-between align-items-center p10">
@@ -343,7 +236,7 @@
                                   </div>
         					</figure> <!-- card // -->
         				</div> <!-- col // -->
-        <!-- 
+                        <!-- 
                         <div class="col-sm-6 col-md-4 product-inner">
                             <a href="<?= base_url() . '/' . $product['url'] ?>">
                                 <img src="<?= base_url('attachments/shop_images/' . $product['image']) ?>" alt="" class="img-responsive">

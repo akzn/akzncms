@@ -74,3 +74,12 @@ function html_lang(){
 
   return $lang;
 }
+
+function is_home(){
+  $ci =& get_instance();
+  $is_home = ($ci->router->method === $ci->router->default_controller) ? true : false;
+  echo $ci->router->method;
+  echo $ci->router->default_controller;
+  return $is_home;
+
+}

@@ -111,6 +111,9 @@ class Shop extends CI_Controller {
         $data['meta_desc'] = langify($data['category_data']->category_description);
 		$data['isi']	= 'theme/'.$this->config->item('theme').'/shop/list';
 
+        // Slider header for home
+        $data['slider'] = $slider = $this->db->select()->get('config_slider')->result();
+
 
 		// $this->load->view('front2/layout/wrapper-shop',$data);
 		$this->load->view('theme/'.$this->config->item('theme').'/layout/wrapper-shop',$data);

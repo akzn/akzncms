@@ -16,7 +16,7 @@
 
         <!-- Links -->
         <h5 class="font-weight-bold  mt-3 mb-4"><?php echo $site['nameweb'];?>
-        <small class=""> <br>  Dealer PT Yaksa Alam Sejahtera</small></h5>
+        <small class=""> <br>  <?=$site['metatitle']?></small></h5>
 
         <ul class="list-unstyled clear-margins"><!-- widgets -->
                         
@@ -66,7 +66,7 @@
       <div class="col-md-2 mx-auto" data-aos="zoom-in">
 
         <!-- Links -->
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4"><?=$this->lang->line('products')?></h5>
+        <!-- <h5 class="font-weight-bold text-uppercase mt-3 mb-4"><?=$this->lang->line('products')?></h5>
 
         <ul class="list-unstyled">
           <li>
@@ -81,7 +81,7 @@
           <li>
             <a href="<?=base_url()?>products/rental"><?=$this->lang->line('landing_service_rental_heading')?></a>
           </li>
-        </ul>
+        </ul> -->
 
       </div>
 
@@ -144,12 +144,12 @@
   <div class="container" >
       <div class="row align-items-center">
         <div class="col-md-4">
-          <span class="copyright">Copyright &copy; YUKIMURA 2019</span>
+          <span class="copyright">Copyright &copy; <?=$site['nameweb']?> <?=date('Y')?></span>
         </div>
         <div class="col-md-4">
           <ul class="list-inline social-buttons" style ="    text-align: center;">
                                                 <?php if ($site['twitter']!=''): ?>
-                                                  <li class="list-inline-item" >
+                                                  <li class="list-inline-item twitter" >
                                                       <a href="<?=$site['twitter']?>" target="_blank">
                                                         <i class="fab fa-twitter"></i>
                                                       </a>
@@ -175,7 +175,7 @@
                                               </ul>
         </div>
         <div class="col-md-4">
-          <span class="copyright">Supported by <a href="https://javalatte.xyz" target="_blank">JavaLatte.xyz</a></span>
+          <span class="copyright">Supported by <a href="https://javalatte.xyz" target="_blank">JavaLatte.my.id</a></span>
           <!-- <ul class="list-inline quicklinks">
             <li class="list-inline-item">
               <a href="#">Privacy Policy</a>

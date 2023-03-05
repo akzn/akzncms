@@ -1,132 +1,6 @@
 
 <style type="text/css">
 
-
-
-body {
-    /*padding-top: 50px; */
-     /* allow for space above page content */
-}
-
-.navbar.fixed-top {
-    margin-top: 40px;
-     /* hieght of the first fixed element */ 
-}
-
-.navbar.fixed-top.navbar-shrink {
-    margin-top: 0; /* hieght of the first fixed element */ 
-    border-bottom: 0;
-    /*background-color: #131313!important;*/
-}
-#mainNav.fixed-top .social-nav {
-    display: none;
-}
-#mainNav.fixed-top.navbar-shrink .social-nav {
-    display: contents;
-}
-
-.nav-top {
-  background-color: #0000004a;
-  color: #fff;
-  font-weight: 400;
-  padding: 15px;
-  font-size: 14px;
-}
-
-.nav-top .left{
-  text-align: left!important;
-}
-
-.nav-top .right{
-  text-align: right!important;
-}
-
-.nav-item-top {
-  color: #fff;
-}
-
-
-.carousel-fade .carousel-inner .item {
-  opacity: 0;
-  -webkit-transition-property: opacity;
-  -moz-transition-property: opacity;
-  -o-transition-property: opacity;
-  transition-property: opacity;
-}
-.carousel-fade .carousel-inner .active {
-  opacity: 1;
-}
-.carousel-fade .carousel-inner .active.left,
-.carousel-fade .carousel-inner .active.right {
-  left: 0;
-  opacity: 0;
-  z-index: 1;
-}
-.carousel-fade .carousel-inner .next.left,
-.carousel-fade .carousel-inner .prev.right {
-  opacity: 1;
-}
-.carousel-fade .carousel-control {
-  z-index: 2;
-}
-
-
-
-@media (max-width: 600px) {
-  .nav-top {
-    bottom: 0;
-    top: auto;
-  }
-
-  #mainNav.fixed-top .social-nav {
-      display: contents;
-  }
-
-  .navbar.fixed-top {
-      margin-top:0;
-  }
-
-  .nav-top .left{
-    text-align: center!important;
-  }
-
-  .nav-top .right{
-    text-align: center!important;
-  }
-  #mainNav .navbar-collapse{
-    background-color: #0000005e;
-    margin-left: -15px;
-    margin-right: -15px;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-
-  #mainNav.navbar-shrink .navbar-collapse{
-    background-color: unset;
-  }
-
-  <?php if ($page != 'Home'): ?>
-      #mainNav {
-    background-color: #fff!important;
-  }
-
-  #mainNav .navbar-nav .nav-item .nav-link {
-      /* color: black; */
-      color: #000;
-  }
-
-  .style-green #mainNav .navbar-toggler {
-    /* background-color: #007d1d; */
-        background-color: unset;
-        color: #000;
-    }
-
-  #mainNav .navbar-collapse{
-    background-color: unset;
-  }
-  <?php endif ?>
-
-}
 </style>
 
 <!-- Topbar-->
@@ -140,7 +14,7 @@ body {
           <i class="fas fa-envelope"></i> Email : <span class="nav-item-top"><?=$site['email']?></span>
 
         </div>
-        <div class="col-md-6 col-12 right">
+        <div class="col-md-6 col-12 right social-nav">
             <i class="fas fa-phone-alt"></i>  <?=$this->lang->line('contact')?> : <span class="nav-item-top"><?=$site['phone_number']?></span>
 
             <?php if ($site['twitter']!=''): ?>
@@ -173,6 +47,72 @@ body {
       <a href="<?php echo base_url();?>" title="Home Page">
           <img src="<?php echo base_url('assets/upload/image/'.$site['logo']);?>" alt="Site Logo" class="img-responsive front-logo"  />
       </a>
+
+      <div class="d-none d-md-block nav-search">
+        <!-- Search wrapepr -->
+        <form method="GET" class="search" id="bigger-search" action="<?= base_url() . 'products' ?>">
+                <div class="input-group w-100">
+                            <input type="hidden" name="category" value="<?= isset($_GET['category']) ? $_GET['category'] : '' ?>">
+                            <input type="hidden" name="in_stock" value="<?= isset($_GET['in_stock']) ? $_GET['in_stock'] : '' ?>">
+                            <input type="hidden" name="search_in_title" value="<?= isset($_GET['search_in_title']) ? $_GET['search_in_title'] : '' ?>">
+                            <input type="hidden" name="order_new" value="<?= isset($_GET['order_new']) ? $_GET['order_new'] : '' ?>">
+                            <input type="hidden" name="order_price" value="<?= isset($_GET['order_price']) ? $_GET['order_price'] : '' ?>">
+                            <input type="hidden" name="order_procurement" value="<?= isset($_GET['order_procurement']) ? $_GET['order_procurement'] : '' ?>">
+                            <input type="hidden" name="brand_id" value="<?= isset($_GET['brand_id']) ? $_GET['brand_id'] : '' ?>">
+                            <div class="d-none">
+                                <div class="form-group">
+                                    <label for="quantity_more">quantity_more_than</label>
+                                    <input type="text" value="<?= isset($_GET['quantity_more']) ? $_GET['quantity_more'] : '' ?>" name="quantity_more" id="quantity_more" placeholder="type_a_number" class="form-control">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="added_after">added_after</label>
+                                            <div class="input-group date">
+                                                <input type="text" value="<?= isset($_GET['added_after']) ? $_GET['added_after'] : '' ?>" name="added_after" id="added_after" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="added_before">added_before</label>
+                                            <div class="input-group date">
+                                                <input type="text" value="<?= isset($_GET['added_before']) ? $_GET['added_before'] : '' ?>" name="added_before" id="added_before" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="search_in_body">search_by_keyword_body</label>
+                                    <input class="form-control" value="<?= isset($_GET['search_in_body']) ? $_GET['search_in_body'] : '' ?>" name="search_in_body" id="search_in_body" type="text" />
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="price_from">price_from</label>
+                                            <input type="text" value="<?= isset($_GET['price_from']) ? $_GET['price_from'] : '' ?>" name="price_from" id="price_from" class="form-control" placeholder="type_a_number">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="price_to">price_to</label>
+                                            <input type="text" name="price_to" value="<?= isset($_GET['price_to']) ? $_GET['price_to'] : '' ?>" id="price_to" class="form-control" placeholder="type_a_number">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="text" class="form-control field" style="border-radius: 5px;" id="search_in_title" value="<?= @$_GET['search_in_title'] ?>" placeholder="<?=$this->lang->line('search')?>">
+                            <div class="input-group-append">
+                              <!-- <button class="btn btn-primary btn-xl" type="submit">
+                                <i class="fa fa-search"></i> Search 
+                              </button> -->
+                              <a class="btn btn-primary btn-xl" href="javascript:void(0);" onclick="submitForm()"><i class="fa fa-search"></i> <?=$this->lang->line('search')?></a>
+                            </div>
+                            <!-- <a href="javascript:void(0);" onclick="submitForm()"><i class="fa fa-search"></i></a> -->
+                         </div>
+              </form> <!-- search-wrap .end// -->
+      </div>
+
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
         <!-- <span class="navbar-toggler-icon"></span> -->
         <i class="fas fa-bars"></i>
@@ -183,7 +123,7 @@ body {
             <a class="nav-link js-scroll-trigger" href="<?=base_url()?>"><?=$this->lang->line('home')?></a>
           </li>
 
-          <li class="nav-item dropdown">
+          <!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <?=$this->lang->line('products')?>
             </a>
@@ -193,14 +133,14 @@ body {
               <a style="color: black" class="dropdown-item" href="<?=base_url()?>products/fix-repair"><?=$this->lang->line('landing_service_repair_heading')?></a>
               <a style="color: black" class="dropdown-item" href="<?=base_url()?>products/rental"><?=$this->lang->line('landing_service_rental_heading')?></a>
             </div>
-          </li>
-
-          <!-- <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="<?=base_url('shop')?>">Shop</a>
           </li> -->
+
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="<?=base_url('gallery')?>">Gallery</a>
+            <a class="nav-link js-scroll-trigger" href="<?=base_url('property')?>">Property</a>
           </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="<?=base_url('gallery')?>">Gallery</a>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="<?=base_url()?>about"><?=$this->lang->line('about')?></a>
           </li>
@@ -212,21 +152,22 @@ body {
           </li>
         </ul>
         <ul class="navbar-nav flex-row social-nav">
-            <li class="nav-item">
+            <li class="nav-item social">
               <?php if ($site['twitter']!=''): ?>
               <a class="nav-link px-2" style="display: contents;" href="<?=$site['twitter']?>"><span class="fab fa-twitter" style="padding: .5rem;"></span></a>
               <?php endif ?>
               <?php if ($site['facebook']!=''): ?>
-              <a class="nav-link px-2" style="display: contents;" href="<?=$site['facebook']?>"><span class="fab fa-facebook" style="padding: .5rem;"></span></a>
+              <a class="nav-link px-2" style="display: contents;" href="<?=$site['facebook']?>"><span class="fab fa-facebook-f fa-social-square facebook-color" style="padding: .5rem;"></span></a>
               <?php endif ?>
               <?php if ($site['instagram']!=''): ?>
-              <a class="nav-link px-2" style="display: contents;" href="<?=$site['instagram']?>"><span class="fab fa-instagram" style="padding: .5rem;"></span></a>
+              <a class="nav-link px-2" style="display: contents;" href="<?=$site['instagram']?>"><span class="fab fa-instagram fa-social-square instagram-color" style="padding: .5rem;"></span></a>
               <?php endif ?>
             </li>
         </ul>
-
+        
+        <!-- Language Switch Part -->
         <?php $lang_abr = ($_COOKIE['lang'] == 'english') ? 'EN' : 'ID'?>
-        <ul class="navbar-nav">
+        <!-- <ul class="navbar-nav">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fa fa-globe"></i> <?=$lang_abr?>
@@ -240,100 +181,17 @@ body {
               </a>
             </div>
           </li>
-        </ul>
+        </ul> -->
       </div>
     </div>
   </nav>
 
   <!-- Header -->
   
-    
-     <!-- CAROUSEL -->
-     <?php if ($page == 'Home'): ?>
-      <header class="masthead">
+  <header class="masthead d-none d-md-block">
     <div class="wrapper">
-     <div id="header-carousel" class="carousel slide carousel-fade lazy" data-ride="carousel" data-pause="false" data-interval="5000">
-      <div class="carousel-inner">
-        <div class="carousel-item active lazy spinner" style="" data-src="<?=base_url('img/slider/'.$slider[0]->slider_image)?>">
-          <!-- <img class="d-block w-100" src="<?=base_url()?>img/slider/slider-1.jpg" alt="First slide"> -->
-          <div class="carousel-overlay"></div>
-          <div class="carousel-caption">
-              <h4 class="text-uppercase text-white font-weight-bold" data-animation="animated fadeInDown">
-                <?= ($this->session->userdata('site_lang')=='indonesian') ? $slider[0]->slider_title : $this->lang->line('slider_heading_1')?>
-              </h4>
-              <hr class="divider my-4">
-              <p class="lead text-white font-weight-light mb-5" data-animation="animated fadeInDown">
-                <?= ($this->session->userdata('site_lang')=='indonesian') ? $slider[0]->slider_description : $this->lang->line('slider_content_1')?>
-              </p>
-              <a href="#about" class="btn btn-lg btn-primary" data-animation="animated fadeInDown"><?=$this->lang->line('btn_read_more')?></a>
-          </div><!-- end carousel-caption -->
-        </div>
-        <div class="carousel-item" style="" data-src="<?=base_url('img/slider/'.$slider[1]->slider_image)?>" >
-          <!-- <img class="d-block w-100" src="<?=base_url()?>img/slider/slider-2.jpg" alt="Second slide"> -->
-          <div class="carousel-overlay"></div>
-          <div class="carousel-caption">
-              <h4 class="text-uppercase text-white font-weight-bold" data-animation="animated fadeInDown">
-                <?= ($this->session->userdata('site_lang')=='indonesian') ? $slider[1]->slider_title : $this->lang->line('slider_heading_2')?>
-              </h4>
-              <hr class="divider my-4">
-              <p class="lead text-white font-weight-light mb-5" data-animation="animated fadeInDown">
-                <?= ($this->session->userdata('site_lang')=='indonesian') ? $slider[1]->slider_description : $this->lang->line('slider_content_2')?>
-              </p>
-              <a href="#about" class="btn btn-lg btn-primary" data-animation="animated fadeInDown"><?=$this->lang->line('btn_read_more')?></a>
-          </div><!-- end carousel-caption -->
-        </div>
-        <div class="carousel-item" data-src="<?=base_url('img/slider/'.$slider[2]->slider_image)?>">
-          <!-- <img class="d-block w-100" src="<?=base_url()?>img/slider/slider-3.jpg" alt="Third slide"> -->
-          <div class="carousel-overlay"></div>
-          <div class="carousel-caption">
-              <h4 class="text-uppercase text-white font-weight-bold" data-animation="animated fadeInDown">
-                <?= ($this->session->userdata('site_lang')=='indonesian') ? $slider[2]->slider_title : $this->lang->line('slider_heading_3')?>
-              </h4>
-              <hr class="divider my-4">
-              <p class="lead text-white font-weight-light mb-5" data-animation="animated fadeInDown">
-                <?= ($this->session->userdata('site_lang')=='indonesian') ? $slider[2]->slider_description : $this->lang->line('slider_content_3')?>
-              </p>
-              <a href="#about" class="btn btn-lg btn-primary" data-animation="animated fadeInDown"><?=$this->lang->line('btn_read_more')?></a>
-          </div><!-- end carousel-caption -->
-        </div>
-      </div>
-    </div>
-    </div>
-  </header>
-    <?php else: ?>
-      <style type="text/css">
-        header.masthead{
-          background:unset;
-        }
-    </style>
-     <header class="masthead d-none d-md-block">
-    <div class="wrapper">
-    <!-- <div class="container-fluid h-100 d-none d-md-block" style="height: 100vh;
-        min-height: 300px;
-        background-image: url('<?=base_url('img/bg-masthead.jpg')?>');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;">
-      <div class="" style="position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        /*bottom: 0;*/
-        background: rgb(0 0 0 / 52%);
-            min-height: 300px;
-        "></div>
-    
-  </div>
-  <div class="" style="border-top: 300px solid #ff000000;
-      border-left: 50px solid transparent;
-      border-right: 710vh solid #f8f9fa;
-      height: 0;
-      width: 100px;
-      top: -72vh;
-      position: relative;">
-    </div> -->
 
-    <div class="container-fluid h-100 d-none d-md-block" style="height: 100vh;
+      <div class="container-fluid h-100 d-none d-md-block" style="height: 100vh;
         min-height: 215px;
         background-image: url('<?=base_url('img/bg-masthead.jpg')?>');
         background-size: cover;
@@ -341,23 +199,13 @@ body {
         background-repeat: no-repeat;
             clip-path: ellipse(64% 77% at 51% 7%);">
 
-        <div class="" style="position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        /*bottom: 0;*/
-        background: rgb(0 0 0 / 52%);
-            min-height: 215px;
-                /*clip-path: ellipse(64% 77% at 51% 7%);*/
-        "></div>
+      <div class="" ></div>
 
     </div>
 
-</div>
+    </div>
   </header>
 
-    <?php endif ?>
-  
 
   <style type="text/css">
     @keyframes carousel-spinner {

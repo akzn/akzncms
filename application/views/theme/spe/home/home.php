@@ -1,23 +1,40 @@
-  <!-- About -->
-<!--   <section class="page-section bg-primary" id="about"> -->
-  <!-- <section class="page-section" id="about" style="background-color: #f3f3f3;"> -->
-    <section class="page-section" id="about" data-aos="zoom-in">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8 text-center">
-          <h5 class=" mt-0" data-aos="zoom-in"><?=$this->lang->line('h_about_us')?></h5>
-          <hr class="divider  my-4">
-          <p class=" mb-4 text-justify" data-aos="zoom-in">
-          <?=$this->lang->line('landing_about')?>
-          </p>
-          <!-- <a class="btn btn-light btn-xl js-scroll-trigger" href="<?=base_url('shop')?>">See Our Products</a> -->
-          <a class="btn btn-primary btn-xl js-scroll-trigger" href="<?=base_url()?>about"><?=$this->lang->line('btn_read_more')?></a>
+<!-- Carousel -->
+<div class="container container-sm home-carousel" style="padding-left: unset;padding-right:unset">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item bg-cover active" style="background-image: url('<?=base_url('img/slider/')?><?=$slider[0]->slider_image?>');">
+        <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide [800x400]" src="<?=base_url('img/slider/')?><?=$slider[0]->slider_image?>" data-holder-rendered="true">
         </div>
-      </div>
+        <div class="carousel-item bg-cover" style="background-image: url('<?=base_url('img/slider/')?><?=$slider[1]->slider_image?>');">
+        <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide [800x400]" src="<?=base_url('img/slider/')?><?=$slider[1]->slider_image?>" data-holder-rendered="true">
+        </div>
+        <div class="carousel-item bg-cover" style="background-image: url('<?=base_url('img/slider/')?><?=$slider[2]->slider_image?>');">
+        <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide [800x400]" src="<?=base_url('img/slider/')?><?=$slider[2]->slider_image?>" data-holder-rendered="true">
+        </div>
     </div>
-  </section>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    </div>
+</div>
+
+
+
 
   <style type="text/css">
+    .home-carousel{
+      margin-top: 2vh;
+    }
     .product-section-card {
       min-height:250px;
       color:#fff;
@@ -34,7 +51,8 @@
   }
   .product-imitation {
     text-align: center;
-    padding: 160px 0;
+    /* padding: 160px 0; */
+    padding: 118px 0;
     background-color: #f8f8f9;
     color: #bebec3;
     font-weight: 600;
@@ -44,6 +62,10 @@
         background-attachment: scroll;
         background-size: cover;
   }
+
+.ibox-content.product-box{
+  border-radius: 25px;
+}
 .product-desc {
   padding: 10px;
   position: relative;
@@ -113,7 +135,22 @@
 }
     /*.owl-prev i, .owl-next i {transform : scale(2,5); color: #ccc;}*/
 
+    section#favourite {
+      background-size: cover;
+      position: relative;
+      background-color: #212529;
+      background-image: linear-gradient(
+        rgba(0, 0, 0, 0.0), 
+        rgba(0, 0, 0, 0.33)
+      ),url(<?=base_url()?>img/oiaunsdaus.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
 @media (max-width: 600px) {
+    .home-carousel{
+      margin-top: 10vh;
+    }
       #services .services-box{
         width: auto
       }
@@ -141,31 +178,32 @@
 
 
   <!-- Product Products Section -->
-  <section class="page-section" id="products" data-aos="zoom-in">
+  <section class="page-section" id="products" data-aos="">
     <div class="container">
-      <h5 class="text-center mt-0" data-aos="zoom-in"><?=$this->lang->line('h_our_products')?></h5>
-      <hr class="divider my-4">
+      <!-- <h5 class="text-center mt-0" data-aos="">Aset Properti Impian</h5> -->
+      <h5 class="parent-title mt-5 text-center mt-5 pt-5" data-aos="">Temukan Properti Impian Anda</h5>
+      <!-- <hr class="divider my-4"> -->
 
       <!-- Page Content -->
       <div>
-        <h5 class="parent-title" data-aos="zoom-in">Attachment</h5>
+        <!-- <h5 class="parent-title" data-aos="">Attachment</h5> -->
         <hr>
         <!-- owl -->
-        <div class="owl-carousel owl-theme" data-aos="zoom-in" style="margin-bottom: 30px;">
-          <?php foreach ($attachments as $key): ?>
+        <div class="owl-carousel owl-theme" data-aos="" style="margin-bottom: 30px;">
+          <?php foreach ($randomProductItems as $key): ?>
             <?php
-              $u_path = 'img/shop/';
+              $u_path = 'img/product/';
                         if ($key->image != null && file_exists($u_path . $key->image)) {
                             $image = base_url($u_path . $key->image);
                         } else {
-                            $image = base_url('img/no-image-1.png');
+                            $image = base_url('img/no-imag.jpg');
                         }
             ?>
           <div class="ibox">
             <div class="ibox-content product-box">
                 <a href="<?=base_url()?>product/<?=$key->url?>">
                 <!-- <div class="product-imitation" style="background-image: url('<?=$image?>');"> -->
-                <div class="product-imitation lazy" style="background-position: center;background-size: cover;border-radius: unset;" data-src="<?=base_url()?>img/shop/<?=$key->image?>" >
+                <div class="product-imitation lazy" style="background-position: center;background-size: cover;border-radius: 0px;" data-src="<?=base_url($u_path)?><?=$key->image?>" >
                     <!-- <img class="img-fluid" src="<?=base_url()?>img/shop/<?=$key->image?>"> -->
                 </div>
                 </a>
@@ -176,9 +214,9 @@
                     <small class="text-muted product-category"><?=$key->categori_name?></small>
                     <a href="<?=base_url()?>product/<?=$key->url?>" class="product-name"> <?=$key->title?></a>
 
-                    <!-- <div class="small m-t-xs">
-                        dummy
-                    </div> -->
+                    <div class="small m-t-xs">
+                        <?=$key->description?>
+                    </div>
                     <div class="m-t text-righ">
 
                         <!-- <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a> -->
@@ -189,27 +227,31 @@
           <?php endforeach ?>
         </div>
 
-      <a href="<?=base_url()?>products/?category=11" class="btn btn-primary btn-xl js-scroll-trigger float-right mt-3"><?=$this->lang->line('btn_see_more')?></a>
+        <!-- <a href="<?=base_url()?>products" class="btn btn-primary btn-xl js-scroll-trigger float-right mt-3"><?=$this->lang->line('btn_see_more')?></a> -->
       </div>
 
-      <div class="mt-5 pt-5" data-aos="zoom-in">
-        <h5 class="parent-title mt-5" data-aos="zoom-in">Spareparts</h5>
+      <div class="mt-5 " data-aos="">
+        <h5 class="parent-title mt-5 text-center" data-aos="">Solusi Hunian Impian Keluarga</h5>
         <hr>
       <!-- owl -->
-        <div class="owl-carousel owl-theme" data-aos="zoom-in" style="margin-bottom: 30px;">
-          <?php foreach ($spareparts as $key): ?>
+        <div class="owl-carousel owl-theme" data-aos="" style="margin-bottom: 30px;">
+          <?php
+            //suffle array temporary for demo
+            shuffle($randomProductItems);
+          ?>
+          <?php foreach ($randomProductItems as $key): ?>
             <?php
-              $u_path = 'img/shop/';
+              // $u_path = 'img/product/';
                         if ($key->image != null && file_exists($u_path . $key->image)) {
                             $image = base_url($u_path . $key->image);
                         } else {
-                            $image = base_url('img/no-image-1.png');
+                            $image = base_url('img/no-image.jpg');
                         }
             ?>
-          <div class="ibox">
+          <div class="ibox" style="    border-radius: 10px;">
             <div class="ibox-content product-box">
                 <a href="<?=base_url()?>product/<?=$key->url?>">
-                <div class="product-imitation lazy spinner" style="background-position: center;background-size: cover;border-radius: unset;" data-src="<?=base_url()?>img/shop/<?=$key->image?>" >
+                <div class="product-imitation lazy spinner" style="background-position: center;background-size: cover;border-radius: 0px;" data-src="<?=base_url($u_path)?><?=$key->image?>" >
                 <!-- <div class="product-imitation lazy spinner" style="background-image: url('<?=$image?>');"> -->
                     <!-- <img class="img-fluid" src="<?=base_url()?>img/shop/<?=$key->image?>"> -->
                 </div>
@@ -221,9 +263,9 @@
                     <small class="text-muted product-category"><?=$key->categori_name?></small>
                     <a href="<?=base_url()?>product/<?=$key->url?>" class="product-name"> <?=$key->title?></a>
 
-                    <!-- <div class="small m-t-xs">
-                        dummy
-                    </div> -->
+                    <div class="small m-t-xs">
+                        <?=$key->description?>
+                    </div>
                     <div class="m-t text-righ">
 
                         <!-- <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a> -->
@@ -233,7 +275,7 @@
         </div>
           <?php endforeach ?>
         </div>
-      <a href="<?=base_url()?>products/?category=15" class="btn btn-primary btn-xl js-scroll-trigger float-right mt-2"><?=$this->lang->line('btn_see_more')?></a>
+      <!-- <a href="<?=base_url()?>products" class="btn btn-primary btn-xl js-scroll-trigger float-right mt-2"><?=$this->lang->line('btn_see_more')?></a> -->
       </div>
     </div>
   </section>
@@ -242,169 +284,17 @@
 
   </style>
 
-  <!-- Product Services Section -->
-  <section class="page-section mt-4" id="services" style="">
-    <div class="container">
-      <h5 class="text-center mt-0" data-aos="zoom-in"><?=$this->lang->line('h_other_services')?></h5>
-      <hr class="divider my-4">
-      <div class="row services-item">
-        <div class="col-md-6 d-none d-sm-block services-left" style="background-position: center;background-size: cover;">
-          <div class="text-center" data-aos="zoom-in">
-            <!-- <img class="img img-fluid" width="300" src="<?=base_url()?>img/repairs-vec.png"> -->
-            <img class="img img-fluid spinner lazy" width="400" data-src="<?=base_url()?>img/repair-1.jpg">
-            <!-- <img class="lazy img-fluid" width="400" src="<?=base_url()?>img/loading.gif" data-src="<?=base_url()?>img/repair-1.jpg?>"> -->
-          </div>
-        </div>
-        <div class="col-md-6 col-12 services-right services-box" style="padding-top: 50px;">
-          <div class="" data-aos="zoom-in">
-            <h5 class="pb-3"><?=$this->lang->line('landing_service_repair_heading')?></h5>
-            <p class="mb-5 pb-3" ><?=$this->lang->line('landing_service_repair_content')?></p>
-            <a href="<?=base_url()?>products/?category=16"  class="btn btn-primary btn-xl float-left"><?=$this->lang->line('btn_read_more')?></a>
-          </div>
-        </div>
-      </div>
-      <div class="row services-item">
-        <div class="col-md-6 services-left services-box" style="padding-top: 50px;">
-          <div class="float-right " data-aos="zoom-in">
-            <h5 class="text-right pb-3" ><?=$this->lang->line('landing_service_rental_heading')?></h5>
-            <p class="text-right mb-5 pb-3"> <?=$this->lang->line('landing_service_rental_content')?></p>
-            <a href="<?=base_url()?>products/?category=17" class="bnt btn-primary  float-right btn-xl"><?=$this->lang->line('btn_read_more')?></a>
-          </div>
-        </div>
-        <div class="col-md-5 d-none d-sm-block services-right" style="background-position: center;background-size: cover;">
-          <div class="text-center" data-aos="zoom-in">
-            <!-- <img class="img img-fluid" width="300" src="<?=base_url()?>img/rentals-vec.png"> -->
-            <img class="lazy img-fluid" width="400" data-src="<?=base_url()?>img/rent-1.jpg?>">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
 
-  <!-- Clients -->
-  <section class=" page-section" id="clients">
-    <div class="container">
-      <h5 class="text-center mt-0" data-aos="zoom-in"><?=$this->lang->line('h_our_partners')?></h5>
-      <hr class="divider my-4 mb-5">
-      <div class="justify-content-center owl-carousel owl-theme mt-5 pt-5" data-aos="zoom-in">
-        <?php foreach ($clients as $key): ?>
-          <div class="item"><img class="img-fluid d-block mx-auto owl-lazy lazy" data-src="<?=base_url()?>img/clients/<?=$key->image?>" alt="" style="height: 80px;width:auto"></div>
-        <?php endforeach ?>
-      </div>
-    </div>
-  </section>
-<style type="text/css">
-  section#section-video .item {
-    margin-bottom: 10px;
-    cursor: pointer;
-  }
-  section#section-video .bg-img {
-    position: relative;
-    min-height :220px;
-    background-position: center center;
-    background-repeat: no-repeat;
-    /*background-attachment: scroll;*/
-    background-size: cover;
-    box-shadow:inset 0px 0px 69px rgb(0 0 0 / 76%);
-    -webkit-transition: opacity 0.5s ease-in-out;
-    -moz-transition: opacity 0.5s ease-in-out;
-    transition: opacity 0.5s ease-in-out;
 
-  }
-  section#section-video .bg-img:hover {
-    opacity: 0.75;
-  }
-  section#section-video .play-btn {
-        background: #000000b5;
-    padding: 12px 20px 10px 23px;
-    border-radius: 10px;
-    position: absolute;
-    top: 36%;
-    left: 40%;
-    z-index: 10;
-  }
-  section#section-video .play-btn i {
-    font-size: 35px;
-    color:#fff;
-  }
-</style>
-<!-- Section Video -->
-<section class="page-section" id="section-video">
-    <div class="container">
-      <h5 class="parent-title" data-aos="zoom-in">Video Produk Kami</h5>
-      <hr>
-      <div class="row mb-4">
-        <?php foreach ($videos as $key => $value): ?>
-            <div class="col-md-3 item bootstrap-fancy-video" data-aos="zoom-in" data-fancy-src="<?=$value->video_url?>">
-              <div class="bg-img" style="background-image: url('<?=base_url()?>img/gallery/<?=$value->image?>')"></div>
-              <div class="play-btn"><i class="fas fa-play"></i></div>
-            </div>
-        <?php endforeach ?>
-        <!-- <div class="col-md-3 item bootstrap-fancy-video" data-aos="zoom-in" data-fancy-src="<?=base_url()?>video/sample-1.mp4">
-          <div class="bg-img" style="background-image: url('<?=base_url()?>img/video/1.jpg')"></div>
-          <div class="play-btn"><i class="fas fa-play"></i></div>
-        </div>
-        <div class="col-md-3 item bootstrap-fancy-video" data-aos="zoom-in" data-fancy-src="<?=base_url()?>video/sample-2.mp4">
-          <div class="bg-img" style="background-image: url('<?=base_url()?>img/video/2.jpg')"></div>
-          <div class="play-btn"><i class="fas fa-play"></i></div>
-        </div>
-         <div class="col-md-3 item bootstrap-fancy-video" data-aos="zoom-in" data-fancy-src="<?=base_url()?>video/sample-2.mp4">
-          <div class="bg-img" style="background-image: url('<?=base_url()?>img/video/3.jpg')"></div>
-          <div class="play-btn"><i class="fas fa-play"></i></div>
-        </div>
-         <div class="col-md-3 item bootstrap-fancy-video" data-aos="zoom-in" data-fancy-src="<?=base_url()?>video/sample-2.mp4">
-          <div class="bg-img" style="background-image: url('<?=base_url()?>img/video/4.jpg')"></div>
-          <div class="play-btn"><i class="fas fa-play"></i></div>
-        </div> -->
-      </div>
-      <div class="row">
-        <div class="col-md-12" data-aos="zoom-in">
-          <a href="" class="btn btn-primary btn-xl float-right">Lihat lainnya</a>
-        </div>
-      </div>
-    </div>
-</section>
 
-<!-- Gallery -->
-  <section class=" page-section" id="gallery" style="    ">
-    <div class="container-fluid">
-      <!-- <h5 class="text-center mt-0">Gallery</h5> -->
-      <h5 class="text-center" data-aos="zoom-in"><?=$this->lang->line('h_contact_us_now')?></h5>
-      <hr class="divider my-4 mb-5">
-      <div class="justify-content-center">
-              
-        <div class="text-center mt-5 gallery-container mx-auto" data-aos="zoom-in">
-          <div class="bricklayer mb-5 ftco-animate">
-            <?php 
-              $dirthumbs = "img/gallery/thumbs/";
-              $dir = "img/gallery/";
-              if (is_dir($dirthumbs)) {
-                      chdir($dirthumbs);
-                      array_multisort(array_map('filemtime', ($files = glob("*.*"))), SORT_DESC, $files);
-                      foreach($files as $filename)
-                      {
-                        ?>
 
-                        <div class="gallery-item bootstrap-fancy-img lazy" id="bootstrap-fancy-img" style="background-position: center;background-size: cover;border-radius: unset;" data-fancy-src="<?= base_url($dir . $filename) ?>" data-src="<?= base_url($dir . $filename) ?>" data-alt="<?=$filename?>" >
-                    
-                        </div>
-
-                        <?php
-                        if (++$i == 12) break;
-                      }
-                  }?>
-          </div>
-          <a href="<?=base_url()?>gallery" class="btn btn-primary btn-xl"><?=$this->lang->line('btn_more')?></a>
-     </div>
-
-      </div>
-    </div>
-  </section>
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bricklayer/0.4.2/bricklayer.min.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/bricklayer/0.4.2/bricklayer.min.js"></script>
+  <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/bricklayer/0.4.2/bricklayer.min.js"></script> -->
   
   <style type="text/css">
+
+
     img.lazy {
         /* optional way, set loading as background */
         background-image: url('<img src="<?=base_url()?>img/loading.gif">');
@@ -414,7 +304,7 @@
   </style>
   <script>
   $(document).ready(function () {
-    var bricklayer = new Bricklayer(document.querySelector('.bricklayer'));
+    // var bricklayer = new Bricklayer(document.querySelector('.bricklayer'));
     $('.lazy').Lazy({
       // your configuration goes here
       scrollDirection: 'vertical',
@@ -445,6 +335,9 @@
   });
   </script>
   <style type="text/css">
+    .page-section{
+      padding:20px 0
+    }
     section#contact,#about,#clients{
       background: url(<?=base_url()?>/img/footer_bg.png);
       background-repeat: repeat ;
@@ -504,51 +397,113 @@
         opacity: .9;
     }
   </style>
-  <!-- Contact -->
-  <section class="page-section text-white d-none" id="contact" style="">
-    <div class="container">
-        <h5 class="text-center mt-0 text-white">Tinggalkan Pesan</h5>
-        <hr class="divider light my-4">
-      <div class="row">
-        <div class="col-lg-12">
-          <form id="contactForm-ha" name="sentMessage" novalidate="novalidate" action="<?=base_url()?>kontak" method="post">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <input class="form-control" name="name" id="name" type="text" placeholder="Your Name *" required="required" data-validation-required-message="Please enter your name.">
-                  <p class="help-block text-danger"></p>
-                </div>
-                <div class="form-group">
-                  <input class="form-control" name="email" id="email" type="email" placeholder="Your Email *" required="required" data-validation-required-message="Please enter your email address.">
-                  <p class="help-block text-danger"></p>
-                </div>
-                <!-- <div class="form-group">
-                  <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required="required" data-validation-required-message="Please enter your phone number.">
-                  <p class="help-block text-danger"></p>
-                </div> -->
-                <div class="form-group">
-                  <input class="form-control" name="subject" id="subject" type="text" placeholder="Subject *" required="required" data-validation-required-message="Please enter the subject." autocomplete="off">
-                  <p class="help-block text-danger"></p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <textarea class="form-control" name="messages" id="message" placeholder="Your Message *" required="required" data-validation-required-message="Please enter a message."></textarea>
-                  <p class="help-block text-danger"></p>
-                </div>
-              </div>
-              <div class="clearfix"></div>
-              <div class="col-lg-12 text-center">
-                <div id="success"></div>
-                <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit"><?=$this->lang->line('btn_send_message')?></button>
+
+
+  
+  <!-- Favourite -->
+  <section class="page-section p-5 d-none d-sm-block" id="favourite" style="padding:7rem!important">
+      <div class="container" style="    color: white;">
+          <div class="text-center mb-5">
+              <h3 class="section-heading text-uppercase" style="    background-color: #0000004a;padding:1rem">Properti Unggulan Kami</h3>
+          </div>
+          <div class="row" style="    background-color: #0000004a;padding:2rem">
+            <div class="col-md-6">
+                <h4>What is Lorem Ipsum?</h4>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                <ul>
+                  <li>It has survived not only five centuries, </li>
+                  <li>also the leap into electronic typesetting, </li>
+                  <li>essentially unchanged. </li>
+                  <li>was popularised in the 1960s with the release of Letraset </li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+              <div class="text-center" data-aos="">
+                <!-- <img class="img img-fluid" width="300" src="<?=base_url()?>img/repairs-vec.png"> -->
+                <img class="img img-fluid spinner lazy" width="400" data-src="<?=base_url()?>img/b4a9db541f8d5c.jpg" style="    border-radius: 20px;">
+                <!-- <img class="lazy img-fluid" width="400" src="<?=base_url()?>img/loading.gif" data-src="<?=base_url()?>img/repair-1.jpg?>"> -->
               </div>
             </div>
-          </form>
+          </div>
+      </div>
+  </section>
+
+    <!-- About -->
+    <section class="page-section" id="services">
+    <div class="container">
+      <div class="row services-item">
+        <div class="col-md-6 d-none d-sm-block services-left" style="background-position: center;background-size: cover;">
+          <div class="text-center" data-aos="">
+            <!-- <img class="img img-fluid" width="300" src="<?=base_url()?>img/repairs-vec.png"> -->
+            <img class="img img-fluid spinner lazy" width="400" data-src="<?=base_url()?>img/b4a9db541f8d5c.jpg" style="    border-radius: 20px;">
+            <!-- <img class="lazy img-fluid" width="400" src="<?=base_url()?>img/loading.gif" data-src="<?=base_url()?>img/repair-1.jpg?>"> -->
+          </div>
+        </div>
+        <div class="col-md-6 col-12 services-right services-box" style="padding-top: 20px;">
+          <div class="" data-aos="">
+            <h4 class="pb-3"><?=$site['nameweb']?></h4>
+            <p class="mb-5" ><?=$site['metatext']?></p>
+            <a href="<?=base_url()?>about"  class="btn btn-primary btn-xl float-left"><?=$this->lang->line('btn_read_more')?></a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- services -->
+  <style>
+    .page-section#services .card{
+      border-radius: 20px;
+      border:1px solid var(--primary-color)
+    }
+  </style>
+  <section class="page-section" id="services">
+    <div class="container">
+      <h4 class="text-center mb-4">Mengapa Memilih Kami ?</h4>
+      <div class="row services-item text-center">
+        <div class="col-md-3 services-left" style="background-position: center;background-size: cover;    margin-bottom: 10px;">
+          <div class="card" style="width: auto;">
+            <div class="card-body">
+              <div class="text-center mt-4 mb-4" style="font-size: 2em;"><i class="fas fa-check-circle"></i></div>
+              <h5 class="card-title">Lebih dari sekadar Developer</h5>
+              <p class="card-text">Kami menghadirkan ribuan unit properti dengan konsep nilai tambah yang mengerti kebutuhan anda.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 services-left" style="background-position: center;background-size: cover;    margin-bottom: 10px;">
+          <div class="card" style="width: auto;">
+            <div class="card-body">
+              <div class="text-center mt-4 mb-4" style="font-size: 2em;"><i class="fas fa-check-circle"></i></div>
+              <h5 class="card-title">Properti Yang Beragam</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 services-left" style="background-position: center;background-size: cover;    margin-bottom: 10px;">
+          <div class="card" style="width: auto;">
+            <div class="card-body">
+              <div class="text-center mt-4 mb-4" style="font-size: 2em;"><i class="fas fa-check-circle"></i></div>
+              <h5 class="card-title">Legalitas Aman</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 services-left" style="background-position: center;background-size: cover;    margin-bottom: 10px;">
+          <div class="card" style="width: auto;">
+            <div class="card-body">
+              <div class="text-center mt-4 mb-4" style="font-size: 2em;"><i class="fas fa-check-circle"></i></div>
+              <h5 class="card-title">Lebih Menguntungkan</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <style type="text/css">
     .owl-carousel .owl-item .owl-lazy.loaded{
@@ -574,13 +529,13 @@
             navText : ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
             responsive:{
                 0:{
-                    items:2
+                    items:1
                 },
                 600:{
                     items:2
                 },
                 1000:{
-                    items:4
+                    items:3
                 }
             }
         })
@@ -602,7 +557,7 @@
                     items:2
                 },
                 1000:{
-                    items:4
+                    items:3
                 }
             }
         })

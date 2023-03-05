@@ -86,7 +86,7 @@ class AddProduct extends CI_Controller
         $data['id'] = $id;
         $data['trans_load'] = $trans_load;
         // $data['languages'] = $this->Languages_model->getLanguages();
-        $data['product_categories'] = $this->ShopCategories_model->getShopCategories();
+        $data['product_categories'] = $this->ShopCategories_model->getShopCategoriesActive();
 
         if ($_GET['cat']) {
             $filter = array('cat' => $_GET['cat']);
@@ -116,11 +116,11 @@ class AddProduct extends CI_Controller
 
     private function uploadImage($oldImage = null)
     {   
-        $upload_path = './img/shop/';
-        $upload_path_temp = './img/shop/temp';
+        $upload_path = './img/product/';
+        $upload_path_temp = './img/product/temp';
         $config['upload_path'] = $upload_path_temp;
         // $config['allowed_types'] = $this->allowed_img_types;
-        $config['allowed_types'] = 'jpg|jpeg|png';
+        $config['allowed_types'] = 'jpg|jpeg|png|webp';
         $config['quality'] = '50%';
         $config['max_size'] = 5*1024;
 
@@ -178,10 +178,10 @@ class AddProduct extends CI_Controller
     public function do_upload_others_images()
     {
         if ($this->input->is_ajax_request()) {
-            $upath = '.' . DIRECTORY_SEPARATOR . 'img' . DIRECTORY_SEPARATOR . 'shop' . DIRECTORY_SEPARATOR . $_POST['folder'] . DIRECTORY_SEPARATOR;
+            $upath = '.' . DIRECTORY_SEPARATOR . 'img' . DIRECTORY_SEPARATOR . 'product' . DIRECTORY_SEPARATOR . $_POST['folder'] . DIRECTORY_SEPARATOR;
 
             $upload_path =  $upath;
-            $upload_path_temp = './img/shop/temp';
+            $upload_path_temp = './img/product/temp';
 
             if (!file_exists($upath)) {
                 mkdir($upath, 0777);
@@ -204,7 +204,7 @@ class AddProduct extends CI_Controller
                     'upload_path' => $upload_path_temp,
                     'max_size' => 1024*5,
                     // 'allowed_types' => $this->allowed_img_types
-                    'allowed_types' => 'jpg|jpeg|png'
+                    'allowed_types' => 'jpg|jpeg|png|webp'
                 ));
 
                 // $this->upload->do_upload('others');

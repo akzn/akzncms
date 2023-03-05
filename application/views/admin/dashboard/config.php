@@ -46,7 +46,7 @@ echo validation_errors('<div class="alert alert-success">','</div>');
     <div class="form-group">
         <label>Company</label>
         <input type="text" name="nameweb" placeholder="Nama Website" value="<?php echo $site['nameweb'] ?>" required class="form-control"
-        <?=($this->session->userdata('userlevel')=='administrator') ? '':'disabled readonly';?>
+        <?=($this->session->userdata('userlevel')=='administrator') ? '':' readonly';?>
         >
     </div>
     <div class="form-group">

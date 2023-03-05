@@ -62,7 +62,7 @@ class Product extends CI_Controller {
                 // $data['table_specification'] = $this->load->view('front2/shop/spec-div',$data);
                 // $data['table_specification'] = utf8_encode("<h1>asdasd</h1>");
             }
-
+            
             // echo json_encode($data, JSON_HEX_QUOT | JSON_HEX_TAG);
             $this->load->view('front2/shop/spec-div',$data);
             // var_dump($data['table_specification']);
@@ -78,7 +78,7 @@ class Product extends CI_Controller {
         $head = array();
         $site  		= $this->mConfig->list_config();
         $data['product'] = $this->products_model->getOneProduct($id);
-        $data['sameCagegoryProducts'] = $this->products_model->sameCagegoryProducts($data['product']['shop_categorie'], $id);
+        $data['sameCategoryProducts'] = $this->products_model->sameCategoryProducts($data['product']['shop_categorie'], $id);
         
         if ($data['product'] === null) {
             redirect('shop');
@@ -91,7 +91,7 @@ class Product extends CI_Controller {
         $this->db->select('spec_name, specification_id');
         $this->db->where('product_categories_id', $id_categories);
         $this->db->where('sub_for', '0');
-        $this->db->where('spec_type', '0');
+        // $this->db->where('spec_type', '0');
         $spec_kat_result = $this->db->get('product_category_specification')->result();
         $spec_data = $spec_kat_result;
 
@@ -104,22 +104,24 @@ class Product extends CI_Controller {
             $this->db->where('sub_for', $key->specification_id);
             $get_sub = $this->db->get('products')->result();
             $key->sub = $get_sub;
-            // var_dump($get_sub);
         }
 
         # get suitable excavator for breaker (unique custom just for breaker?)
-        $id_categories = $data['product']['shop_categorie'];
-        $this->db->select('spec_name, specification_id, title, value');
-        $this->db->join('product_specification','product_specification.product_category_specification_id = product_category_specification.specification_id');
-        $this->db->join('products','product_specification.product_id = products.id');
-        $this->db->where('spec_type', 'excavator'); // custom for breaker yukimura
-        $this->db->where('product_categories_id', $id_categories);
-        $this->db->where('products.id',$id);
-        $excav_result = $this->db->get('product_category_specification')->result();
-        $spec2_data = $excav_result; 
+        // Disabled because this is spesific to yukimura (akzcms.0.3.4)
+        
+        // $id_categories = $data['product']['shop_categorie'];
+        // $this->db->select('spec_name, specification_id, title, value');
+        // $this->db->join('product_specification','product_specification.product_category_specification_id = product_category_specification.specification_id');
+        // $this->db->join('products','product_specification.product_id = products.id');
+        // $this->db->where('spec_type', 'excavator'); // custom for breaker yukimura
+        // $this->db->where('product_categories_id', $id_categories);
+        // $this->db->where('products.id',$id);
+        // $excav_result = $this->db->get('product_category_specification')->result();
+        // $spec2_data = $excav_result; 
 
         # get product type (jenis jenis item/tipe dalam satu produk)
-        $id_categories = $data['product']['shop_categorie'];
+        // Disabled because this is spesific to yukimura (akzcms.0.3.4)
+        /* $id_categories = $data['product']['shop_categorie'];
         $this->db->select('spec_name, specification_id, title, value');
         $this->db->join('product_specification','product_specification.product_category_specification_id = product_category_specification.specification_id');
         $this->db->join('products','product_specification.product_id = products.id');
@@ -127,10 +129,10 @@ class Product extends CI_Controller {
         $this->db->where('product_categories_id', $id_categories);
         $this->db->where('products.id',$id);
         $result = $this->db->get('product_category_specification')->row();
-        $spec_product_type = $result; 
+        $spec_product_type = $result;  */
 
         $data['specification'] = $spec_data;
-        $data['specification_2'] = $spec2_data;
+        // $data['specification_2'] = $spec2_data; // Disabled because this is spesific to yukimura (akzcms.0.3.4)
         $data['specification_product_type'] = $spec_product_type;
         
         // $this->render('view_product', $head, $data);
@@ -153,7 +155,8 @@ class Product extends CI_Controller {
 
 	function getCategoryList(){
 
-		$all_categories = $this->shop_model->getShopCategories();
+		// $all_categories = $this->shop_model->getShopCategories();
+		$all_categories = $this->shop_model->getShopCategories('active');
 
         function buildTree1(array $elements, $parentId = 0)
         {
