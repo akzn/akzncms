@@ -6,7 +6,6 @@
     $CI =& get_instance();
     $class = $CI->router->fetch_class();
     $exclude =  array('example');  // add more controller name to exclude ssl.
-    echo ENVIRONMENT;
     if(!in_array($class,$exclude) && ENVIRONMENT!='development') {
       // redirecting to ssl.
       $CI->config->config['base_url'] = str_replace('http://', 'https://', $CI->config->config['base_url']);

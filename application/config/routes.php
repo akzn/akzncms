@@ -71,7 +71,7 @@ $route['product/(:any)_(:num)'] = "product/viewProduct/$2";
 $route['product/(\w{2})/(:any)_(:num)'] = "product/viewProduct/$3";
 $route['product/product_data/(:num)'] = "product/product_data/$1";
 
-
+# ADMIN
 
 $route['admin'] = 'admin/dashboard';
 
@@ -102,6 +102,7 @@ $route['admin/changePass'] = "admin/home/home/changePass";
 $route['admin/uploadOthersImages'] = "admin/ecommerce/AddProduct/do_upload_others_images";
 $route['admin/loadOthersImages'] = "admin/ecommerce/AddProduct/loadOthersImages";
 
+# MISC
 
 //Lang Route
 $route['id'] = 'home';
@@ -112,4 +113,10 @@ if(!in_array($_SERVER['REMOTE_ADDR'], $this->config->item('maintenance_ips')) &&
 {	
 	$route['default_controller'] = "home/maintenance";
     $route['(:any)'] = "home/maintenance";
+}
+
+// Theme spesific
+if($this->config->item('theme')=='spe'){
+    // $route['default_controller'] = 'shop';  
+    $route['property'] = 'shop';  
 }

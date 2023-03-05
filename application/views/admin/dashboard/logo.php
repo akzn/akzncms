@@ -47,7 +47,7 @@ if(isset($error)) {
 echo validation_errors('<div class="alert alert-success">','</div>'); 
 ?>
 
-<form action="<?php echo base_url('admin/dashboard/logo') ?>" method="post" enctype="multipart/form-data">
+<form action="<?php echo base_url('admin/settings/logo') ?>" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="config_id" value="<?php echo $site['config_id'] ?>">
 	
     <div class="col-md-6">

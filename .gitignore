@@ -20,3 +20,5 @@ application/logs/*
 img/*
 
 /.htaccess
+/assets/upload/image
+/assets/upload/file

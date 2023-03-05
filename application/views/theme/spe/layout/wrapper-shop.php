@@ -29,6 +29,7 @@
   <link href="<?php echo base_url('assets/upload/image/'.$site['icon']) ?>" rel="shortcut icon">
 
   <link href="<?=base_url()?>assets/front/style.css?v=2.15" rel="stylesheet">
+  <link href="<?=base_url()?>assets/theme/spe/style.css?v=0.1" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="<?=base_url('assets/shop/category.css?v=1.1')?>">
 
 
@@ -59,119 +60,14 @@
 
 </head>
 
-<body id="page-top" class="style-green">
+<body id="page-top" class="">
 
-<?php $this->load->view('theme/yuki/layout/header');?>
-
-<?php
-/*
-
-
-  <!-- Navigation -->
-  <!-- <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top" id="mainNav"> -->
-    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
-    <div class="container">
-      <!-- <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
-      </button> -->
-      <a href="<?php echo base_url();?>" title="Home Page">
-          <img src="<?php echo base_url('assets/upload/image/'.$site['logo']);?>" alt="Site Logo" class="lazy img-responsive front-logo"  />
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav text-uppercase ml-auto">
-           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="<?=base_url()?>">Home</a>
-          </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="<?=base_url('shop')?>">Shop</a>
-          </li> -->
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="<?=base_url('gallery')?>">Gallery</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="<?=base_url()?>about">About</a>
-          </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#team">Team</a>
-          </li> -->
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="<?=base_url()?>about/contact">Contact</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav flex-row">
-          <?php if ($site['twitter']!=''): ?>
-            <li class="nav-item"><a class="nav-link px-2" href="<?=$site['twitter']?>"><span class="fab fa-twitter"></span></a></li>
-          <?php endif ?>
-           <?php if ($site['facebook']!=''): ?>
-            <li class="nav-item"><a class="nav-link px-2" href="<?=$site['facebook']?>"><span class="fab fa-facebook"></span></a></li>
-          <?php endif ?>
-           <?php if ($site['instagram']!=''): ?>
-            <li class="nav-item"><a class="nav-link px-2" href="<?=$site['instagram']?>"><span class="fab fa-instagram"></span></a></li>
-          <?php endif ?>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Header -->
-  <header class="masthead">
-    <div class="container">
-      <div class="intro-text">
-        <?php if ($page == 'Home'): ?>
-          
-          <div class="row h-100 align-items-center justify-content-center text-center">
-        <div class="col-lg-10 align-self-end">
-          <h1 class="text-uppercase text-white font-weight-bold">Yukimura</h1>
-          <hr class="divider my-4">
-        </div>
-        <div class="col-lg-8 align-self-baseline">
-          <p class="text-white-75 font-weight-light mb-5">Your Favorite Source of Heavy Construction Equipments!</p>
-          <a class="btn btn-primary btn-xl btn-xl js-scroll-trigger" href="#about">Find Out More</a>
-        </div>
-        </div>
-      
-        <?php else:?>
-          <style type="text/css">header.masthead .intro-text{padding-top: 150px;padding-bottom: 0 }</style>
-        <?php endif ?>
-        </div>
-      
-    </div>
-  </header>
-*/
-?>
-  <!-- Header -->
-  <!-- <header class="masthead">
-    <div class="container">
-      
-        <?php if ($page == 'Home'): ?>
-          <div class="intro-text">
-          <div class="row h-100 align-items-center justify-content-center text-center">
-        <div class="col-lg-10 align-self-end">
-          <h1 class="text-uppercase text-white font-weight-bold">Yukimura</h1>
-          <hr class="divider my-4">
-        </div>
-        <div class="col-lg-8 align-self-baseline">
-          <p class="text-white-75 font-weight-light mb-5">Your Favorite Source of Heavy Construction Equipments!</p>
-          <a class="btn btn-primary btn-xl btn-xl js-scroll-trigger" href="#about">Find Out More</a>
-        </div>
-        </div>
-      </div>
-        <?php else: ?>
-           <div style="padding-top: 100px;"></div>
-          
-        <?php endif ?>
-      
-    </div>
-  </header> -->
+<?php $this->load->view('theme/'. $this->config->item('theme') .'/layout/header');?>
 
   <content>
 
-    <div class="container mt-3">
+    <!-- <div class="container-fluid pt-3 bg-primary-color content-div"> -->
+    <div class="container-fluid pt-3 content-div">
         <!-- shop Head -->
         <div class="header-shop">
         <div class="row align-items-center">
@@ -224,7 +120,7 @@
             </div>
           </div> 
           </div>
-          <div class="col-sm-6">
+          <div class="col-sm-6 d-md-none">
               <!-- Search wrapepr -->
               <form method="GET" class="search" id="bigger-search" action="<?= base_url() . 'products' ?>">
                 <div class="input-group w-100">
@@ -277,7 +173,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <input type="text" class="form-control field" id="search_in_title" value="<?= @$_GET['search_in_title'] ?>" placeholder="<?=$this->lang->line('search')?>">
+                            <input type="text" class="form-control field" style="border-radius: 5px;" id="search_in_title" value="<?= @$_GET['search_in_title'] ?>" placeholder="<?=$this->lang->line('search')?>">
                             <div class="input-group-append">
                               <!-- <button class="btn btn-primary btn-xl" type="submit">
                                 <i class="fa fa-search"></i> Search 
@@ -286,7 +182,7 @@
                             </div>
                             <!-- <a href="javascript:void(0);" onclick="submitForm()"><i class="fa fa-search"></i></a> -->
                          </div>
-                        </form> <!-- search-wrap .end// -->
+              </form> <!-- search-wrap .end// -->
           </div> <!-- col.// -->
 
         </div> <!-- row.// -->

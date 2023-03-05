@@ -25,7 +25,7 @@
             // Error
             echo validation_errors('<div class="alert alert-success">','</div>'); 
             ?>            
-            <div class="row no-gutter"><!-- row -->
+            <div class="row no-gutter mt-5"><!-- row -->
                 
                 <div class="col-lg-8 col-md-8"><!-- doc body wrapper -->
                 	
@@ -35,7 +35,7 @@
                         
                         	<div class="col-lg-12 col-md-12">
                             
-                                <h1 class="page-title pb-4"><?=$this->lang->line('h-contact-us')['header-caption']?></h1>
+                                <h2 class="page-title pb-4"><?=$this->lang->line('h-contact-us')['header-caption']?></h2>
                                 
                                 <div class="news-body">
                                     
@@ -58,7 +58,7 @@
                                             <ul class="list-inline social-buttons mt-3" style ="    text-align: center;">
                                                 <?php if ($site['twitter']!=''): ?>
                                                   <li class="list-inline-item" >
-                                                      <a href="<?=$site['twitter']?>" target="_blank">
+                                                      <a href="<?=$site['twitter']?>" target="_blank" class="text-white">
                                                         <i class="fab fa-twitter"></i>
                                                       </a>
                                                     </li>
@@ -66,7 +66,7 @@
                                                 
                                                 <?php if ($site['facebook']!=''): ?>
                                                    <li class="list-inline-item">
-                                                      <a href="<?=$site['facebook']?>" target="_blank">
+                                                      <a href="<?=$site['facebook']?>" target="_blank" class="text-white">
                                                         <i class="fab fa-facebook-f"></i>
                                                       </a>
                                                     </li>
@@ -74,7 +74,7 @@
 
                                                  <?php if ($site['instagram']!=''): ?>
                                                    <li class="list-inline-item">
-                                                      <a href="<?=$site['instagram']?>" target="_blank">
+                                                      <a href="<?=$site['instagram']?>" target="_blank" class="text-white">
                                                         <i class="fab fa-instagram"></i>
                                                       </a>
                                                     </li>

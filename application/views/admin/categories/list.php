@@ -64,7 +64,7 @@ echo validation_errors('<div class="alert alert-success">','</div>');
     <tr class="odd gradeX">
         <td><?php echo $i; ?></td>
         <td>
-        <?php echo $categories['category_name'] ?> <br> 
+        <?php echo $categories['category_name'] ?><br> 
         <a href="<?php echo base_url('admin/blogs/categories/'.$categories['slug_category']) ?>">
         <?php echo $categories['slug_category'] ?><sup><i class="fa fa-link"></i></sup>
         </a>

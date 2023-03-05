@@ -18,8 +18,21 @@ class Migration extends CI_Controller
             {
                     show_error($this->migration->error_string());
             } else {
-                echo('migration success');
+                $current = $this->db->get('migrations')->row('version');
+                
+                echo('migration done');
+                echo('<br>');
+                echo('Current Version : '.$current);
+
             }
+
+            echo('<br>');
+            echo('<br>');
+
+            echo "migration List : ";
+            echo "<pre>";
+            var_dump($this->migration->find_migrations());
+            echo "</pre>";
     }
 
 }

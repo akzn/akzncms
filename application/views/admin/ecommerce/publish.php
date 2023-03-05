@@ -63,9 +63,9 @@ if ($this->session->flashdata('result_publish')) {
     <div class="form-group bordered-group">
         <?php 
         if (isset($_POST['image']) && $_POST['image'] != null) {
-            $image = 'img/shop/' . $_POST['image'];
+            $image = 'img/product/' . $_POST['image'];
             if (!file_exists($image)) {
-                $image = 'img/no-image.png';
+                $image = 'img/no-image.jpg';
             }
             ?>
             <p>Current image:</p>
@@ -164,7 +164,7 @@ if ($this->session->flashdata('result_publish')) {
     <?php endif ?>
     </div>
     
-    <div class="form-group for-shop hidden">
+    <div class="form-group for-shop">
         <label>Quantity</label><small> quantity with 0 value will not be displayed</small>
         <input type="text" placeholder="number" name="quantity" value="<?= @$_POST['quantity'] ?>" class="form-control" id="quantity" required>
     </div>

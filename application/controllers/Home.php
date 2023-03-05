@@ -20,12 +20,19 @@ class Home extends CI_Controller {
 		$galleries  = $this->mGalleries->listGalleriesPubHome();
 
 		# attachment
-		$this->db->select('a.title,a.image,b.name as categori_name, a.url');
+		$this->db->select('a.title,a.image,b.name as categori_name, a.url, a.description');
 		$this->db->join('product_categories b', "a.shop_categorie = b.id");
-		$this->db->where('b.sub_for',11);
-		$this->db->or_where('b.id',11);
+		// $this->db->where('b.sub_for',11);
+		// $this->db->or_where('b.id',11);
+		$this->db->order_by('rand()');
 		$this->db->limit(10);
-		$product_attachments = $this->db->get('products a')->result();
+		$randomProductItems = $this->db->get('products a')->result();
+
+		// truncate description to minimalize output
+		foreach ($randomProductItems as $key) {
+			preg_match('/^([^.!?]*[\.!?]+){0,1}/', strip_tags($key->description), $abstract);
+			$key->description = $abstract[0];
+		}
 
 		# spareparts
 		$this->db->select('a.title,a.image,b.name as categori_name, a.url');
@@ -55,7 +62,7 @@ class Home extends CI_Controller {
 						'slider'	=> $slider,
 						'galleries'	=> $galleries,
 
-						'attachments' => $product_attachments,
+						'randomProductItems' => $randomProductItems,
 						'spareparts' => $product_spareparts,
 
 						'clients'	=> $clients,

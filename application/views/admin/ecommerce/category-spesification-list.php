@@ -28,6 +28,7 @@
                     <tr>
                         <th>#ID</th>
                         <th>Spec Name</th>
+                        <th>Sub for</th>
                         <th>For Category <br>
                             <select id="select-category">
                                 <option>ALL</option>
@@ -59,6 +60,9 @@
                     <tr>
                         <td><?= ++$start ?></td>
                         <td><?= $key->spec_name ?></td>
+                        <td>
+                            <?= $key->sub_for ?>
+                        </td>
                         <td>
                             <?= $key->name ?>
                         </td>

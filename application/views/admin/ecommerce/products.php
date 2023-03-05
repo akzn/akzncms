@@ -82,11 +82,11 @@
                         <tbody>
                             <?php
                             foreach ($products as $row) {
-                                $u_path = 'img/shop/';
+                                $u_path = 'img/product/';
                                 if ($row->image != null && file_exists($u_path . $row->image)) {
                                     $image = base_url($u_path . $row->image);
                                 } else {
-                                    $image = base_url('img/no-image.png');
+                                    $image = base_url('img/no-image.jpg');
                                 }
                                 ?>
 
