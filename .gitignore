@@ -22,3 +22,4 @@ img/*
 /.htaccess
 /assets/upload/image
 /assets/upload/file
+/application/config/database.php
