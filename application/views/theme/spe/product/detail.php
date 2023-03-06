@@ -340,7 +340,7 @@
 										}">
 									<div class="col-12">
 										<div>
-											BISA DIBAYAR CASH MAUPUN KREDIT
+											BISA DIBAYAR CASH MAUPUN KREDIT <br>
 											UNTUK LEBIH LANJUT SILAHKAN LOGIN JIKA SUDAH PUNYA AKUN, JIKA BELUM SILAHKAN MENDAFTAR
 										</div>
 									</div>
