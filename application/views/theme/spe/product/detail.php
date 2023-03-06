@@ -141,14 +141,14 @@
 						<article class="gallery-wrap"> 
 							<div class="img-big-wrap">
 								<?php 
-									$u_path = 'img/product/';
+									$u_path = $image_path;
 					                if ($product['image'] != null && file_exists($u_path . $product['image'])) {
 					                    $image = base_url($u_path . $product['image']);
 					                } else {
 					                    $image = base_url('img/no-image.jpg');
 					                }
 								?>
-							  <div class="row main-image"> 
+							  <div class="row main-image">
 							  	<a class="col-sm-12 align-self-center fancybox  fancybox.iframe" href="<?= $image ?>">
 							  		<img class="img-fluid  rounded mx-auto d-block align-item-center" src="<?=$image?>">
 							  	</a>
@@ -211,7 +211,6 @@
 								<div class="main-image">
 								    <img id="img-main" src="<?=$image?>" alt="Placeholder" class="img-main img-fluid  rounded mx-auto d-block">
 								</div>
-
 								<ul class=" img-small-wrap thumbnails">
 								    <!-- <li><a href="<?=$image?>"><img src="<?=$image?>" alt="Thumbnails"></a></li>
 								    <li><a href="assets/img/img-03.jpg"><img src="assets/img/img-03-tn.jpg" alt="Thumbnails"></a></li> -->
@@ -331,6 +330,30 @@
 		                        <?php $description = (!$description) ? str_replace(array('[en]', '[/en]','[id]', '[/id]'), array('', '','',''), $product['description']) : $description ?>
 
 		                        <p style="font-size: 16px"><?=$description?></p>
+
+								<?=$this->view('theme/spe/product/social-share', '', TRUE);?>
+
+								<div class="row mt-4 mb-4" style="    background-color: #0b7ef9;
+											color: white;
+											padding: 10px;
+											border: 3px solid #ffffff;
+										}">
+									<div class="col-12">
+										<div>
+											BISA DIBAYAR CASH MAUPUN KREDIT
+											UNTUK LEBIH LANJUT SILAHKAN LOGIN JIKA SUDAH PUNYA AKUN, JIKA BELUM SILAHKAN MENDAFTAR
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-6">
+										<button class="btn btn-primary">LOGIN</button>
+									</div>
+									<div class="col-6">
+										<button class="btn btn-primary">DAFTAR</button>
+									</div>
+								</div>
+
 							<?php else: ?>
 								<!-- <p style="font-size: 16px">TBA</p> -->
 							<?php endif ?>

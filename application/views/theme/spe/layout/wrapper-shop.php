@@ -31,8 +31,7 @@
   <link href="<?=base_url()?>assets/front/style.css?v=2.15" rel="stylesheet">
   <link href="<?=base_url()?>assets/theme/spe/style.css?v=0.1" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="<?=base_url('assets/shop/category.css?v=1.1')?>">
-
-
+  <link rel="stylesheet" type="text/css" href="<?=base_url('assets/shop/css/social-share.css?v=0.1')?>">
 
 
   <?php if ($page == 'Home'): ?>
