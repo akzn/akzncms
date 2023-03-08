@@ -1,4 +1,3 @@
-
 <?php
 
 if (!defined('BASEPATH')) {
@@ -83,3 +82,5 @@ function is_home(){
   return $is_home;
 
 }
+
+?>

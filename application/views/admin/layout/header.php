@@ -7,8 +7,9 @@
         <span class="icon-bar"></span>
     </button>
     <div class="navbar-brand">
-    	<a class="" href="<?php echo base_url('admin/dashboard') ?>" style="font-size: 18px"><?php echo $site['nameweb'] ?></a>
-    	<a href="<?=base_url()?>" target="_blank" title="go to site"><i class="fa fa-home"></i></a> 
+    	<!-- <a class="" href="<?php echo base_url('admin/dashboard') ?>" style="font-size: 18px"><?php echo $site['nameweb'] ?></a> -->
+    	<!-- <a href="<?=base_url()?>" target="_blank" title="go to site"><i class="fa fa-home"></i></a>  -->
+        <p style="font-size: 0.6em;">Admin Panel</p>
     </div>
     
 </div>
