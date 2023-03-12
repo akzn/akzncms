@@ -123,18 +123,6 @@
             <a class="nav-link js-scroll-trigger" href="<?=base_url()?>"><?=$this->lang->line('home')?></a>
           </li>
 
-          <!-- <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <?=$this->lang->line('products')?>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a style="color: black" class="dropdown-item" href="<?=base_url()?>products/attachments">Attachments</a>
-              <a style="color: black" class="dropdown-item" href="<?=base_url()?>products/sparepart-breaker">Spareparts</a>
-              <a style="color: black" class="dropdown-item" href="<?=base_url()?>products/fix-repair"><?=$this->lang->line('landing_service_repair_heading')?></a>
-              <a style="color: black" class="dropdown-item" href="<?=base_url()?>products/rental"><?=$this->lang->line('landing_service_rental_heading')?></a>
-            </div>
-          </li> -->
-
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="<?=base_url('property')?>">Property</a>
           </li>
@@ -152,7 +140,7 @@
           </li>
         </ul>
         <ul class="navbar-nav flex-row social-nav">
-            <li class="nav-item social">
+            <li class="nav-item social" style="margin-bottom: 20px;">
               <?php if ($site['twitter']!=''): ?>
               <a class="nav-link px-2" style="display: contents;" href="<?=$site['twitter']?>"><span class="fab fa-twitter" style="padding: .5rem;"></span></a>
               <?php endif ?>
@@ -182,6 +170,29 @@
             </div>
           </li>
         </ul> -->
+
+        <?php if(ion_userdata()):?>
+          <!-- Account nav logged in  -->
+          <div class="dropdown show navbar-nav">
+            <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-user" style="padding-right:0.5rem"></i><?=ion_userdata()->first_name;?>
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item mt-3" href="<?=base_url('customer/dashboard')?>"><i class="fas fa-columns" style="padding-right: 0.5rem;"></i>Dashboard</a>
+              <a class="dropdown-item mt-3" href="<?=base_url('logout')?>"><i class="fas fa-sign-out-alt" style="padding-right: 0.5rem;"></i>Logout</a>
+            </div>
+          </div>
+        <?php else:?>
+          <!-- Account Nav not logged in-->
+          <ul class="navbar-nav text-uppercase">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="<?=base_url()?>login" style="display: inline;padding-right: 0!important;">Login</a> |
+              <a class="nav-link js-scroll-trigger" href="<?=base_url()?>register" style="display: inline;padding-left: 0!important;">Daftar</a>
+            </li>
+          </ul>
+        <?php endif;?>
+
       </div>
     </div>
   </nav>

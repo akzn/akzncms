@@ -331,34 +331,41 @@
 
 		                        <p style="font-size: 16px"><?=$description?></p>
 
-								<?=$this->view('theme/spe/product/social-share', '', TRUE);?>
-
-								<div class="row mt-4 mb-4" style="    background-color: #0b7ef9;
-											color: white;
-											padding: 10px;
-											border: 3px solid #ffffff;
-										}">
-									<div class="col-12">
-										<div>
-											BISA DIBAYAR CASH MAUPUN KREDIT <br>
-											UNTUK LEBIH LANJUT SILAHKAN LOGIN JIKA SUDAH PUNYA AKUN, JIKA BELUM SILAHKAN MENDAFTAR
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-6">
-										<button class="btn btn-primary">LOGIN</button>
-									</div>
-									<div class="col-6">
-										<button class="btn btn-primary">DAFTAR</button>
-									</div>
-								</div>
+								<?=$this->view('theme/spe/product/social-share', '', TRUE);?>								
 
 							<?php else: ?>
 								<!-- <p style="font-size: 16px">TBA</p> -->
 							<?php endif ?>
-
-
+							<div class="row mt-4 mb-4" style="    background-color: #0b7ef9;
+											color: white;
+											padding: 10px;
+											border: 3px solid #ffffff;
+										}">
+								<div class="col-12">
+									<div>
+										<p> DIBAYAR CASH MAUPUN KREDIT </p>
+										<?php if(ion_userdata()):?>
+											<p> PESAN SEKARANG JUGA UNTUK PENDAPATKAN PROPERTI IMPIAN ANDA <p>
+										<?php else:?>
+											<p> UNTUK LEBIH LANJUT SILAHKAN LOGIN JIKA SUDAH PUNYA AKUN, JIKA BELUM SILAHKAN MENDAFTAR <p>
+										<?php endif;?>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<?php if(ion_userdata()):?>
+									<div class="col-12">
+										<a href="<?=base_url('checkout/').$product['url']?>" class="btn btn-primary">PESAN SEKARANG</a>
+									</div>	
+								<?php else:?>
+									<div class="col-6">
+										<a href="<?=base_url('login')?>" class="btn btn-primary">LOGIN</a>
+									</div>
+									<div class="col-6">
+										<a href="<?=base_url('register')?>" class="btn btn-primary">DAFTAR</a>
+									</div>
+								<?php endif;?>
+							</div>
 							<!-- <h5>Contact Us to Order</h5>
 				
 							<p class="btn btn-outline-primary text-uppercase"><i class="fas fa-phone"></i> <?php echo $site['phone_number'];?></p>
@@ -457,7 +464,7 @@
 			if (!empty($sameCategoryProducts)) {
 				foreach ($sameCategoryProducts as $product) {
 					/* if image file exist or not*/
-					$u_path = 'img/product/';
+					$u_path = $image_path;
 					if ($product['image'] != null && $product['image'] !='no-image' && file_exists($u_path . $product['image'])) {
 						$image = base_url($u_path . $product['image']);
 					} else {

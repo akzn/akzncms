@@ -147,7 +147,7 @@ class Product extends CI_Controller {
 		$data['blogs']		= $blogs;
 		$data['pagin'] 	= $this->pagination->create_links();																		
 		// $data['isi']	= 'front2/product/detail';
-        $data['image_path'] = 'img/product/';
+        $data['image_path'] = $this->config->item('image_path');
         $data['isi']    = 'theme/'.$this->config->item('theme').'/product/detail';
       
 		// $this->load->view('front2/layout/wrapper-shop',$data);

@@ -54,6 +54,7 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
+$this->config->load('akzncms_config');
 
 // /*product url*/
 // $route['product/'] = "product/index/";
@@ -102,21 +103,37 @@ $route['admin/changePass'] = "admin/home/home/changePass";
 $route['admin/uploadOthersImages'] = "admin/ecommerce/AddProduct/do_upload_others_images";
 $route['admin/loadOthersImages'] = "admin/ecommerce/AddProduct/loadOthersImages";
 
+// Theme spesific
+if($this->config->item('theme')=='spe'){
+    // $route['default_controller'] = 'shop';  
+    $route['property'] = 'shop';  
+    
+    
+    // CUSTOMER PAge
+    $route['login'] = "customer/auth/login";   
+    $route['login_action'] = "customer/auth/login_action";   
+    $route['register'] = "customer/auth/register";   
+    $route['register_action'] = "customer/auth/register_action";  
+    $route['logout'] = "customer/auth/logout";   
+
+    // transaction
+    $route['checkout'] = 'transaction/order/checkout';
+    $route['checkout/(:any)_(:num)'] = 'transaction/order/checkout/$2';
+    $route['create_order_action'] = 'transaction/order/create_order_action';
+    $route['customer/purchase'] = 'transaction/order/purchase';
+    $route['customer/purchase/(:num)'] = 'transaction/order/purchase/$1';
+    $route['order/(:num)'] = 'transaction/order/detail/$1';
+    $route['order/req-pay/(:num)'] = 'transaction/order/requestMidtransTransaction/$1';
+}
+
 # MISC
 
 //Lang Route
 $route['id'] = 'home';
 
 // Maintenance
-$this->config->load('akzncms_config');
 if(!in_array($_SERVER['REMOTE_ADDR'], $this->config->item('maintenance_ips')) && $this->config->item('maintenance_mode'))
 {	
 	$route['default_controller'] = "home/maintenance";
     $route['(:any)'] = "home/maintenance";
-}
-
-// Theme spesific
-if($this->config->item('theme')=='spe'){
-    // $route['default_controller'] = 'shop';  
-    $route['property'] = 'shop';  
 }

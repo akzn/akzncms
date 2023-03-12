@@ -1,6 +1,6 @@
 
     
-    	<div class="container container-content"><!-- container -->
+    	<div class="container container-content content-container"><!-- container -->
         
         	<div class="row"><!-- row -->                            
             

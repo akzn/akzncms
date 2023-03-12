@@ -4,6 +4,51 @@ if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
 
+if (!function_exists('alert_html')) {
+	function alert_html(){
+		$CI =& get_instance();
+		
+		if ($CI->session->flashdata('alert')): ?>
+	      <div class="alert alert-<?=$CI->session->flashdata('alert')['type']?> alert-dismissible" role="alert">
+	        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <?php if (isset($CI->session->flashdata('alert')['message']->message)): ?>
+	          <?=$CI->session->flashdata('alert')['message']->message?>
+	          <?php else: ?>
+	            <?=$CI->session->flashdata('alert')['message']?>
+	        <?php endif; ?>
+	        <?php if (isset($CI->session->flashdata('alert')['message']->data)){
+	          echo "<br /><br /><pre>";
+	          var_dump($CI->session->flashdata('alert')['message']->data);
+	          echo "</pre>";
+	        }; ?>
+	      </div>
+	  <?php endif; 
+	}
+}
+
+if (!function_exists('ion_userdata')) {
+	function ion_userdata(){
+		$CI =& get_instance();
+
+		$CI->load->library('ion_auth');
+    
+    if ($CI->ion_auth->logged_in()) {
+      $name = $CI->ion_auth->user()->row()->first_name;
+      $first_name = strtok($name, " ");
+
+      $data = array(
+        'full_name' => $name,
+        'first_name' => $first_name
+      );
+
+      return (object)$data;
+    }
+    return false;
+
+  }
+}
+
+
 
 function slugify($text)
 {
@@ -81,6 +126,35 @@ function is_home(){
   echo $ci->router->default_controller;
   return $is_home;
 
+}
+
+if (!function_exists('generate_code')) {
+  function generate_code($prefix = null, $length = 8)
+  {
+    $date = date('Ymd');
+     
+    $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[random_int(0, $charactersLength - 1)];
+    }
+    
+    $randomString = $date.$randomString;
+
+    if ($prefix != null) {
+      $randomString = $prefix.$randomString;
+    }
+    return $randomString;
+  }
+}
+
+if (!function_exists('brief_desc')) {
+  # code...
+  function brief_desc($text){
+    preg_match('/^([^.!?]*[\.!?]+){0,3}/', strip_tags($text), $abstract);
+		return $abstract[0];
+  }
 }
 
 ?>

@@ -105,11 +105,13 @@
   <?php $this->load->view('theme/spe/layout/header');?>
   
   <content>
+    <div class="content-div">
   <?php
   if($isi) {
     $this->load->view($isi);
   }
   ?>
+    </div>
   </content>
 
   <!-- Footer -->

@@ -35,6 +35,16 @@
             return $query->row_array();
         }
 
+        public function getPriceByProductId($product_id)
+        {
+            $get = $this->db
+                ->select('price')
+                ->where('id',$product_id)
+                ->get('products')->row('price');
+
+            return $get;            
+        }
+
         public function sameCategoryProducts($categorie, $noId, $vendor_id = false)
         {
             $this->db->select('products.id, products.quantity, products.image, products.url, price, title, old_price');
