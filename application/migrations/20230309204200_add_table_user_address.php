@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Migration_Add_user_address extends CI_Migration {
+class Migration_Add_table_user_address extends CI_Migration {
 
         public function up()
         {
