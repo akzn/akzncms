@@ -15,9 +15,9 @@ class Order extends CI_Controller {
 
         $this->user_id = $this->ion_auth->user()->row()->id;
 		$this->load->model('products_model');
-		$this->load->model('customer/address_model');
-		$this->load->model('customer/orders_model');
-		$this->load->model('transaction/payments_model');
+		$this->load->model('customer/Address_model', 'address_model');
+		$this->load->model('customer/Orders_model','orders_model');
+		$this->load->model('transaction/Payments_model', 'payments_model');
 
 	}
 
