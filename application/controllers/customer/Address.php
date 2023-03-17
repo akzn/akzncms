@@ -15,7 +15,7 @@ class Address extends CI_Controller {
         }
 
         $this->user_id = $this->ion_auth->user()->row()->id;
-        $this->load->model('customer/Address_model', 'address_model');
+        $this->load->model('Customer/Address_model', 'address_model');
 	}
 
 	public function index()

@@ -15,9 +15,9 @@ class Order extends CI_Controller {
 
         $this->user_id = $this->ion_auth->user()->row()->id;
 		$this->load->model('products_model');
-		$this->load->model('customer/Address_model', 'address_model');
-		$this->load->model('customer/Orders_model','orders_model');
-		$this->load->model('transaction/Payments_model', 'payments_model');
+		$this->load->model('Customer/Address_model', 'address_model');
+		$this->load->model('Customer/Orders_model','orders_model');
+		$this->load->model('Transaction/Payments_model', 'payments_model');
 
 	}
 
@@ -125,8 +125,8 @@ class Order extends CI_Controller {
 	public function create_order_action(){
 		// FORM VALIDATION
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('product_id', 'produk','trim|required');
-		$this->form_validation->set_rules('address_id', 'property','trim|required');
+		$this->form_validation->set_rules('product_id', 'Produk','trim|required');
+		$this->form_validation->set_rules('address_id', 'Alamat','trim|required');
 		$this->form_validation->set_rules('paymentType', 'Jenis Pembayaran','trim|required');
 		if(null !== $this->input->post('paymentType') && $this->input->post('paymentType') == '2'){
 			$this->form_validation->set_rules('tenor', 'Tenor','trim|required');
