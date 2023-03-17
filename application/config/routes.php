@@ -123,7 +123,9 @@ if($this->config->item('theme')=='spe'){
     $route['customer/purchase'] = 'transaction/order/purchase';
     $route['customer/purchase/(:num)'] = 'transaction/order/purchase/$1';
     $route['order/(:num)'] = 'transaction/order/detail/$1';
-    $route['order/req-pay/(:num)'] = 'transaction/order/requestMidtransTransaction/$1';
+    $route['order/req-pay/(:num)'] = 'transaction/order/requestNewPayment/$1';
+
+    $route['payment/notification'] = 'transaction/payment/MidtransStatusHandler/';
 }
 
 # MISC

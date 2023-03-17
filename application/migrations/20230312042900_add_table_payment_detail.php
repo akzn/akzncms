@@ -12,6 +12,11 @@ class Migration_Add_table_payment_detail extends CI_Migration {
                                 'unsigned' => TRUE,
                                 'auto_increment' => TRUE
                         ),
+                        'transaction_id' => array(
+                                'type' => 'char',
+                                'constraint' => 32,
+                                'null' => false,
+                        ),
                         'payment_id' => array(
                                 'type' => 'INT',
                                 'constraint' => 11,
@@ -19,13 +24,25 @@ class Migration_Add_table_payment_detail extends CI_Migration {
                         'amount' => array(
                                 'type' => 'BIGINT',
                         ),
+                        'payment_type' => array(
+                                'type' => 'enum("1","2","3")',
+                                'default' => '1',
+                        ),
+                        'due_date' => array(
+                                'type' => 'datetime',
+                        ),
                         'payment_gateway_transaction_id' => array(
                                 'type' => 'varchar',
                                 'constraint' => 36,
+                                'null' => true,
                         ),
                         'payment_gateway_transaction_status' => array(
                                 'type' => 'varchar',
                                 'constraint' => 20,
+                                'null' => true,
+                        ),
+                        'expiry_time' => array(
+                                'type' => 'datetime',
                         ),
                         'create_date timestamp default current_timestamp',
                         'update_date timestamp default current_timestamp on update current_timestamp'

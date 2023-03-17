@@ -23,9 +23,16 @@ class Migration_Add_table_payments extends CI_Migration {
                                 'type' => 'enum("1","2")',
                                 'null' => false,
                         ),
+                        'interest_rate' => array(
+                                'type' => 'INT',
+                        ),
+                        'tenor' => array(
+                                'type' => 'INT',
+                        ),
                         'status_id' => array(
                                 'type' => 'INT',
                                 'constraint' => 11,
+                                'default' => '1'
                         ),
                         'create_date timestamp default current_timestamp',
                         'update_date timestamp default current_timestamp on update current_timestamp'

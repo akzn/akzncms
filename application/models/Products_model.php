@@ -25,7 +25,7 @@
         {
             $this->db->where('products.id', $id);
 
-            $this->db->select('products.*, title,description, price, old_price, products.url, product_categories.name as categorie_name, product_categories.slug as categorie_slug');
+            $this->db->select('products.*, title,description, price, old_price, down_payment, products.url, product_categories.name as categorie_name, product_categories.slug as categorie_slug');
 
             $this->db->join('product_categories', 'product_categories.id = products.shop_categorie', 'inner');
             $this->db->where('visibility', 1);
@@ -33,16 +33,6 @@
 
             // var_dump($this->db->last_query());exit;
             return $query->row_array();
-        }
-
-        public function getPriceByProductId($product_id)
-        {
-            $get = $this->db
-                ->select('price')
-                ->where('id',$product_id)
-                ->get('products')->row('price');
-
-            return $get;            
         }
 
         public function sameCategoryProducts($categorie, $noId, $vendor_id = false)

@@ -50,6 +50,7 @@ class Orders_model extends CI_Model {
         $this->db
             ->select('*,
                 a.create_date as create_date,
+                a.order_status_id,
                 b.title as product_name,
                 b.description as product_description,
                 b.price as product_price,
@@ -79,15 +80,60 @@ class Orders_model extends CI_Model {
 
     // get list by user id
     public function createOrder($data)
-    {
-        $data = $this->db->insert('orders',$data);
+    {   
+        $insert_id;
+        $insert_payment_id;
+        $transaction_id;
+        $insert_payment_detail_id;
+
+        $this->db->trans_start();
+
+        #insert tb order
+        $this->db->insert('orders',$data['order']);
         
         $insert_id = $this->db->insert_id();
-        if ( $insert_id ) {
-            return $insert_id;
-        } else {
+
+        #insert tb payment
+        $data['payment']['order_id'] = $insert_id; 
+        $this->db->insert('payments',$data['payment']);
+
+        #insert tb payment_detail
+        $insert_payment_id = $this->db->insert_id();
+        $transaction_id = md5($insert_payment_id.time());
+        $data['payment_detail']['transaction_id'] = $transaction_id;
+        $data['payment_detail']['payment_id'] = $insert_payment_id;
+
+        $this->db->insert('payment_detail',$data['payment_detail']);
+        $insert_payment_detail_id = $this->db->insert_id();
+
+        $this->db->trans_complete();
+
+        if ($this->db->trans_status() === FALSE) {
             return false;
+        } else {
+            return array(
+                'order_id' => $insert_id,
+                'payment_id' => $insert_payment_id,
+                'payment_detail_id' => $insert_payment_detail_id,
+            );
         }
         
     }
+
+    public function changeStatus($status_id,$id)
+    {
+        $data = array(
+            'order_status_id' => $status_id
+        );
+        $this->db
+            ->where('id',$id)
+            ->update('orders',$data);
+        
+        if ( $this->db->affected_rows() > 0 ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

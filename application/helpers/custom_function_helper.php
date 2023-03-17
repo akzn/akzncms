@@ -157,4 +157,50 @@ if (!function_exists('brief_desc')) {
   }
 }
 
+if (!function_exists('calc_monthly_payment')) {
+  # code...
+  function calc_monthly_payment($params){
+    $params['interest'] = $params['interest'] / 100;
+    
+    $pokok_pinjaman = $params['price'] - $params['down_payment'];
+    $pokok_angsuran = $pokok_pinjaman / $params['tenor'];
+    $bunga_angsuran = ($pokok_pinjaman * $params['interest']) / $params['tenor'];
+
+    $total_angsuran_bulanan = $pokok_angsuran + $bunga_angsuran;
+    // php_prettify($pokok_pinjaman);
+    // php_prettify($pokok_angsuran);
+    // php_prettify($bunga_angsuran);
+    return $total_angsuran_bulanan;
+  }
+}
+
+if (!function_exists('temp_tenor_list')) {
+  function temp_tenor_list(){
+    $tenors_year = [1,5,10,15,20,25,30];
+
+    foreach ($tenors_year as $value) {
+      $tenors_months[] = array(
+        'years' => $value,
+        'months' => $value * 12
+      );
+    }
+
+    return $tenors_months;
+  }
+}
+
+if (!function_exists('add_month')) {
+  function add_month($date,$num)
+  {
+    $newDate = new DateTime($date.' + '.$num.' month');
+
+    return date('Y-m-d',strtotime($newDate->format('d M Y')));
+  }
+}
+
+function php_prettify($data){
+  print("<pre>".print_r($data,true)."</pre>");
+}
+
+
 ?>

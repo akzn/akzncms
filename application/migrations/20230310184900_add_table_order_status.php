@@ -44,6 +44,6 @@ class Migration_Add_table_order_status extends CI_Migration {
         private $seedData = array(
                 '("pending" , "description text for status")',
                 '("canceled", "description text for status")',
-                '("completed", "description text for status")',
+                '("success", "description text for status")',
         );
 }

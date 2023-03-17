@@ -430,5 +430,32 @@ class Settings extends CI_Controller {
 		// }
 				
 	}	
+
+	public function interest_rate()
+	{
+		$site = $this->mConfig->list_config();	
+		
+		$this->form_validation->set_rules('rate','interest rate','required');
+		$this->form_validation->set_rules('config_id','ID Konfigurasi','required');
+
+		if($this->form_validation->run() === FALSE) {
+
+			$data = array(	'title'	=> 'Interest Rate',
+							'site'	=> $site,
+							'isi'	=> 'admin/dashboard/interest_rate');
+			$this->load->view('admin/layout/wrapper',$data);
+			
+		}else{
+			
+			$i = $this->input;
+			$data = array(	
+				'config_id'	=> $i->post('config_id'),
+				'interest_rate'	=> $this->input->post('rate'),
+						);
+			$this->mConfig->edit_config($data);
+			$this->session->set_flashdata('sukses','Configuration has updated');
+			redirect(base_url('admin/settings/interest_rate'));
+		}
+	}
 	
 }

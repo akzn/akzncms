@@ -31,6 +31,8 @@ class Midtrans {
         \Midtrans\Config::$isSanitized = true;
         // Set 3DS transaction for credit card to true
         \Midtrans\Config::$is3ds = true;
+        // Override MIdrans notif url
+        \Midtrans\Config::$overrideNotifUrl = base_url()."payment/notification";
 	}
 	
     /**

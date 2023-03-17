@@ -147,6 +147,7 @@ class Products_model extends CI_Model
                         'description' => $post['description'],
                         'price' => $post['price'],
                         'old_price' => $post['old_price'],                        
+                        'down_payment' => $post['down_payment'],                        
                     ))) {
                 log_message('error', print_r($this->db->error(), true));
             }
@@ -169,6 +170,7 @@ class Products_model extends CI_Model
                         'description' => $post['description'],
                         'price' => $post['price'],
                         'old_price' => $post['old_price'],
+                        'down_payment' => $post['down_payment'],                        
                     ))) {
                 log_message('error', print_r($this->db->error(), true));
             }

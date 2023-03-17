@@ -14,7 +14,25 @@ class Testing extends CI_Controller {
         // var_dump($redirect_url);
         // echo "/<pre>";
         
-        $transaction_status = $this->midtrans->getTransactionStatus('1501682611');
+        $transaction_status = $this->midtrans->getTransactionStatus('4d050a513157e0d002fce8f91d9e1e88');
+        echo "<pre>";
+        var_dump($transaction_status['data']);
+        echo "</pre>";
+
+    }
+
+    public function status($id)
+    {
+        $this->load->library('midtrans');
+        echo "Testing Page";
+        echo '<br>';
+
+        // $redirect_url = $this->midtrans->getRedirectUrl();
+        // echo "<pre>";
+        // var_dump($redirect_url);
+        // echo "/<pre>";
+        
+        $transaction_status = $this->midtrans->getTransactionStatus($id);
         echo "<pre>";
         var_dump($transaction_status['data']);
         echo "</pre>";
@@ -43,5 +61,11 @@ class Testing extends CI_Controller {
         // var_dump($transaction_status);
         // echo "/<pre>";
 
+    }
+
+    public function loan()
+    {   
+        $this->load->library('midtrans');
+        
     }
 }

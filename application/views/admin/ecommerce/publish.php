@@ -50,14 +50,21 @@ if ($this->session->flashdata('result_publish')) {
                     CKEDITOR.config.entities = false;
                 </script>
             </div>
-            <div class="form-group for-shop">
-                <label>Price</label>
-                <input type="text" name="price" placeholder="without currency at the end" value="<?= @$_POST['price'] ?>" class="form-control" required>
+            <div class="box-price" style="">
+                <div class="form-group for-shop">
+                    <label>Price</label>
+                    <input type="text" name="price" placeholder="without currency at the end" value="<?= @$_POST['price'] ?>" class="form-control" required>
+                </div>
+                <div class="form-group for-shop">
+                    <label>Old Price</label>
+                    <input type="text" name="old_price" placeholder="without currency at the end" value="<?= @$_POST['old_price'] ?>" class="form-control">
+                </div>
+                <div class="form-group for-shop">
+                    <label>Down Payment</label>
+                    <input type="text" name="down_payment" placeholder="without currency at the end" value="<?= @$_POST['down_payment'] ?>" class="form-control" required>
+                </div>
             </div>
-            <div class="form-group for-shop">
-                <label>Old Price</label>
-                <input type="text" name="old_price" placeholder="without currency at the end" value="<?= @$_POST['old_price'] ?>" class="form-control">
-            </div>
+            <hr>
         </div>
 
     <div class="form-group bordered-group">

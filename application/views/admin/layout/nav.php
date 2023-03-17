@@ -25,6 +25,9 @@
     <li><a href="#"><i class="fa fa-wrench"></i> Settings<span class="fa arrow"></span></a>
         <ul class="nav nav-second-level">
             <li><a href="<?php echo base_url('admin/settings/config') ?>">General Settings</a></li>
+            <li>
+            <a class="collapse-item" href="<?php echo base_url('admin/settings/interest_rate') ?>">Suku Bunga</a>
+            </li>
             <li><a href="<?php echo base_url('admin/settings/logo') ?>">Logo</a></li>
             <li><a href="<?php echo base_url('admin/settings/icon') ?>">Icon</a></li>
             <li><a href="<?php echo base_url('admin/settings/slider') ?>">Slider</a></li>
