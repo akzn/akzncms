@@ -225,7 +225,9 @@ class Order extends CI_Controller {
 		# get active payment
 		$payment_detail = $this->payments_model->getActivePaymentByOrderID($order_id);
 		$tenor_position = $this->payments_model->getTenorPosition($payment_detail->payment_detail_id);
-		$payment_detail->position = $tenor_position->position;
+		if ($payment_detail) {
+			$payment_detail->position = (isset($tenor_position->position)) ? $tenor_position->position : '0';
+		}
 		# get all success pgw payment 
 		$payment_detail_list = $this->payments_model->getSuccessPaymentByOrderID($order_id);
 
