@@ -15,7 +15,7 @@
                                 <span class="" style="font-size: 14px;">Kode Pesanan : <a href="<?=base_url('order/'.$key->id)?>"><?=$key->order_code?></a></span><br>
                                 <small><?=date('d-m-Y H:i',strtotime($key->create_date))?></small>   
                             </div>
-                            <div class="col-4"><p class="text-right"><span style="color:red"><?=$key->order_status?></span></p></div>
+                            <div class="col-4"><p class="text-right"><?=status_text_color(($key->order_status_id == '3') ? 'success' : 'danger',$key->order_status)?></p></div>
                         </div>
                     </div>
                     <div class="card-body">
@@ -33,7 +33,7 @@
                         </div>
                         </a>
                     </div>
-                    <div class="card-footer">
+                    <div class="card-footer d-none">
                         <button class="btn btn-primary">Bayar</button>
                     </div>
                 </div>

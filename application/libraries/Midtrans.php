@@ -42,13 +42,16 @@ class Midtrans {
     {        
         try {
           // Get Snap Payment Page URL
-          $paymentUrl = \Midtrans\Snap::createTransaction($params)->redirect_url;
+          $paymentUrl = \Midtrans\Snap::createTransaction($params);
           
           // Redirect to Snap Payment Page
         //   header('Location: ' . $paymentUrl);
           $data = array(
             'status' => 'success',
-            'data'  => $paymentUrl,
+            'data'  => array(
+                'token' => $paymentUrl->token,
+                'redirect_url' => $paymentUrl->redirect_url,
+            ),
           );
         }
         catch (Exception $e) {

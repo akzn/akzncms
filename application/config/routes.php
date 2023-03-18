@@ -122,8 +122,12 @@ if($this->config->item('theme')=='spe'){
     $route['create_order_action'] = 'transaction/order/create_order_action';
     $route['customer/purchase'] = 'transaction/order/purchase';
     $route['customer/purchase/(:num)'] = 'transaction/order/purchase/$1';
+    $route['customer/transaction'] = 'transaction/payment/transaction';
+    $route['customer/transaction/(:num)'] = 'transaction/payment/transaction/$1';
+    $route['customer/transaction/detail/(:num)'] = 'transaction/payment/transaction_detail/$1';
     $route['order/(:num)'] = 'transaction/order/detail/$1';
-    $route['order/req-pay/(:num)'] = 'transaction/order/requestNewPayment/$1';
+    $route['order/pay/(:num)'] = 'transaction/order/requestPayment/$1';
+    // $route['order/req-pay/(:num)'] = 'transaction/order/requestNewPayment/$1';
 
     $route['payment/notification'] = 'transaction/payment/MidtransStatusHandler/';
 }

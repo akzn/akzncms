@@ -202,5 +202,43 @@ function php_prettify($data){
   print("<pre>".print_r($data,true)."</pre>");
 }
 
+if (!function_exists('status_text_color')) {
+  function status_text_color($status,$value=NULL)
+  {
+    $text;
+
+    // ($value == NULL) ? $value = $status : '';
+
+    switch ($status) {
+      case 'primary':
+        $text = '<span class="text-primary">'.$value.'</span>';
+        break;
+      case 'secondary':
+        $text = '<span class="text-secondary">'.$value.'</span>';
+        break;
+      case 'success':
+        $text = '<span class="text-success">'.$value.'</span>';
+        break;
+      case 'danger':
+        $text = '<span class="text-danger">'.$value.'</span>';
+        break;
+      case 'warning':
+        $text = '<span class="text-warning">'.$value.'</span>';
+        break;
+      case 'info':
+        $text = '<span class="text-info">'.$value.'</span>';
+        break;
+      default:
+        # code...
+        break;
+    }
+
+    if ($value==NULL) {
+      $text = '';
+    }
+    return $text;
+  }
+}
+
 
 ?>

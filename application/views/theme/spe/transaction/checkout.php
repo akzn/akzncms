@@ -121,6 +121,11 @@
 
 <script>
   $(function(){
+
+    if (window.performance && window.performance.navigation.type == window.performance.navigation.TYPE_BACK_FORWARD) {
+      window.location = "<?=base_url('customer/purchase')?>";
+    }
+
     $('.radioPaymentType').on('change', function() {
         if ($(this).val() == '1') {
           $('.tenor-div').addClass('d-none');
@@ -128,5 +133,6 @@
           $('.tenor-div').removeClass('d-none');
         }
     })
+    
   })
 </script>

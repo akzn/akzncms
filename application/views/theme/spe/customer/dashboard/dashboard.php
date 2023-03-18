@@ -12,7 +12,7 @@
             </div>
             <div class="list-group list-group-flush">
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="<?=base_url('customer/purchase')?>">Pesanan Saya</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Transaksi</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="<?=base_url('customer/transaction')?>">Transaksi</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="<?=base_url('customer/address')?>">Daftar Alamat</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="<?=base_url('logout')?>"><i class="fas fa-sign-out-alt"></i> Logout</a>
             </div>

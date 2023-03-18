@@ -21,6 +21,26 @@ class Testing extends CI_Controller {
 
     }
 
+    public function redir()
+    {
+        $this->load->library('midtrans');
+        echo "Testing Page";
+        echo '<br>';
+
+        $params = array(
+            'transaction_details' => array(
+                'order_id' => rand(),
+                'gross_amount' => 10000,
+            )
+        );
+
+        $redirect_url = $this->midtrans->getRedirectUrl($params);
+        echo "<pre>";
+        var_dump($redirect_url);
+        echo "/<pre>";
+
+    }
+
     public function status($id)
     {
         $this->load->library('midtrans');

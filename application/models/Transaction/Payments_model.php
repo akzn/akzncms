@@ -37,7 +37,16 @@ class Payments_model extends CI_Model {
     {
         # code...
         $result = $this->db
-            ->select('*,a.id as payment_detail_id')
+            ->select("*,
+                a.id as payment_detail_id,
+                a.payment_type as payment_detail_type,
+                CASE 
+                    WHEN a.payment_type = 1 THEN 'Pembayaran Kontan'
+                    WHEN a.payment_type = 2 THEN 'DP'
+                    WHEN a.payment_type = 3 THEN 'Cicilan'
+                    ELSE 'undefined'
+                END as payment_detail_type_string
+            ")
             ->join('payments b','b.id = a.payment_id')
             ->where("(payment_gateway_transaction_status != 'success' or payment_gateway_transaction_status is NULL)")
             ->where('b.status_id NOT IN (3,4)')
@@ -194,6 +203,22 @@ class Payments_model extends CI_Model {
             return false;
         }
      }
+    
+    public function updateGWToken($token,$payment_detail_id)
+    {  
+        $data = array(
+            'payment_gateway_token' => $token
+        );
+        $this->db
+            ->where('id',$payment_detail_id)
+            ->update('payment_detail',$data);
+
+        if ( $this->db->affected_rows() > 0 ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public function linkPaymentGateway($PGdata,$transaction_id)
     {
@@ -219,24 +244,33 @@ class Payments_model extends CI_Model {
     {
         # code...
         $data = $this->db
-            ->select('
+            ->select("
                 a.id as payment_detail_id,
                 a.transaction_id,
                 a.payment_id,
                 a.amount,
                 a.due_date,
+                a.payment_gateway_token,
                 a.payment_type as payment_detail_type,
                 a.payment_gateway_transaction_id,
                 a.payment_gateway_transaction_status,
+                a.expiry_time,
                 b.order_id,
                 b.payment_type,
                 b.interest_rate,
                 b.tenor,
                 c.product_id,
+                c.order_code,
                 d.title as product_name,
                 d.price,
-                d.down_payment
-            ')
+                d.down_payment,
+                CASE 
+                    WHEN a.payment_type = 1 THEN 'Pembayaran Kontan'
+                    WHEN a.payment_type = 2 THEN 'DP'
+                    WHEN a.payment_type = 3 THEN 'Cicilan'
+                    ELSE 'undefined'
+                END as payment_detail_type_string
+            ")
             ->join('payments b','b.id = a.payment_id')
             ->join('orders c','c.id = b.order_id')
             ->join('products d','d.id = c.product_id')
@@ -247,4 +281,73 @@ class Payments_model extends CI_Model {
         
     }
 
+    public function getAllTransactionByUserID($user_id, $limit = null, $start = null)
+    {   
+        if ($limit !== null && $start !== null) {
+            $this->db->limit($limit, $start);
+        } else {
+            $this->db->limit($limit);
+        }
+        $this->db
+        ->select("
+            a.id as payment_detail_id,
+            a.transaction_id,
+            a.payment_id,
+            a.amount,
+            a.due_date,
+            a.payment_type as payment_detail_type,
+            a.payment_gateway_transaction_id,
+            a.payment_gateway_transaction_status,
+            b.order_id,
+            b.payment_type,
+            b.interest_rate,
+            b.tenor,
+            c.product_id,
+            d.title as product_name,
+            d.price,
+            d.down_payment,
+            CASE 
+                WHEN a.payment_type = 1 THEN 'Pembayaran Kontan'
+                WHEN a.payment_type = 2 THEN 'DP'
+                WHEN a.payment_type = 3 THEN 'Cicilan'
+                ELSE 'undefined'
+            END as payment_detail_type_string
+        ")
+        ->join('payments b','b.id = a.payment_id')
+        ->join('orders c','c.id = b.order_id')
+        ->join('products d','d.id = c.product_id')
+        ->order_by('a.id','desc')
+        ->where('c.user_id',$user_id);
+
+        return $this->db->get('payment_detail a')->result();;
+    }
+
+    public function countAllTransactionByUserID($user_id)
+    {
+
+        $data = $this->db
+        ->join('payments b','b.id = a.payment_id')
+        ->join('orders c','c.id = b.order_id')
+        ->join('products d','d.id = c.product_id')
+        ->where('c.user_id',$user_id)
+        ->count_all_results('payment_detail a');
+
+        return $data;
+    }
+
+    public function getTenorPosition($payment_detail_id)
+    {
+        $payment_id = $this->db->where('id',$payment_detail_id)->get('payment_detail')->row()->payment_id;
+        $sql = "SELECT `id`,
+                    (SELECT COUNT(*)+1 FROM `payment_detail` 
+                    WHERE `id` < ? 
+                    and payment_id = ? 
+                    and payment_type = '3' 
+                    and payment_gateway_transaction_status = 'success') 
+                    AS `position`
+                FROM `payment_detail`
+                WHERE `id` = ?";
+        
+        return $this->db->query($sql, array($payment_detail_id,$payment_id,$payment_detail_id))->row();
+    }
 }

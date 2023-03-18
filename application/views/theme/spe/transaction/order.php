@@ -10,7 +10,7 @@
             <div class=card-body>
                 <div class="row mb-4 d-md-none">
                     <div class="col-12">
-                        <p class="mb-0">ID. Order : <?=$order->order_code?><br><?=date('d-m-Y h:i',strtotime($order->create_date))?></p>
+                        <p class="mb-0">ID. Order : <?=$order->order_code?><br><?=date('d M Y h:i',strtotime($order->create_date))?></p>
                     </div>
                 </div>
             </div>
@@ -22,7 +22,7 @@
     
              <div class="float-right">
                 <p class="mb-0">ID. Order <?=$order->order_code?></p>
-                Tanggal: <?=date('d-m-Y h:i',strtotime($order->create_date))?>
+               <?=date('d M Y h:i',strtotime($order->create_date))?>
              </div>
           </div>
           <div class="card-body">
@@ -30,8 +30,12 @@
             <?php if($payment_detail):?>
             <div class="row">
                <div class="col-12">
-                  <div>Tagihan Sekarang</div>
-                  <p class="mb-0 pb-0 font-weight-bold">Rp.<?=number_format($payment_detail->amount)?></p>
+                  <div class="font-weight-bold">Tagihan Sekarang</div>
+                  <div class="badge badge-secondary"><?=$payment_detail->payment_detail_type_string?></div>
+                  <?php if($payment_detail->payment_detail_type == '3'):?>
+                     <small>[<?=$payment_detail->position?>/<?=$payment->tenor?>]</small>
+                  <?php endif;?>
+                  <h5 class="mb-2 mt-2 font-weight-bold">Rp.<?=number_format($payment_detail->amount)?></h5>
                   <small>Jatuh Tempo <?=date('d M Y',strtotime($payment_detail->due_date))?></small><br>
                   <!-- <button class="btn btn-primary btn-sm mt-3 float-right">Bayar Sekarang</button> -->
                </div>

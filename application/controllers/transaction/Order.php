@@ -224,6 +224,8 @@ class Order extends CI_Controller {
 
 		# get active payment
 		$payment_detail = $this->payments_model->getActivePaymentByOrderID($order_id);
+		$tenor_position = $this->payments_model->getTenorPosition($payment_detail->payment_detail_id);
+		$payment_detail->position = $tenor_position->position;
 		# get all success pgw payment 
 		$payment_detail_list = $this->payments_model->getSuccessPaymentByOrderID($order_id);
 
@@ -233,7 +235,7 @@ class Order extends CI_Controller {
 				$order_data->status_string =  $payment_detail->payment_gateway_transaction_status;
 				$order_data->btn_pay = '
 					<a href="'.base_url('transaction/payment/MidtransStatusHandler/?order_id='.$payment_detail->transaction_id.'&type=finish').'" class="btn btn-primary btn-sm mb-3">Refresh Status Pembayaran</a>
-					<!-- <a href="https://app.sandbox.midtrans.com/snap/v3/redirection/'. $payment_detail->payment_gateway_transaction_id.'" class="btn btn-primary btn-sm mb-3">Cara Bayar</a> -->
+					<a href="https://app.sandbox.midtrans.com/snap/v3/redirection/'. $payment_detail->payment_gateway_token.'" class="btn btn-primary btn-sm mb-3">Cara Bayar</a>
 				';
 
 			} else if($payment_detail->payment_gateway_transaction_status == 'expire' || $payment_detail->payment_gateway_transaction_status == 'failure'){
@@ -245,7 +247,7 @@ class Order extends CI_Controller {
 					</div>';
 			} else {
 				$order_data->status_string = $order->order_status;
-				$order_data->btn_pay = '<a href="'.base_url('order/req-pay/'.$payment_detail->payment_detail_id).'" class="btn btn-primary btn-sm">Bayar Sekarang</a>';
+				$order_data->btn_pay = '<a href="'.base_url('order/pay/'.$payment_detail->payment_detail_id).'" class="btn btn-primary btn-sm">Bayar Sekarang</a>';
 			}
 			# END modify display
 
@@ -279,18 +281,24 @@ class Order extends CI_Controller {
 
 	/**
 	 * request new midtrans transaction by payment detail id
-	 * make new 
+	 * make new payment_detail if no token else redirect to midtrans token
 	 */
-	public function requestNewPayment($payment_detail_id)
+	public function requestPayment($payment_detail_id)
 	{	
-		// $order_data = $this->payments_model->getDetailByPaymentDetailId($payment_detail_id);
-		$data = array(
-			// 'order_id' => $order_data->order_id,
-			// 'payment_id' => $order_data->payment_id,
-			'payment_detail_id' => $payment_detail_id,
-		);
+		$order_data = $this->payments_model->getDetailByPaymentDetailId($payment_detail_id);
 
-		$this->requestMidtransTransaction($data);
+		if ($order_data->payment_gateway_token != '') {
+			redirect('https://app.sandbox.midtrans.com/snap/v3/redirection/'.$order_data->payment_gateway_token);
+		} else {
+			$data = array(
+				// 'order_id' => $order_data->order_id,
+				// 'payment_id' => $order_data->payment_id,
+				'payment_detail_id' => $payment_detail_id,
+			);
+	
+			$this->requestMidtransTransaction($data);
+		}
+
 	}
 
 	/**
@@ -313,7 +321,13 @@ class Order extends CI_Controller {
 
 		if ($redirect_url && $redirect_url['status']=='success') {
 			// redirect($redirect_url,'refresh');
-			header("Location:".$redirect_url['data']);
+			$update_token = $this->payments_model->updateGWToken($redirect_url['data']['token'],$payment_detail_id);
+			if ($update_token) {
+				# code...
+				header("Location:".$redirect_url['data']['redirect_url']);
+			} else {
+				var_dump('error requesting payment');
+			}
 			exit;
 		} else {
 			# if midtrans returning 400 (id sudah digunakan), redirect to notification handler

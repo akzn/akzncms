@@ -257,4 +257,80 @@ class Payment extends CI_Controller {
         return $data_return;
 
     }
+
+    /**
+     * List all transaction
+     */
+    public function transaction()
+    {
+        
+        $pagination_uri = 'customer/transaction/';
+		$page = $this->uri->segment(3);
+		$page_segment = 3;
+		$num_rows = 5;
+        
+		// $data['products'] = $this->shop_model->getProducts($this->num_rows, $page, $_GET);
+		// $order_list = $this->orders_model->getAllByUserId($this->user_id, $num_rows, $page);
+        $transaction_list = $this->payments_model->getAllTransactionByUserID($this->user_id, $num_rows, $page);
+        // $rowscount = $this->orders_model->productsCountByUserId($this->user_id);
+        $rowscount = $this->payments_model->countAllTransactionByUserID($this->user_id);
+        
+        $links_pagination = pagination( $pagination_uri, $rowscount, $num_rows, $page_segment);
+
+		$site  = $this->mConfig->list_config();
+
+		$data = array(	
+			'transaction_list' => $transaction_list,
+			'links_pagination' => $links_pagination,
+
+			'title' => 'Transaction - '.$site['nameweb'],
+			'meta_desc' => $pages['metatext'],
+			'site' 	=> $site,
+						'isi'		=> 'theme/'.$this->config->item('theme').'/customer/transaction/transaction_list',
+					);
+		$this->load->view('theme/'.$this->config->item('theme').'/layout/wrapper',$data);
+
+    }
+
+    /**
+     * Detail Transaction
+     */
+    public function transaction_detail($payment_detail_id)
+    {
+        $transaction_data = $this->payments_model->getDetailByPaymentDetailId($payment_detail_id);
+        $tenor_position = $this->payments_model->getTenorPosition($payment_detail_id);
+
+        $transaction_data->position = $tenor_position->position;
+
+
+        # modify display 
+        if (isset($transaction_data) && $transaction_data->payment_gateway_transaction_status == 'pending') {
+            $transaction_data->btn_pay = '
+                <a href="'.base_url('transaction/payment/MidtransStatusHandler/?order_id='.$transaction_data->transaction_id.'&type=finish').'" class="btn btn-primary btn-sm mb-3">Refresh Status Pembayaran</a>
+                <a href="https://app.sandbox.midtrans.com/snap/v3/redirection/'. $transaction_data->payment_gateway_token.'" class="btn btn-primary btn-sm mb-3">Cara Bayar</a>
+            ';
+
+        } else if($transaction_data->payment_gateway_transaction_status == 'expire' || $transaction_data->payment_gateway_transaction_status == 'failure'){
+            $transaction_data->btn_pay = '<div class="alert alert-primary">
+                payment on expire/failure transaction are under construction
+                <br><a href="'.base_url('transaction/payment/create_new_invoice/').$transaction_data->payment_detail_id.'">Request New Invoice</a>
+                </div>';
+        } else if($transaction_data->payment_gateway_transaction_status == ''){
+            $transaction_data->btn_pay = '<a href="'.base_url('order/pay/'.$transaction_data->payment_detail_id).'" class="btn btn-primary btn-sm">Bayar Sekarang</a>';
+        } else {
+            $transaction_data->btn_pay = '';
+        }
+        # END modify display
+        
+        $site  = $this->mConfig->list_config();
+
+		$data = array(	
+			'transaction' => $transaction_data,
+			'title' => 'Transaction Detail - '.$site['nameweb'],
+			'meta_desc' => $pages['metatext'],
+			'site' 	=> $site,
+						'isi'		=> 'theme/'.$this->config->item('theme').'/customer/transaction/transaction_detail',
+					);
+		$this->load->view('theme/'.$this->config->item('theme').'/layout/wrapper',$data);
+    }
 }
