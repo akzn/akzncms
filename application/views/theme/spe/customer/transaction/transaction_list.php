@@ -14,7 +14,9 @@
                             <div class="col-8">
                                 <div class="badge badge-secondary"><?=ucwords($key->payment_detail_type_string)?></div>
                                 <div class="product-title"><?=$key->product_name?></div>
-                                <div><small>Jatuh Tempo : <?=date('d M Y',strtotime($key->due_date))?></small></div>
+                                <?php if($key->payment_detail_type == '3'):?>
+                                    <small>Jatuh tempo <?=date('d M Y',strtotime($key->due_date))?></small><br>
+                                <?php endif;?>
                                 <div class="mt-2">
                                     <?php if($key->payment_gateway_transaction_status == 'success'):?>
                                         <?=status_text_color('success',$key->payment_gateway_transaction_status)?>

@@ -32,11 +32,21 @@
                <div class="col-12">
                   <div class="font-weight-bold">Tagihan Sekarang</div>
                   <div class="badge badge-secondary"><?=$payment_detail->payment_detail_type_string?></div>
+
                   <?php if($payment_detail->payment_detail_type == '3'):?>
                      <small>[<?=$payment_detail->position?>/<?=$payment->tenor?>]</small>
                   <?php endif;?>
+
                   <h5 class="mb-2 mt-2 font-weight-bold">Rp.<?=number_format($payment_detail->amount)?></h5>
-                  <small>Jatuh Tempo <?=date('d M Y',strtotime($payment_detail->due_date))?></small><br>
+
+                  <?php if($payment_detail->payment_detail_type == '3'):?>
+                        <small>Jatuh tempo <?=date('d M Y',strtotime($payment_detail->due_date))?></small><br>
+                  <?php endif;?>
+                  <?php if($payment_detail->expiry_time != '' && $payment_detail->expiry_time != '0000-00-00 00:00:00'):?>
+                     <small>Bayar Sebelum <?=date('d M Y h:i',strtotime($payment_detail->expiry_time))?></small>
+                  <?php endif;?>
+
+                  <!-- <small>Jatuh Tempo <?=date('d M Y',strtotime($payment_detail->due_date))?></small><br> -->
                   <!-- <button class="btn btn-primary btn-sm mt-3 float-right">Bayar Sekarang</button> -->
                </div>
             </div>
