@@ -12,7 +12,6 @@
 }
 
 .gallery-wrap .img-big-wrap img {
-    /*height: 450px;*/
     max-height: 430px;
     width: auto;
     display: inline-block;
@@ -546,6 +545,11 @@
 		    }
 			
 	});
+
+	$('.img-small-wrap').find('img').each(function(){
+		var imgClass = (this.width/this.height > 1) ? 'wide' : 'tall';
+		$(this).addClass(imgClass);
+	})
   });
   </script>
 
