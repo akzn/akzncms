@@ -28,7 +28,7 @@ class Pgw_notification extends CI_Controller {
         $redir_type = $_GET['type'];
 
          # if order_id param present on url
-         if (isset($this->input->post('order_id'))) {
+         if (null !== $this->input->post('order_id')) {
             $payment_detail_transaction_id = $this->input->post('order_id',true);
             
             $is_paymentDetail_exist = $this->payments_model->checkPaymentDetailExist($payment_detail_transaction_id);
