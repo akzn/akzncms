@@ -1,4 +1,4 @@
-<link href="<?=base_url()?>assets/theme/spe/product-list.css?v=0.3" rel="stylesheet">
+<link href="<?=base_url()?>assets/theme/spe/product-list.css?v=0.3.1" rel="stylesheet">
 
 <style type="text/css">
 
