@@ -133,7 +133,7 @@ if($this->config->item('theme')=='spe'){
     $route['order/pay/(:num)'] = 'transaction/order/requestPayment/$1';
     // $route['order/req-pay/(:num)'] = 'transaction/order/requestNewPayment/$1';
 
-    $route['payment/notification'] = 'transaction/payment/MidtransStatusHandler/';
+    $route['payment/notification'] = 'transaction/pgw_notification/MidtransStatusHandler/';
 }
 
 # MISC
