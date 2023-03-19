@@ -93,7 +93,11 @@ $route['admin/editshopcategorie'] = "admin/ecommerce/ShopCategories/editShopCate
 $route['admin/excel'] = "admin/ecommerce/ExportExcel";
 $route['admin/excel/resize-image'] = "admin/ecommerce/ExportExcel/resize_image";
 
+$route['admin/orders'] = "admin/ecommerce/orders";
+$route['admin/orders/:num'] = "admin/ecommerce/orders/index/$1";
 
+$route['admin/transactions'] = "admin/ecommerce/transactions";
+$route['admin/transactions/:num'] = "admin/ecommerce/transactions/index/$1";
 
 $route['admin/changePosition'] = "admin/ecommerce/ShopCategories/changePosition";
 

@@ -21,6 +21,17 @@
         </ul>
     </li>     
    
+    <li><a href="#"><i class="fa fa-shopping-cart"></i> Pesanan<span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
+            <li><a href="<?php echo base_url('admin/orders') ?>">Daftar Pesanan</a></li>
+        </ul>
+    </li>  
+
+    <li><a href="#"><i class="fa fa-money"></i> Transaksi<span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
+            <li><a href="<?php echo base_url('admin/transactions') ?>">Daftar Transaksi</a></li>
+        </ul>
+    </li>  
 
     <li><a href="#"><i class="fa fa-wrench"></i> Settings<span class="fa arrow"></span></a>
         <ul class="nav nav-second-level">
