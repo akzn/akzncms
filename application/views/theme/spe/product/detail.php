@@ -1,4 +1,4 @@
-<link href="<?=base_url()?>assets/theme/spe/product-list.css?v=0.2" rel="stylesheet">
+<link href="<?=base_url()?>assets/theme/spe/product-list.css?v=0.3" rel="stylesheet">
 
 <style type="text/css">
 
@@ -49,7 +49,7 @@
     max-width: 100%;
     max-height: 100%;
     object-fit: cover;
-    border-radius: 4px;
+    /* border-radius: 4px; */
     /*cursor: zoom-in;*/
 }
 
@@ -149,7 +149,7 @@
 								?>
 							  <div class="row main-image">
 							  	<a class="col-sm-12 align-self-center fancybox  fancybox.iframe" href="<?= $image ?>">
-							  		<img class="img-fluid  rounded mx-auto d-block align-item-center" src="<?=$image?>">
+							  		<img class="img-fluid  mx-auto d-block align-item-center" src="<?=$image?>">
 							  	</a>
 							  </div>
 
@@ -208,7 +208,7 @@
 							</div>  <!-- slider-nav.// -->
 							<div class="d-none">
 								<div class="main-image">
-								    <img id="img-main" src="<?=$image?>" alt="Placeholder" class="img-main img-fluid  rounded mx-auto d-block">
+								    <img id="img-main" src="<?=$image?>" alt="Placeholder" class="img-main img-fluid  mx-auto d-block">
 								</div>
 								<ul class=" img-small-wrap thumbnails">
 								    <!-- <li><a href="<?=$image?>"><img src="<?=$image?>" alt="Thumbnails"></a></li>
