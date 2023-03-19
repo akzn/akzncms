@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Payment extends CI_Controller {
+class Pgw_notification extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
@@ -18,6 +18,11 @@ class Payment extends CI_Controller {
      */
     public function MidtransStatusHandler()
     {
+        if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+            http_response_code(401);
+            echo 'Restricted Access';
+            exit;
+        }
         $this->load->library('midtrans');
 
         $redir_type = $_GET['type'];
