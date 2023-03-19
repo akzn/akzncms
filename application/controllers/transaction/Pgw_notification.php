@@ -19,7 +19,7 @@ class Pgw_notification extends CI_Controller {
     public function MidtransStatusHandler()
     {
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-            http_response_code(401);
+            http_response_code(404);
             echo 'Restricted Access';
             exit;
         }
@@ -28,8 +28,8 @@ class Pgw_notification extends CI_Controller {
         $redir_type = $_GET['type'];
 
          # if order_id param present on url
-         if (isset($_GET['order_id'])) {
-            $payment_detail_transaction_id = $this->input->get('order_id',true);
+         if (isset($this->input->post('order_id'))) {
+            $payment_detail_transaction_id = $this->input->post('order_id',true);
             
             $is_paymentDetail_exist = $this->payments_model->checkPaymentDetailExist($payment_detail_transaction_id);
             if ($is_paymentDetail_exist) {
