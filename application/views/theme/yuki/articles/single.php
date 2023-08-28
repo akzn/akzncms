@@ -2,31 +2,20 @@
     
     	<div class="container"><!-- container -->
         
-        	<div class="row"><!-- row -->
-            
-            	<div class="k-breadcrumbs col-lg-12 clearfix"><!-- breadcrumbs -->
-                
-                	<ol class="breadcrumb">
-                        <li><a href="<?php echo base_url('blog');?>">Blog</a></li>
-                        <li class="active"><?php echo $blog['title'];?></li>
+            <div class="row">
+                <div class="col-md-12">
+
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="<?=base_url()?>">Home</a></li>
+                    <li class="breadcrumb-item"><a href="<?=base_url('articles')?>">Articles</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><?php echo $blog['title'];?></li>
                     </ol>
-                    
-                </div><!-- breadcrumbs end -->       
-                <ul class="breadcrumb">
-  <li><a href="#">Home</a></li>
-  <li><a href="#">Pictures</a></li>
-  <li><a href="#">Summer 15</a></li>
-  <li>Italy</li>
-</ul>
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Home</a></li>
-    <li class="breadcrumb-item"><a href="#">Library</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Data</li>
-  </ol>
-</nav>        
-                
-            </div><!-- row end -->
+                </nav> 
+
+                </div>
+            </div>
+
             <?php
             // Session 
             if($this->session->flashdata('sukses')) { 
@@ -51,28 +40,31 @@
                                     <img src="<?php echo base_url('assets/upload/image/'.$blog['image']);?>" alt="Featured image 4" class="img-responsive" />
                                 </figure>
                                 
-                                <div class="news-title-meta">
-                                    <h1 class="page-title"><?php echo $blog['title'];?></h1>
+                                <div class="news-title-meta mt-5 mb-4">
+                                    <h2 class="page-title mb-1"><?php echo $blog['title'];?></h2>
                                     <div class="news-meta">
                                         <span class="news-meta-date"><?php echo date('l, d/m/Y', strtotime($blog['date_post'])); ?></span>
-                                        <span class="news-meta-category"><a href="<?php echo $blog['category_name'];?>" title="<?php echo $blog['category_name'];?>"><?php echo $blog['category_name'];?></a></span>
-                                        <span class="news-meta-comments"><a href="#" title="3 comments"><?php echo $count;?> comments</a></span>
+                                        <span class="news-meta-category ml-3"><a href="<?php echo $blog['category_name'];?>" title="<?php echo $blog['category_name'];?>"><?php echo $blog['category_name'];?></a></span>
+                                        <span class="news-meta-comments ml-3"><a href="#" title="3 comments"><?php echo $count;?> comments</a></span>
                                     </div>
                                 </div>
                                 
                                 <div class="news-body">
-                                    <p><?php echo $blog['title'];?></p>                                    
+                                    <!-- <p><?php echo $blog['title'];?></p>                                     -->
+                                    <?php echo $blog['content'];?>
                                 </div>                            
                             
                             </div>
                         
                         </div><!-- row end -->  
                         
-                        <div class="row row-splitter">
-                        
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                
+                            </div>
                         </div> 
                         
-                        <div class="row gutter"><!-- row -->
+                        <div class="row gutter mt-5"><!-- row -->
                         
                         	<div class="col-lg-12 col-md-12">
                             
@@ -192,7 +184,7 @@
                         
                         	<li class="widget-container widget_nav_menu"><!-- widget -->
                     
-                                <h1 class="title-widget">Kategori Blog</h1>
+                                <h2 class="title-widget">Kategori Artikel</h2>
                                 <?php foreach ($categories as $category){?>
                                 <ul>
                                 	<li><a href="<?php echo base_url('blog/kategori/'.$category['slug_category']);?>" title="menu item"><?php echo $category['category_name'];?></a></li>
@@ -200,9 +192,9 @@
                                 <?php } ?>                
 							</li>
                             
-                        	<li class="widget-container widget_up_events"><!-- widget -->
+                        	<li class="widget-container widget_up_events mt-5"><!-- widget -->
                     
-                                <h1 class="title-widget">Blog Terkait</h1>
+                                <h2 class="title-widget">Artikel Terkait</h2>
                                 
                                 <ul class="list-unstyled">
                                 
@@ -215,7 +207,7 @@
                                 ?>
                                     <li class="up-event-wrap">
                                 
-                                        <h1 class="title-median"><a href="<?php echo base_url('blog/detil/'.$blogTerkait['slug_blog']);?>" title="<?php echo $blogTerkait['title'];?>"><?php echo $blogTerkait['title'];?></a></h1>
+                                        <h5 class="title-median"><a href="<?php echo base_url('blog/detil/'.$blogTerkait['slug_blog']);?>" title="<?php echo $blogTerkait['title'];?>"><?php echo $blogTerkait['title'];?></a></h5>
                                         
                                         <div class="up-event-meta clearfix">
                                         <span class="news-meta-date"><?php echo date('l, d/m/Y', strtotime($blogTerkait['date_post'])); ?></span>
@@ -224,7 +216,7 @@
                                         <div class="news-body">
                                             <p>
                                                 <?php
-                                                    $out = strlen($blogTerkait['content']) > 150 ? substr($blogTerkait['content'],0,150).'... <a href="'. base_url('blog/detil/'.$blogTerkait['slug_blog']).'" class="moretag">detil Selengkapnya</a> ' : $blogTerkait['content'];
+                                                    $out = strlen($blogTerkait['content']) > 150 ? substr($blogTerkait['content'],0,150).'... <a href="'. base_url('blog/detil/'.$blogTerkait['slug_blog']).'" class="moretag"> more</a> ' : $blogTerkait['content'];
                                                     echo $out;
                                                 ?>  
                                             </p>                                    

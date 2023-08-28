@@ -1,0 +1,31 @@
+a {
+    color:#e84756;
+}
+
+.pagination-yuki .pagination li:first-child a {
+    margin-left: 0;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}
+.pagination-yuki .pagination li.active a {
+    z-index: 1;
+    color: #fff;
+    background-color: #e84756;
+    border-color: #e84756;
+}
+
+.pagination-yuki .pagination li {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0rem !important;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #e84756;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+}
+
+.pagination-yuki .pagination li a{
+    padding: 0.5rem 0.75rem !important;
+    color: #e84756;
+}

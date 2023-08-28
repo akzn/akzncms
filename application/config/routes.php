@@ -71,6 +71,15 @@ $route['product/(:any)_(:num)'] = "product/viewProduct/$2";
 $route['product/(\w{2})/(:any)_(:num)'] = "product/viewProduct/$3";
 $route['product/product_data/(:num)'] = "product/product_data/$1";
 
+// article
+$route['articles'] = "articles";
+$route['article/(:any)'] = "articles/article/$1";
+
+// career
+$route['career'] = "career";
+$route['career/(:any)'] = "career/detail/$1";
+
+
 # ADMIN
 
 $route['admin'] = 'admin/dashboard';

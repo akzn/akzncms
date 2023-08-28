@@ -83,3 +83,13 @@ function is_home(){
   return $is_home;
 
 }
+
+function truncate_text($text, $limit) {
+  $words = explode(' ', strip_tags($text));
+  if (count($words) > $limit) {
+      $text = implode(' ', array_slice($words, 0, $limit));
+      $text .= '...';
+  }
+  return $text;
+}
+

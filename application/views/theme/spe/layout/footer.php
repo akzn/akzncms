@@ -175,7 +175,14 @@
                                               </ul>
         </div>
         <div class="col-md-4">
-          <span class="copyright">Supported by <a href="https://javalatte.xyz" target="_blank">JavaLatte.my.id</a></span>
+          <span class="copyright mb-1">Supported by <a href="https://javalatte.my.id" target="_blank">JavaLatte.my.id</a></span>
+          <?php
+              $current_admin_version = $this->config->item('cms-version');
+              $theme_version = "0.3.6";
+              ?>
+                  <br><span class="copyright text-muted"><?=$this->config->item('theme') . ' ' . $theme_version?> | cms <?=$current_admin_version?></span>
+                <?php
+            ?>
           <!-- <ul class="list-inline quicklinks">
             <li class="list-inline-item">
               <a href="#">Privacy Policy</a>

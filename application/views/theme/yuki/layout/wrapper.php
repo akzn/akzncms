@@ -32,7 +32,8 @@
   <link href="<?php echo base_url('assets/upload/image/'.$site['icon']) ?>" rel="shortcut icon">
 
   <link rel="stylesheet" href="<?=base_url()?>assets/bootstrap-fancy-img/bootstrap-fancy-img.css?v=0.4a" />
-  <link rel="stylesheet" href="<?=base_url()?>assets/front/style.css?v=2.17" >
+  <link rel="stylesheet" href="<?=base_url()?>assets/front/style.css?v=2.17">
+  <link rel="stylesheet" href="<?=base_url()?>assets/theme/yuki/style.css?v=0.1">
   
 
   <?php if ($page == 'Home'): ?>
@@ -90,18 +91,29 @@
   </script>
 </head>
 
-<body id="page-top" class="style-green" style="">
+<body id="page-top" class="" style="">
 
 
   <div id="page-loader" class="loader-center"></div> 
 
   <div id="page-content" style="display: none">
-  <?php $this->load->view('theme/yuki/layout/header');?>
-  
-  <content>
+    <?php $this->load->view('theme/yuki/layout/header');?>
+    
+    
+  <content class="mt-5">
+
+    <div class="container mt-5">
+      <div class="col-12">
+        <img class="img-fluid" src="https://dummyimage.com/1920x400/000/fff" alt="">
+      </div>
+    </div>
+
+
   <?php
   if($isi) {
     $this->load->view($isi);
+  } else {
+    echo $contents;
   }
   ?>
   </content>

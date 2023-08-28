@@ -5,7 +5,7 @@
 	*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class News extends CI_Controller {
+class Articles extends MY_Controller {
 	
 	// Main Page Blogs
 	public function index() {
@@ -16,37 +16,39 @@ class News extends CI_Controller {
 
 		// Pagination
 		$this->load->library('pagination');
-		$config['base_url'] 		= base_url().'blog/index/';
+		$config['base_url'] 		= base_url().'articles/index/';
 		$config['total_rows'] 		= count($this->mBlogs->totalBlogs());
 		$config['use_page_numbers'] = TRUE;
 		$config['num_links'] 		= 5;
 		$config['uri_segment'] 		= 3;
 		$config['per_page'] 		= 10;
-		$config['first_url'] 		= base_url().'blog/';
+		$config['first_url'] 		= base_url().'articles/';
 		$this->pagination->initialize($config); 
 		$page 		= ($this->uri->segment(3)) ? ($this->uri->segment(3) - 1) * $config['per_page'] : 0;
 		$blogs 		= $this->mBlogs->perPageBlogs($config['per_page'], $page);
 		// End Pagination		
 		
-		$data = array(	'title'		=> 'Blog - '.$site['nameweb'],
-						'site'		=> $site,
-						'blogs'		=> $blogs,
-						'categories'=> $categories,
-						'lastBlogs'	=> $lastBlogs,
-						'pagin' 	=> $this->pagination->create_links(),												
-						'isi'		=> 'front2/blog/list');
-		$this->load->view('front2/layout/wrapper',$data);
+		$data = array(	
+			'title'		=> 'Articles',
+			'site'		=> $site,
+			'blogs'		=> $blogs,
+			'categories'=> $categories,
+			'lastBlogs'	=> $lastBlogs,
+			'pagination' 	=> $this->pagination->create_links(),												
+		);
+		$this->template->load($this->wrapper,$this->theme_dir.'articles/archieve',$data);
+
 	}
 
 	// Search Blog
-	public function cari(){
+	public function search(){
 
 		$site 		= $this->mConfig->list_config();
 		$categories = $this->mCategories->listCategories();
 		$lastBlogs 	= $this->mBlogs->listLastBlogsPub();			
 
-		if (isset($_POST['q'])) {
-			$data['ringkasan'] = $this->input->post('cari');
+		if (isset($_POST['query'])) {
+			$data['ringkasan'] = $this->input->post('query');
 			$this->session->set_userdata('sess_ringkasan', $data['ringkasan']);
 		}
 		else {
@@ -58,7 +60,7 @@ class News extends CI_Controller {
         $this->db->from('blogs');
 
 		// pagination limit
-		$pagination['base_url'] = base_url().'blog/cari/index/';
+		$pagination['base_url'] = base_url().'articles/search/index/';
 		$pagination['total_rows'] = $this->db->count_all_results();
 		$pagination['per_page'] = "10";
 		$pagination['uri_segment'] = 4;
@@ -66,18 +68,21 @@ class News extends CI_Controller {
 
 		$this->pagination->initialize($pagination);
 
-		$data['blog'] = $this->mBlogs->cariBlog($pagination['per_page'],$this->uri->segment(4,0),
-		$data['ringkasan'],
-		$data['isi'] = 'front2/blog/cari',
-		$data['title'] = 'Hasil Pencarian - '. $data['ringkasan'],
-		$data['site'] = $site,
-		$data['categories'] = $categories,
-		$data['lastBlogs'] = $lastBlogs,
-		$data['pagin'] = $this->pagination->create_links()						
+		$blogs= $this->mBlogs->cariBlog($pagination['per_page'],$this->uri->segment(4,0),$data['ringkasan']);
+
+		$data = array(	
+			'title'		=> 'Search Result - '. $data['ringkasan'],
+			'site'		=> $site,
+			'blogs'		=> $blogs,
+			'categories'=> $categories,
+			'lastBlogs'	=> $lastBlogs,
+			'pagination' 	=> $this->pagination->create_links(),												
 		);
 
-		$this->load->vars($data);
-		$this->load->view('front2/layout/wrapper');
+		// $this->load->vars($data);
+		// $this->load->view('front2/layout/wrapper');
+		$this->template->load($this->wrapper,$this->theme_dir.'articles/archieve',$data);
+
 	}	
 
 	// Read Blog
@@ -96,8 +101,10 @@ class News extends CI_Controller {
 						'categories'=> $categories,
 						'count'		=> $count,
 						'comments'	=> $comments,
-						'isi'		=> 'front2/news/read');
-		$this->load->view('front2/layout/wrapper',$data);
+		);
+		// $this->load->view('front2/layout/wrapper',$data);
+		$this->template->load($this->wrapper,$this->theme_dir.'articles/single',$data);
+
 	}
 
   	// Reply Blog

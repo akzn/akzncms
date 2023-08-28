@@ -28,7 +28,14 @@
           <div class="copyright-left d-none d-md-block">
             <hr>
             <span class="copyright">&copy; ziemotion <?=date("Y");?>. All Rights Reserved.</span><br>
-            <span class="copyright">Supported by javalatte.xyz</span>
+            <span class="copyright">Supported by javalatte.my.id</span>
+            <?php
+              $current_admin_version = $this->config->item('cms-version');
+              $theme_version = "0.3.5";
+              ?>
+                  <br><span class="copyright">theme <?=$this->config->item('theme') . ' ' . $theme_version?> | cms <?=$current_admin_version?></span>
+                <?php
+            ?>
           </div>
         </div>
         <div class="col-md-6">
@@ -73,11 +80,12 @@
             <p><?=$this->lang->line('monday')?> – <?=$this->lang->line('saturday')?> : 9am – 5pm</p>
             <p><?=$this->lang->line('sunday')?> : Closed</p>
 
-            <div class="copyright-right d-md-none">
+            <!-- <div class="copyright-right d-md-none">
               <hr>
               <span class="copyright">&copy; ziemotion 2020. All Rights Reserved.</span><br>
-              <span class="copyright">Supported by javalatte.xyz</span>
-            </div>
+              <span class="copyright">Supported by javalatte.my.id</span>
+              <span class="copyright">theme akzn-cms 0.3.5</span>
+            </div> -->
 
           </div>
         </div>

@@ -17,7 +17,7 @@
             $this->db->from('blogs');
             $this->db->join('admins','admins.admin_id = blogs.user_id','LEFT');            
             $this->db->join('categories','categories.category_id = blogs.category_id','LEFT');
-            $this->db->order_by('blog_id','ASC');
+            $this->db->order_by('blog_id','DESC');
             $query = $this->db->get();
             return $query->result_array();
         }
@@ -29,7 +29,7 @@
             $this->db->where(array('status' => 'publish'));
             $this->db->join('admins','admins.admin_id = blogs.user_id','LEFT');            
             $this->db->join('categories','categories.category_id = blogs.category_id','LEFT');
-            $this->db->order_by('blog_id','ASC');
+            $this->db->order_by('blog_id','DESC');
             $query = $this->db->get();
             return $query->result_array();
         }
@@ -99,7 +99,7 @@
             $this->db->from('blogs');
             $this->db->where(array('status' => 'publish'));            
             $this->db->join('categories','categories.category_id = blogs.category_id','LEFT');
-            $this->db->order_by('blog_id','ASC');
+            $this->db->order_by('blog_id','DESC');
             $this->db->limit($limit,$start);
             $query = $this->db->get();
             return $query->result_array();
@@ -173,7 +173,7 @@
             $this->db->join('categories','categories.category_id = blogs.category_id','LEFT');
             $data = array();
             $this->db->where('categories.slug_category',$slugBlog);
-            $this->db->order_by('blogs.blog_id','ASC');
+            $this->db->order_by('blogs.blog_id','DESC');
             $Q = $this->db->get('blogs');
                 if ($Q->num_rows() > 0){
                     foreach ($Q->result_array() as $row){
@@ -202,7 +202,7 @@
             if (!empty($ringkasan)) {
                 $this->db->like('title', $ringkasan);
             }
-            $this->db->order_by('blog_id','asc');
+            $this->db->order_by('blog_id','DESC');
             $getData = $this->db->get('', $perPage, $uri);
 
             if ($getData->num_rows() > 0)
@@ -217,7 +217,7 @@
             $this->db->join('categories','categories.category_id = blogs.category_id','LEFT');
             $data = array();
             $this->db->where('blogs.category_id',$category_id);
-            $this->db->order_by('blogs.blog_id','ASC');
+            $this->db->order_by('blogs.blog_id','DESC');
             $Q = $this->db->get('blogs');
                 if ($Q->num_rows() > 0){
                     foreach ($Q->result_array() as $row){

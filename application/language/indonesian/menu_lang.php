@@ -6,6 +6,7 @@ $lang['about'] = 'Tentang';
 $lang['contact'] = 'Kontak';
 $lang['services'] = 'Service';
 $lang['projects'] = 'Proyek';
+$lang['career'] = 'Karir';
 
 /*shop*/
 $lang['category'] = 'Kategori';

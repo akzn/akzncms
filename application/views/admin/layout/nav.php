@@ -3,14 +3,7 @@
 <div class="sidebar-collapse">
 <ul class="nav" id="main-menu">
 	<li><a  href="<?php echo base_url('admin/dashboard') ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-    
-    <!-- <li><a href="#"><i class="fa fa-pencil"></i> Blogs<span class="fa arrow"></span></a>
-        <ul class="nav nav-second-level">
-            <li><a href="<?php echo base_url('admin/blogs') ?>">List Blogs</a></li>
-            <li><a href="<?php echo base_url('admin/blogs/create') ?>">Create Blogs</a></li>
-            <li><a href="<?php echo base_url('admin/blogs/categories') ?>">Categories</a></li>
-        </ul>
-    </li>     -->
+      
     <!-- <li><a href="#"><i class="fa fa-list"></i> Products<span class="fa arrow"></span></a>
         <ul class="nav nav-second-level">
             <li><a href="<?php echo base_url('admin/products') ?>">List Products</a></li>
@@ -56,10 +49,17 @@
             <li><a href="<?php echo base_url('admin/testimonials/create') ?>">Tambah Testimonial</a></li>
         </ul>
     </li>  
-    <li><a href="#"><i class="fa fa-image"></i> Post Types<span class="fa arrow"></span></a>
+    <li><a href="#"><i class="fa fa-pencil"></i> Artikel<span class="fa arrow"></span></a>
         <ul class="nav nav-second-level">
-            <li><a href="<?php echo base_url('admin/galleries') ?>">List Post</a></li>
-            <li><a href="<?php echo base_url('admin/galleries/create') ?>">Create New Post</a></li>
+            <li><a href="<?php echo base_url('admin/blogs/create') ?>">Buat Baru</a></li>
+            <li><a href="<?php echo base_url('admin/blogs') ?>">Daftar Artikel</a></li>
+            <li><a href="<?php echo base_url('admin/blogs/categories') ?>">Kategori</a></li>
+        </ul>
+    </li>  
+    <li><a href="#"><i class="fa fa-image"></i> Galeri<span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
+            <li><a href="<?php echo base_url('admin/galleries/create') ?>">Buat Baru </a></li>
+            <li><a href="<?php echo base_url('admin/galleries') ?>">Daftar Galeri</a></li>
         </ul>
     </li>               
     <!--<li><a href="#"><i class="fa fa-file"></i> Downloads<span class="fa arrow"></span></a>

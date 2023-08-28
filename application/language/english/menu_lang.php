@@ -6,6 +6,7 @@ $lang['about'] = 'About Us';
 $lang['contact'] = 'Contact Us';
 $lang['services'] = 'Services';
 $lang['projects'] = 'Projects';
+$lang['career'] = 'Career';
 
 /*shop*/
 $lang['category'] = 'Category';

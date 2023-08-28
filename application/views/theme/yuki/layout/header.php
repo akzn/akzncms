@@ -210,6 +210,9 @@ body {
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="<?=base_url()?>contact"><?=$this->lang->line('contact')?></a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="<?=base_url('career')?>"><?=$this->lang->line('career')?></a>
+          </li>
         </ul>
         <ul class="navbar-nav flex-row social-nav">
             <li class="nav-item">
