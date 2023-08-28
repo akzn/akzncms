@@ -1,4 +1,4 @@
-    <div id="k-body"><!-- content wrapper -->
+<div class="container container-content"><!-- content wrapper -->
     
     	<div class="container"><!-- container -->
         
@@ -28,7 +28,7 @@
             ?>
             <div class="row no-gutter mb-5"><!-- row -->
                 
-                <div class="col-lg-8 col-md-8"><!-- doc body wrapper -->
+                <div class="col-lg-8 col-md-8 offset-md-2"><!-- doc body wrapper -->
                 	
                     <div class="col-padded"><!-- inner custom column -->
                     
@@ -40,7 +40,8 @@
                                     <img src="<?php echo base_url('assets/upload/image/'.$blog['image']);?>" alt="Featured image 4" class="img-responsive" />
                                 </figure> -->
                                 
-                                <div class="news-title-meta mt-2 mb-4">
+                                <div class="news-title-meta mt-2 mb-4 text-center">
+                                    <h2 class="page-title mb-1">Job Vacancy</h2>
                                     <h2 class="page-title mb-1"><?php echo $blog['title'];?></h2>
                                     <div class="news-meta text-muted">
                                         <span class="news-meta-date"><?php echo date('l, d/m/Y', strtotime($blog['date_post'])); ?></span>

@@ -5,7 +5,7 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="<?=base_url()?>">Home</a></li>
-          <li class="breadcrumb-item active" aria-current="page">About</li>
+          <li class="breadcrumb-item active" aria-current="page">Career</li>
         </ol>
       </nav> 
 
@@ -15,6 +15,9 @@
    <div class="row">
      <div class="col-md-12" data-aos="zoom-in">
       
+     <h1 class="page-title text-center "><?=$this->lang->line('h-about')['header-caption']?></h1>
+     <hr class="divider mb-4">
+
       <?php if ($site['about']): ?>
 
       <?php if ($_COOKIE['lang'] == 'english') {

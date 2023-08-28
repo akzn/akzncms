@@ -119,7 +119,7 @@ class Articles extends MY_Controller {
   	}	
 
 	// Blog By Category
-	public function kategori($slugBlog) {
+	public function category($slugBlog) {
 
 		$site  		= $this->mConfig->list_config();
 		$categories = $this->mCategories->listCategories();
@@ -129,27 +129,28 @@ class Articles extends MY_Controller {
 
 		// Pagination
 		$this->load->library('pagination');
-		$config['base_url'] 		= base_url().'blog/kategori/index/';
+		$config['base_url'] 		= base_url().'articles/category/index/';
 		$config['total_rows'] 		= $this->mBlogs->totalBlogsByCategory($slugBlog);
 		$config['use_page_numbers'] = TRUE;
 		$config['num_links'] 		= 5;
 		$config['uri_segment'] 		= 3;
 		$config['per_page'] 		= 1;
-		$config['first_url'] 		= base_url().'blog/kategori/';
+		$config['first_url'] 		= base_url().'articles/category/';
 		$this->pagination->initialize($config); 
-		$page 		= ($this->uri->segment(3)) ? ($this->uri->segment(3) - 1) * $config['per_page'] : 0;
+		$page 		= ($this->uri->segment(4)) ? ($this->uri->segment(4) - 1) * $config['per_page'] : 0;
 		$blogs 		= $this->mBlogs->getAllBlogsByCategory($slugBlog, $config['per_page'], $page);
 		// End Pagination			
 		
-		$data = array(	'title'		=> $detailCategory['category_name'].' - '.$site['nameweb'],
+		$data = array(	'title'		=> 'Articles - '.$detailCategory['category_name'],
 						'site'		=> $site,
 						'blogs'		=> $blogs,
 						'categories'=> $categories,
 						'detailCategory'=> $detailCategory,
 						'lastBlogs' => $lastBlogs,
 						'pagin' 	=> $this->pagination->create_links(),																		
-						'isi'		=> 'front2/blog/category');
-		$this->load->view('front2/layout/wrapper',$data);
+						);
+		// $this->load->view('front2/layout/wrapper',$data);
+		$this->template->load($this->wrapper,$this->theme_dir.'articles/archieve',$data);
 	}  
 
 }

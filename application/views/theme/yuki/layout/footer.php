@@ -175,10 +175,10 @@
                                               </ul>
         </div>
         <div class="col-md-4">
-          <span class="copyright">Supported by <a href="https://javalatte.xyz" target="_blank">JavaLatte.xyz</a></span>
+          <span class="copyright">Supported by <a href="https://javalatte.my.id" target="_blank">JavaLatte.my.id</a></span>
           <?php
               $current_admin_version = $this->config->item('cms-version');
-              $theme_version = "0.3.5";
+              $theme_version = "0.3.7";
               ?>
                   <br><span class="copyright text-muted"><?=$this->config->item('theme') . ' ' . $theme_version?> | cms <?=$current_admin_version?></span>
                 <?php

@@ -21,20 +21,20 @@ class Career extends MY_Controller {
 
 		// Pagination
 		$this->load->library('pagination');
-		$config['base_url'] 		= base_url().'blog/kategori/index/';
+		$config['base_url'] 		= base_url().'career/index/';
 		$config['total_rows'] 		= $this->mBlogs->totalBlogsByCategory($slugBlog);
 		$config['use_page_numbers'] = TRUE;
 		$config['num_links'] 		= 5;
 		$config['uri_segment'] 		= 3;
 		$config['per_page'] 		= 1;
-		$config['first_url'] 		= base_url().'blog/kategori/';
+		$config['first_url'] 		= base_url().'career/';
 		$this->pagination->initialize($config); 
 		$page 		= ($this->uri->segment(3)) ? ($this->uri->segment(3) - 1) * $config['per_page'] : 0;
-		$blogs 		= $this->mBlogs->getAllBlogsByCategory($slugBlog, $config['per_page'], $page);
+		$blogs 		= $this->mBlogs->listBlogsPub($slugBlog, $config['per_page'], $page);
 		// End Pagination			
 		
 		$data = array(	
-            'title'		=> $detailCategory['category_name'].' - '.$site['nameweb'],
+            'title'		=> 'Career '.' - '.$site['nameweb'],
             'site'		=> $site,
             'blogs'		=> $blogs,
             'categories'=> $categories,

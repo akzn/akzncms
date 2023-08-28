@@ -100,13 +100,31 @@
     <?php $this->load->view('theme/yuki/layout/header');?>
     
     
-  <content class="mt-5">
+  <content>
+    <div class="content-main mt-1">
 
-    <div class="container mt-5">
+    <?php
+      /**
+       * hack to get promo banner
+       * get from articles with category "Banner"
+       */
+      $last_publish_banner = $this->db
+        ->where(array(
+          'status' => 'publish',
+          'categories.slug_category' => 'banner',
+          ))
+        ->join('categories','categories.category_id = blogs.category_id','LEFT')
+        ->order_by('blog_id','DESC')
+        ->get('blogs')->row_array();
+
+    ?>
+    <?php if ($last_publish_banner) : ?>
+    <div class="container container-promo">
       <div class="col-12">
-        <img class="img-fluid" src="https://dummyimage.com/1920x400/000/fff" alt="">
+        <a href="<?=base_url('article/').$last_publish_banner['slug_blog']?>"><img class="img-fluid" src="<?=base_url().'assets/upload/image/'.$last_publish_banner['image']?>" alt="<?=$last_publish_banner['title']?>"></a>
       </div>
     </div>
+    <?php endif; ?>
 
 
   <?php
@@ -116,6 +134,8 @@
     echo $contents;
   }
   ?>
+
+  </div>
   </content>
 
   <!-- Footer -->

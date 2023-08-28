@@ -18,6 +18,10 @@
   </section>
 
   <style type="text/css">
+
+    #mainNav .navbar-toggler {
+        color: #fff;
+    }
     .product-section-card {
       min-height:250px;
       color:#fff;
@@ -113,6 +117,11 @@
 }
     /*.owl-prev i, .owl-next i {transform : scale(2,5); color: #ccc;}*/
 
+    .container-promo{
+          margin-top:4vh;
+          margin-bottom:4vh;
+      }
+
 @media (max-width: 600px) {
       #services .services-box{
         width: auto
@@ -131,6 +140,10 @@
      /* .product-imitation {
         padding: 120px 0;
       }*/
+
+      .container-promo{
+          margin-top:2vh
+      }
     }
 @media (max-width: 1366px) {
   .product-imitation {
@@ -152,7 +165,20 @@
         <hr>
         <!-- owl -->
         <div class="owl-carousel owl-theme" data-aos="zoom-in" style="margin-bottom: 30px;">
-          <?php foreach ($attachments as $key): ?>
+        <?php
+          /**
+           * hack for attachment 
+           * 
+           */
+          # attachment
+          $this->db->select('a.title,a.image,b.name as categori_name, a.url');
+          $this->db->join('product_categories b', "a.shop_categorie = b.id");
+          $this->db->where('b.sub_for',11);
+          $this->db->or_where('b.id',11);
+          $this->db->limit(10);
+          $product_attachments = $this->db->get('products a')->result();
+        ?>
+          <?php foreach ($product_attachments as $key): ?>
             <?php
               $u_path = 'img/shop/';
                         if ($key->image != null && file_exists($u_path . $key->image)) {

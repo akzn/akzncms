@@ -13,8 +13,8 @@
                 
             </div><!-- row end -->
 
-      <h2 class="text-center mt-0">Gallery</h2>
-      <hr class="divider my-4">
+      <h2 class="page-title text-center mt-0">Gallery</h2>
+      <hr class="divider mb-4">
        <!-- Page Content -->
 
 <style type="text/css">

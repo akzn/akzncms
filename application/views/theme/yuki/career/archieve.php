@@ -1,10 +1,27 @@
-<div class="container mt-4">
+<div class="container container-content">
+
+<div class="row">
+     <div class="col-md-12">
+
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="<?=base_url()?>">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">About</li>
+        </ol>
+      </nav> 
+
+      </div>
+  </div>
+
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <h2 class="mb-4">Lowongan Pekerjaan</h2>
+            <h2 class="page-title mb-4">Lowongan Pekerjaan</h2>
             <p>Mulailah Perjalanan Anda bersama <b>PT Yaksa Alam Sejahtera</b>.
 Bergabunglah dengan tim super kami untuk membangun kesuksesan bersama</p>
             <p>Posisi yang Tersedia : </p>
+            <?php if (empty($blogs)) : ?>
+                <p>There are currently no job listings available.</p>
+            <?php else : ?>
             <?php foreach ($blogs as $key => $value) : ?>
                 <div class="card mb-4">
                     <div class="card-body">
@@ -18,6 +35,7 @@ Bergabunglah dengan tim super kami untuk membangun kesuksesan bersama</p>
                     </div>
                 </div>
             <?php endforeach; ?>
+            <?php endif; ?>
 
         </div>
     </div>

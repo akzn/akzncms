@@ -1,14 +1,15 @@
-<div class="container mt-5 mb-5">
+<!-- <div class="container mt-5 mb-5"> -->
+<div class="container container-content">    
     <div class="row">
         <div class="col-md-8">
-            <h3 class="mb-4"><?=$title?></h3>
+            <h3 class="page-title mb-4"><?=$title?></h3>
             
             <!-- Sample articles loop -->
             <?php if (!empty($blogs)) : ?>
                 <?php foreach ($blogs as $key => $value) : ?>
                     <div class="card mb-4">
                         <div class="card-body">
-                            <h2 class="card-title"><?= $value['title'] ?></h2>
+                            <h2 class="card-title page-title"><?= $value['title'] ?></h2>
                             <div class="card-text mb-4">
                                 <?= truncate_text($value['content'], 40); ?>
                             </div>
