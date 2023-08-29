@@ -75,6 +75,7 @@ class Shop extends CI_Controller {
         /*SEO URL for categories*/
         $category_slug = $this->uri->segment(2);
         $category = $this->shop_model->getCategoryBySlug($category_slug); 
+        
         if (isset($category)) {
         	$data['category_data'] = $category;
         	$_GET['category'] = $category->id;
@@ -87,6 +88,7 @@ class Shop extends CI_Controller {
             $page = $this->uri->segment(2);
             $page_segment = 2;
         }
+        
         if (!$page) {
             $page = 0;
         }
@@ -104,11 +106,11 @@ class Shop extends CI_Controller {
 		$data['site'] = $site;
 						// 'products'	=> $products,
 		$data['nav_categories'] = $nav_categories;
-		$data['blogs']		= $blogs;
+		$data['blogs']		= (isset($blogs) ? $blogs : null);
 		// $data['pagin'] 	= $this->pagination->create_links();																		
 		// $data['isi']	= 'front2/shop/list';
-        $data['title'] = ucwords($this->lang->line('ecommerce')['list'].' '.$this->lang->line('ecommerce')['product'].' '.$data['category_data']->name.' '.$site['nameweb']);
-        $data['meta_desc'] = langify($data['category_data']->category_description);
+        $data['title'] = ucwords($this->lang->line('ecommerce')['list'].' '.$this->lang->line('ecommerce')['product'].' '.(isset($data['category_data']->name) ? $data['category_data']->name : '') .' '.$site['nameweb']);
+        $data['meta_desc'] = langify((isset($data['category_data']->category_description) ? $data['category_data']->category_description : ''));
 		$data['isi']	= 'theme/'.$this->config->item('theme').'/shop/list';
 
         // Slider header for home

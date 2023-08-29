@@ -34,7 +34,7 @@
 
 
 
-  <?php if ($page == 'Home'): ?>
+  <?php if (@$page == 'Home'): ?>
      <style type="text/css">
        header.masthead{
           height: 100vh;
@@ -148,7 +148,7 @@
   <!-- <header class="masthead">
     <div class="container">
       
-        <?php if ($page == 'Home'): ?>
+        <?php if (@$page == 'Home'): ?>
           <div class="intro-text">
           <div class="row h-100 align-items-center justify-content-center text-center">
         <div class="col-lg-10 align-self-end">

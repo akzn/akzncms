@@ -133,7 +133,7 @@ class Product extends CI_Controller {
 
         $data['specification'] = $spec_data;
         // $data['specification_2'] = $spec2_data; // Disabled because this is spesific to yukimura (akzcms.0.3.4)
-        $data['specification_product_type'] = $spec_product_type;
+        $data['specification_product_type'] = @$spec_product_type;
         
         // $this->render('view_product', $head, $data);
 
@@ -144,7 +144,7 @@ class Product extends CI_Controller {
 		$data['site'] = $site;
 		
 		$data['nav_categories'] =  $this->getCategoryList();
-		$data['blogs']		= $blogs;
+		$data['blogs']		= @$blogs;
 		$data['pagin'] 	= $this->pagination->create_links();																		
 		// $data['isi']	= 'front2/product/detail';
         $data['image_path'] = 'img/product/';

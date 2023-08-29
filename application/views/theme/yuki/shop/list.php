@@ -140,7 +140,7 @@
           <li class="breadcrumb-item"><a href="<?=base_url()?>">Home</a></li>
           <li class="breadcrumb-item active" aria-current="page">Products</li>
           <?php if (isset($category_data)): ?>
-              <li class="breadcrumb-item active" aria-current="page"><?=$category_data->name?></li>
+              <li class="breadcrumb-item active" aria-current="page"><?=((isset($category_data->name)) ? $category_data->name : '')?></li>
           <?php endif ?>
         </ol>
       </nav> 
@@ -209,11 +209,13 @@
                         <?php
                             
                         } else {
+                            if (isset($_GET['category'])) {
                             ?>
                             <a href="<?=base_url('products/'.$nav_category['slug'])?>"  class="list-group-item go-category <?=($_GET['category']==$nav_category['id'])?'active':'';?>">
                                 <span><?=$nav_category['name']?></span>
                             </a>
                             <?php
+                            }
                         }
 
                     }
@@ -267,9 +269,9 @@
 
             <!-- Items -->
 
-            <?php if ($_GET['search_in_title']): ?>
+            <?php if (@$_GET['search_in_title']): ?>
                 <div class="padding-y-sm">
-                    Search Result for <?=$_GET['search_in_title'];?> <a href="javascript:void(0)" onclick="clear_search()"><i class="fa fa-times-circle text-muted fa-xs"></i></a>
+                    Search Result for <?=(isset($_GET['search_in_title']) ? $_GET['search_in_title'] : '');?> <a href="javascript:void(0)" onclick="clear_search()"><i class="fa fa-times-circle text-muted fa-xs"></i></a>
                 </div>
             <?php endif ?>
 
@@ -316,7 +318,7 @@
                                     <!-- <a href="" class="product-item-modal" data-toggle="modal" data-target="#product-modal" data-id="<?=$product['id']?>"> -->
                                     <a href="<?= base_url() . 'product/' . $product['url'] ?>" >
         								<img class="lazy img-fluid" 
-                                        src="<?=base_url()?>img/loading.gif" alt="<?=$filename?>" data-src="<?= $image ?>">
+                                        src="<?=base_url()?>img/loading.gif" alt="<?=@$filename?>" data-src="<?= @$image ?>">
         							</a>
         						</div>
                                 <div class="card-body">

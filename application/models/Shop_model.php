@@ -35,7 +35,7 @@
             return $arr;
         }      
 
-        public function getProducts($limit = null, $start = null, $big_get, $vendor_id = false)
+        public function getProducts($limit = null, $start = null, $big_get = null, $vendor_id = false)
         {   
             if ($limit !== null && $start !== null) {
                 $this->db->limit($limit, $start);
@@ -94,62 +94,63 @@
                 }
                 $this->db->where_in('products.shop_categorie', $findInIds);
             }
-            if ($big_get['in_stock'] != '') {
+            if (@$big_get['in_stock'] != '') {
                 if ($big_get['in_stock'] == 1)
                     $sign = '>';
                 else
                     $sign = '=';
                 $this->db->where('products.quantity ' . $sign, '0');
             }
-            if ($big_get['search_in_title'] != '') {
+            if (@$big_get['search_in_title'] != '') {
                 $this->db->like('title', $big_get['search_in_title']);
             }
-            if ($big_get['search_in_body'] != '') {
+            if (@$big_get['search_in_body'] != '') {
                 $this->db->like('description', $big_get['search_in_body']);
             }
-            if ($big_get['order_price'] != '') {
+            if (@$big_get['order_price'] != '') {
                 $this->db->order_by('price', $big_get['order_price']);
             }
-            if ($big_get['order_procurement'] != '') {
+            if (@$big_get['order_procurement'] != '') {
                 $this->db->order_by('products.procurement', $big_get['order_procurement']);
             }
-            if ($big_get['order_new'] != '') {
+            if (@$big_get['order_new'] != '') {
                 $this->db->order_by('products.id', $big_get['order_new']);
             } else {
                 $this->db->order_by('products.id', 'DESC');
             }
-            if ($big_get['quantity_more'] != '') {
+            if (@$big_get['quantity_more'] != '') {
                 $this->db->where('products.quantity > ', $big_get['quantity_more']);
             }
-            if ($big_get['quantity_more'] != '') {
+            if (@$big_get['quantity_more'] != '') {
                 $this->db->where('products.quantity > ', $big_get['quantity_more']);
             }
-            if ($big_get['brand_id'] != '') {
+            if (@$big_get['brand_id'] != '') {
                 $this->db->where('products.brand_id = ', $big_get['brand_id']);
             }
-            if ($big_get['added_after'] != '') {
+            if (@$big_get['added_after'] != '') {
                 $time = strtotime($big_get['added_after']);
                 $this->db->where('products.time > ', $time);
             }
-            if ($big_get['added_before'] != '') {
+            if (@$big_get['added_before'] != '') {
                 $time = strtotime($big_get['added_before']);
                 $this->db->where('products.time < ', $time);
             }
-            if ($big_get['price_from'] != '') {
+            if (@$big_get['price_from'] != '') {
                 $this->db->where('price >= ', $big_get['price_from']);
             }
-            if ($big_get['price_to'] != '') {
+            if (@$big_get['price_to'] != '') {
                 $this->db->where('price <= ', $big_get['price_to']);
             }
         }                  
 
         public function getCategoryData($big_get){
-
-            $id = $big_get['category'];
-            $this->db->where('id',$id);
-            $name = $this->db->get('product_categories')->row();
-
-            return $name;
+            if ($big_get) {
+                $id = $big_get['category'];
+                $this->db->where('id',$id);
+                $name = $this->db->get('product_categories')->row();
+                return $name;
+            } else return false;
+            
         }           
 
         public function getCategoryBySlug($slug){

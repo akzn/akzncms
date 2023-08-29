@@ -44,7 +44,7 @@
             }
             $this->db->where('products.shop_categorie =', $categorie);
             $this->db->where('visibility', 1);
-            if ($this->showOutOfStock == 0) {
+            if (isset($this->showOutOfStock) && $this->showOutOfStock == 0) {
                 $this->db->where('quantity >', 0);
             }
             $this->db->order_by('products.id', 'desc');

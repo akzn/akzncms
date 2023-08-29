@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="<?=base_url()?>assets/theme/yuki/style.css?v=0.1">
   
 
-  <?php if ($page == 'Home'): ?>
+  <?php if (@$page == 'Home'): ?>
      <style type="text/css">
        header.masthead{
           height: 100vh;
@@ -128,7 +128,7 @@
 
 
   <?php
-  if($isi) {
+  if(@$isi) {
     $this->load->view($isi);
   } else {
     echo $contents;

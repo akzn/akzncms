@@ -24,8 +24,8 @@ class Gallery extends CI_Controller {
 			'site' 	=> $site,
 			'gallery' => $gallery,
 			// 'title'		=> 'Gallery - '.$site['nameweb'],
-			'title'		=> $pages['metatitle'].' - '.$site['nameweb'],
-			'meta_desc' => $pages['metatext'],
+			'title'		=> @$pages['metatitle'].' - '.$site['nameweb'],
+			'meta_desc' => @$pages['metatext'],
 			'isi' 	=> 'theme/'.$this->config->item('theme').'/gallery/gallery',
 		);
 		

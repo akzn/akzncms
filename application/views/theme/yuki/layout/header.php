@@ -228,7 +228,7 @@ body {
             </li>
         </ul>
 
-        <?php $lang_abr = ($_COOKIE['lang'] == 'english') ? 'EN' : 'ID'?>
+        <?php $lang_abr = (@$_COOKIE['lang'] == 'english') ? 'EN' : 'ID'?>
         <ul class="navbar-nav">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -252,7 +252,7 @@ body {
   
     
      <!-- CAROUSEL -->
-     <?php if ($page == 'Home'): ?>
+     <?php if (isset($page) && $page == 'Home'): ?>
       <header class="masthead">
     <div class="wrapper">
      <div id="header-carousel" class="carousel slide carousel-fade lazy" data-ride="carousel" data-pause="false" data-interval="5000">

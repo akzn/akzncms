@@ -30,8 +30,10 @@ class Home extends CI_Controller {
 
 		// truncate description to minimalize output
 		foreach ($randomProductItems as $key) {
-			preg_match('/^([^.!?]*[\.!?]+){0,1}/', strip_tags($key->description), $abstract);
-			$key->description = $abstract[0];
+			if ($key->description) {
+				preg_match('/^([^.!?]*[\.!?]+){0,1}/', strip_tags($key->description), $abstract);
+			}
+			$key->description = @$abstract[0];
 		}
 
 		# spareparts

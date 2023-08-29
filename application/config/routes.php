@@ -62,7 +62,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 //hotfix shopController to Products(with s) controller
 $route['products'] = "shop";
-$route['products/(:any)'] = "shop/$2";
+$route['products/(:any)'] = "shop/$1";
 $route['products/(:any)/(:num)'] = "shop/$2/$3";
 
 

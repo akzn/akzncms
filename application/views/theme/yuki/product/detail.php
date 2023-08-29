@@ -167,7 +167,7 @@
                             
                         } else {
                             ?>
-                            <a href="<?=base_url('products/'.$nav_category['slug'])?>" data-categorie-id="<?= $nav_category['id'] ?>"  class="list-group-item go-category <?=($_GET['category']==$nav_category['id'])?'active':'';?>">
+                            <a href="<?=base_url('products/'.$nav_category['slug'])?>" data-categorie-id="<?= $nav_category['id'] ?>"  class="list-group-item go-category <?=(@$_GET['category']==$nav_category['id'])?'active':'';?>">
                                 <span><?=$nav_category['name']?></span>
                             </a>
                             <?php
