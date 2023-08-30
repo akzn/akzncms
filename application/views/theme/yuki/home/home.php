@@ -405,6 +405,7 @@
             <?php 
               $dirthumbs = "img/gallery/thumbs/";
               $dir = "img/gallery/";
+              $i = 0;
               if (is_dir($dirthumbs)) {
                       chdir($dirthumbs);
                       array_multisort(array_map('filemtime', ($files = glob("*.*"))), SORT_DESC, $files);

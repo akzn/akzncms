@@ -20,7 +20,7 @@
 
       <?php if ($site['about']): ?>
 
-      <?php if ($_COOKIE['lang'] == 'english') {
+      <?php if (@$_COOKIE['lang'] == 'english') {
                       $description = get_string_between($site['about'],'[en]','[/en]');
                   } else {
                       $description = get_string_between($site['about'],'[id]','[/id]');

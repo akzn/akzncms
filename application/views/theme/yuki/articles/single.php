@@ -43,8 +43,8 @@
                                     <h2 class="page-title mb-1"><?php echo $blog['title'];?></h2>
                                     <div class="news-meta">
                                         <span class="news-meta-date"><?php echo date('l, d/m/Y', strtotime($blog['date_post'])); ?></span>
-                                        <span class="news-meta-category ml-3"><a href="<?php echo $blog['category_name'];?>" title="<?php echo $blog['category_name'];?>"><?php echo $blog['category_name'];?></a></span>
-                                        <span class="news-meta-comments ml-3"><a href="#" title="3 comments"><?php echo $count;?> comments</a></span>
+                                        <span class="news-meta-category ml-3"><a href="<?=base_url('articles/category/').$blog['category_name'];?>" title="<?php echo $blog['category_name'];?>"><?php echo $blog['category_name'];?></a></span>
+                                        <!-- <span class="news-meta-comments ml-3"><a href="#" title="3 comments"><?php echo $count;?> comments</a></span> -->
                                     </div>
                                 </div>
                                 

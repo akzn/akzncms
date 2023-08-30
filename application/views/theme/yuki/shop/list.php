@@ -281,7 +281,7 @@
 
                     <?php if ($category_data->category_description): ?>
 
-                        <?php if ($_COOKIE['lang'] == 'english') {
+                        <?php if (@$_COOKIE['lang'] == 'english') {
                             $description = get_string_between($category_data->category_description,'[en]','[/en]');
                         } else {
                             $description = get_string_between($category_data->category_description,'[id]','[/id]');

@@ -484,7 +484,7 @@
 
                         } else if(i==0){
                             ele = `
-                                <div class="card width2  kpy-gallery-grid <?=$flag_item_height?>  bootstrap-fancy-video" 
+                                <div class="card width2  kpy-gallery-grid <?=@$flag_item_height?>  bootstrap-fancy-video" 
                                     data-fancy-src="`+item_2.video_url+`" >
                                         <div 
                                             class="item-body" 

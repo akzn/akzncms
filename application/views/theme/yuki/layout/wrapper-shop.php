@@ -30,7 +30,8 @@
 
   <link href="<?=base_url()?>assets/front/style.css?v=2.15" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="<?=base_url('assets/shop/category.css?v=1.1')?>">
-
+  <link rel="stylesheet" href="<?=base_url()?>assets/theme/yuki/style.css?v=0.1">
+  
 
 
 
@@ -55,7 +56,21 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+<style>
+   @media only screen and (max-width:768px){
+    .container-promo{
+      margin-bottom: -75px;
+    }
+  }
 
+  /* @media only screen and (min-width: 769px) and (max-width: 1000px) {
+    .container-promo {
+        margin-bottom: -9vh;
+        margin-top: 10vh;
+        position: relative;
+    }
+  }  */
+</style>
 
 </head>
 
@@ -170,6 +185,33 @@
   </header> -->
 
   <content>
+
+  <?php
+      /**
+       * hack to get promo banner
+       * get from articles with category "Banner"
+       */
+      $last_publish_banner = $this->db
+        ->where(array(
+          'status' => 'publish',
+          'categories.slug_category' => 'banner',
+          ))
+        ->join('categories','categories.category_id = blogs.category_id','LEFT')
+        ->order_by('blog_id','DESC')
+        ->get('blogs')->row_array();
+
+    ?>
+    <?php if ($last_publish_banner) : ?>
+    <div class="container-fluid container-promo">
+    <div class="row">
+      <div class="col-md-12 m-1">
+        <a href="<?=base_url('article/').$last_publish_banner['slug_blog']?>">
+          <img class="img-fluid" style="width: -webkit-fill-available;" src="<?=base_url().'assets/upload/image/'.$last_publish_banner['image']?>" alt="<?=$last_publish_banner['title']?>">
+        </a>
+      </div>
+      </div>
+    </div>
+    <?php endif; ?>
 
     <div class="container mt-3">
         <!-- shop Head -->

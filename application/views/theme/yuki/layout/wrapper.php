@@ -119,10 +119,14 @@
 
     ?>
     <?php if ($last_publish_banner) : ?>
-    <div class="container container-promo">
-      <div class="col-12">
-        <a href="<?=base_url('article/').$last_publish_banner['slug_blog']?>"><img class="img-fluid" src="<?=base_url().'assets/upload/image/'.$last_publish_banner['image']?>" alt="<?=$last_publish_banner['title']?>"></a>
+    <div class="container-fluid container-promo">
+    <div class="row">
+      <div class="col-md-12">
+        <a href="<?=base_url('article/').$last_publish_banner['slug_blog']?>">
+          <img class="img-fluid" style="width: -webkit-fill-available;" src="<?=base_url().'assets/upload/image/'.$last_publish_banner['image']?>" alt="<?=$last_publish_banner['title']?>">
+        </a>
       </div>
+    </div>
     </div>
     <?php endif; ?>
 

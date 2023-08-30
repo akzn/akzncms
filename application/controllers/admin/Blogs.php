@@ -152,7 +152,7 @@ class Blogs extends CI_Controller {
 							'slug_category'		=> $slug_category,		
 							'category_name'		=> $i->post('category_name'),		
 							'order_category'	=> $i->post('order_category'),					
-							'date_category'		=> $i->post('date_category'),					
+							// 'date_category'		=> $i->post('date_category'),					
 						);
 			$this->mCategories->editCategory($data);		
 			$this->session->set_flashdata('sukses','Success');
@@ -205,8 +205,8 @@ class Blogs extends CI_Controller {
 				
 			$i = $this->input;
 
-			unlink('./assets/upload/image/'.$blog['image']);
-			unlink('./assets/upload/image/thumbs/'.$blog['image']);
+			// unlink('./assets/upload/image/'.$blog['image']);
+			// unlink('./assets/upload/image/thumbs/'.$blog['image']);
 
 			$slugBlog = $endBlog['blog_id'].'-'.url_title($i->post('title'),'dash', TRUE);
 			$data = array(	'blog_id'		=> $blog['blog_id'],
@@ -214,14 +214,15 @@ class Blogs extends CI_Controller {
 							'user_id'		=> $this->session->userdata('id'),
 							'title'			=> $i->post('title'),
 							'content'		=> $i->post('content'),
-							'date_post'		=> $i->post('date_post'),
+							// 'date_post'		=> $i->post('date_post'),
 							'status'		=> $i->post('status'),
 							'keywords'		=> $i->post('keywords'),
-							'image'			=> $upload_data['uploads']['file_name']
+							'image'			=> $upload_data['uploads']['file_name'],
+							'category_id'   => $i->post('category_id'),
 							);
-			$this->edit_model->edit_biz($data);
+			$this->mBlogs->editBlog($data);
 			$this->session->set_flashdata('sukses','Biz telah diedit dan gambar telah diganti');
-			redirect(base_url('admin/biz'));
+			redirect(base_url('admin/blogs'));
 		}}else{
 			$i = $this->input;
 			$slugBlog = $endBlog['blog_id'].'-'.url_title($i->post('title'),'dash', TRUE);
@@ -230,9 +231,10 @@ class Blogs extends CI_Controller {
 							'user_id'		=> $this->session->userdata('id'),
 							'title'			=> $i->post('title'),
 							'content'		=> $i->post('content'),
-							'date_post'		=> $i->post('date_post'),
+							// 'date_post'		=> $i->post('date_post'),
 							'status'		=> $i->post('status'),
 							'keywords'		=> $i->post('keywords'),
+							'category_id'   => $i->post('category_id'),
 							);
 			$this->mBlogs->editBlog($data);
 			$this->session->set_flashdata('sukses','Success');

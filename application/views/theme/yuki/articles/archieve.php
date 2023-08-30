@@ -24,7 +24,7 @@
             
             <!-- Pagination -->
             <div class="pagination-yuki">
-                <?=$pagination?>
+                <?=@$pagination?>
             </div>
         </div>
         
