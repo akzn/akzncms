@@ -89,6 +89,19 @@
         } 
     }; 
   </script>
+
+<?php if ($_SERVER['CI_ENV'] === 'production'): ?>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y48E0PTTVK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y48E0PTTVK');
+</script>
+<?php endif; ?>
+
 </head>
 
 <body id="page-top" class="" style="">
